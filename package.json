@@ -1,0 +1,25 @@
+{
+  "name": "angular-aside-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igor-Lopes/angular-aside-dashboard.git"
+  },
+  "author": "igor-lopes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Igor-Lopes/angular-aside-dashboard/issues"
+  },
+  "homepage": "https://github.com/Igor-Lopes/angular-aside-dashboard#readme",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-router": "0.0.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "tether": "^1.4.0"
+  }
+}

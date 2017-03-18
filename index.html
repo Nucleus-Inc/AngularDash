@@ -1,0 +1,85 @@
+<html ng-app="Dashboard">
+
+<head>
+    <meta name="author" content="Igor Lopes">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <title> Angular Aside Dashboard </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-toggleable-md py-md-2">
+        <ul class="nav navbar-nav">
+            <button class="navbar-toggler pull-xs-left" id="navbarSideButton" type="button">
+           &#9776;
+         </button>
+        </ul>
+        <a class="navbar-brand" href="#">Brand</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item py-md-2 dropdown">
+                <a href="#" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell navbar-icons" aria-hidden="true"></i></span></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Messages</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="http://lorempixel.com/40/40/people"><strong id="username">Username</strong></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">My Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Help</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-side" id="navbarSide">
+            <li class="navbar-side-item">
+                <a href="#" class="side-link">Signup</a>
+            </li>
+            <!-- insert more side-items if you so choose -->
+        </ul>
+
+        <!-- other navbar code omitted -->
+
+        <div class="overlay"></div>
+    </nav>
+
+    <!-- JQuery -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Tether -->
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <!--Bootstrap js -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AngularJS -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <!-- Angular Route -->
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <!-- Angular App -->
+    <script src="app/app.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#navbarSide").addClass("reveal");
+            $(".navbar").addClass("navbar-reveal");
+            $("#navbarSideButton").click(function() {
+                $("#navbarSide").toggleClass("reveal");
+                $(".navbar").toggleClass("navbar-reveal");
+            });
+            $(".overlay").click(function() {
+                $("#navbarSide").removeClass("reveal");
+                $('.overlay').hide();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
