@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar navbar-fixed-top navbar-inverse navbar-toggleable-md py-md-2">
+    <nav class="navbar navbar-fixed-top navbar-toggleable-md bg-faded py-md-2">
         <ul class="nav navbar-nav">
             <button class="navbar-toggler pull-xs-left" id="navbarSideButton" type="button">
            &#9776;
@@ -23,13 +23,13 @@
         <a class="navbar-brand" href="#">Brand</a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item py-md-2 dropdown">
-                <a href="#" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell navbar-icons" aria-hidden="true"></i></span></a>
+                <a href="#" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell" aria-hidden="true"></i></span></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Messages</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="http://lorempixel.com/40/40/people"><strong id="username">Username</strong></a>
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="http://lorempixel.com/40/40/people"><strong>Username</strong></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">My Profile</a>
                     <a class="dropdown-item" href="#">Settings</a>
@@ -40,8 +40,11 @@
             </li>
         </ul>
         <ul class="navbar-side" id="navbarSide">
-            <li class="navbar-side-item">
-                <a href="#" class="side-link">Signup</a>
+            <li class="navbar-side-item" id="side-picture">
+                <img class="rounded-circle" src="http://lorempixel.com/100/100/people">
+            </li>
+            <li class="navbar-side-item" id="side-user">
+                <strong >Igor Lopes</strong>
             </li>
             <!-- insert more side-items if you so choose -->
         </ul>
