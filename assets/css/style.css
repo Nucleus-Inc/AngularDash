@@ -15,6 +15,11 @@
   display: block !important;
 }
 
+.cards-dash{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
 .navbar-side {
     height: 100%;
     width: 16%;
@@ -52,6 +57,12 @@
     margin-left: 16%;
    -webkit-transition: 300ms ease-in-out;
     transition: 300ms ease-in-out;
+}
+
+.view-wrapper-reveal{
+  margin-left: 16%;
+ -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .reveal {
