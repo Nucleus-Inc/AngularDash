@@ -17,8 +17,8 @@
 
 .navbar-side {
     height: 100%;
-    width: 15%;
-    margin-left: 15%;
+    width: 16%;
+    margin-left: 16%;
     position: fixed;
     top: 0;
     left: 0;
@@ -49,13 +49,13 @@
 }
 
 .navbar-reveal{
-    margin-left: 15%;
+    margin-left: 16%;
    -webkit-transition: 300ms ease-in-out;
     transition: 300ms ease-in-out;
 }
 
 .reveal {
-    margin-left: -15%;
+    margin-left: -16%;
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(-0%);
     transform: translateX(0%);
