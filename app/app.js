@@ -4,13 +4,18 @@
 
 
     .config(function($routeProvider, $locationProvider) {
-        $routeProvider
 
-        .when("/", {
+        $locationProvider.hashPrefix('');
+
+        $routeProvider.when("/", {
             templateUrl: "./views/dashboard.html",
             controller: "DashboardController as dashCtrl"
         })
 
+        .when("/forms", {
+            templateUrl: "./views/forms.html",
+            controller: "FormsController as formsCtrl"
+        })
 
         .otherwise({
             redirectTo: '/'
