@@ -1,23 +1,15 @@
-.navbar{
-
-}
-
-.navbar-nav > li{
-  padding-left:10px;
-  padding-right:10px;
-}
-
-.navbar-nav > li:hover{
-
+.navbar-nav>li {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .navbar-toggleable-md .navbar-toggler {
-  display: block !important;
+    display: block !important;
 }
 
-.cards-dash{
-  margin-top: 2%;
-  margin-bottom: 2%;
+.cards-dash {
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .navbar-side {
@@ -53,16 +45,16 @@
     transition: 300ms ease;
 }
 
-.navbar-reveal{
+.navbar-reveal {
     margin-left: 16%;
-   -webkit-transition: 300ms ease-in-out;
+    -webkit-transition: 300ms ease-in-out;
     transition: 300ms ease-in-out;
 }
 
-.view-wrapper-reveal{
-  margin-left: 16%;
- -webkit-transition: 300ms ease-in-out;
-  transition: 300ms ease-in-out;
+.view-wrapper-reveal {
+    margin-left: 16%;
+    -webkit-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
 }
 
 .reveal {
@@ -75,32 +67,50 @@
 }
 
 .overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  cursor: pointer;
-  background-color: #ccc;
-  opacity: 0.6;
-  z-index: 990;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    background-color: #ccc;
+    opacity: 0.6;
+    z-index: 990;
 }
 
 .navbar-side {
-	// other code omitted
-  @include media-breakpoint-up(xs) { width: 85%; } // Small
-  @include media-breakpoint-up(sm) { width: 50%; } // Medium
-  @include media-breakpoint-up(md) { width: 25%; } // Large
+    // other code omitted
+    @include media-breakpoint-up(xs) {
+        width: 85%;
+    } // Small
+    @include media-breakpoint-up(sm) {
+        width: 50%;
+    } // Medium
+    @include media-breakpoint-up(md) {
+        width: 25%;
+    } // Large
 }
 
-
-#side-picture{
-  text-align: center;
+#side-picture {
+    text-align: center;
 }
 
-#side-user{
-  text-align: center;
-  margin-top: 18%;
-  color: white;
+.navbar-side-items {
+    margin-top: 4%;
+    color: white;
+}
+
+.navbar-side>li {
+    /*  background-color: #95a5a6; */
+    padding: 0.5rem 0;
+    margin: 0;
+}
+
+.navbar-side>.navbar-side-items>li>a {
+    color: white;
+}
+
+.navbar-side>.navbar-side-items>li>a>i {
+    padding-right: 8px;
 }
