@@ -1,0 +1,150 @@
+@import "../mixins/sidebar-layout";
+
+// GENERAL
+.sidebar {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: $zindex-sidebar;
+	font-size: $sidebar-font-size;
+
+	&:not(.simplebar) {
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	@include media-breakpoint-down(md) { 
+		z-index: $zindex-navbar-fixed + 1;
+	}
+
+	&-static {
+		position: relative;
+		display: block;
+		z-index: 1;
+	}
+
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// SIDEBAR TRANSITION
+.sidebar-transition {
+	display: block;
+	transition-duration: .45s;
+	transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// visibility
+.sidebar {
+	// default
+	@include sidebar-visible();
+	// BREAKPOINTS
+	@each $breakpoint in map-keys($grid-breakpoints) {
+		// specific
+		@include media-breakpoint-only($breakpoint) {
+			@include sidebar-visible($breakpoint);
+		}
+		// larger
+		@include media-breakpoint-up($breakpoint) {
+			$breakpoint: #{$breakpoint}-up;
+			@include sidebar-visible($breakpoint);
+		}
+	}
+}
+
+// positions
+.sidebar {
+	@each $index in map-keys($sidebar-sizes) {
+		$size: map-get($sidebar-sizes, $index);
+		@each $direction in (left, right) {
+			&.sidebar-#{$direction} {
+				// default
+				#{$direction}: 0;
+				// transition
+				&.sidebar-size-#{$index}.sidebar-transition {
+					#{$direction}: -$size;
+					transition-property: #{$direction};
+					&.sidebar-visible {
+						#{$direction}: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// size
+@include sidebar-sizes();
+// layout
+@include sidebar-layout();
+// percentage sizes
+@include sidebar-sizes-percent();
+// percentage layout
+@include sidebar-layout-percent();
+
+// BREAKPOINTS
+@each $breakpoint in map-keys($grid-breakpoints) {
+	// specific
+	@include media-breakpoint-only($breakpoint) {
+		// size
+		@include sidebar-sizes($breakpoint);
+		// layout
+		@include sidebar-layout($breakpoint);
+		// percentage sizes
+		@include sidebar-sizes-percent($breakpoint);
+		// percentage layout
+		@include sidebar-layout-percent($breakpoint);
+	}
+	// larger
+	@include media-breakpoint-up($breakpoint) {
+		$breakpoint: #{$breakpoint}-up;
+		// size
+		@include sidebar-sizes($breakpoint);
+		// layout
+		@include sidebar-layout($breakpoint);
+		// percentage sizes
+		@include sidebar-sizes-percent($breakpoint);
+		// percentage layout
+		@include sidebar-layout-percent($breakpoint);
+	}
+}
+
+// ONLY MOBILE
+@include media-breakpoint-only(xs) {
+	// reset .sidebar-size-1
+	.sidebar-size-1,
+	.sidebar-size-xs-1 {
+		width: 100%;
+	}
+	// reset content margins for .sidebar-size-1
+	// override .si-[l|r]1-xs
+	@each $d, $direction in (l: left, r: right) {
+		.layout-sidebar-#{$d}1-xs {
+			margin-#{$direction}: 0;
+		}
+	}
+}
+
+// layout spacing helpers
+@each $d, $direction in (l: left, r: right) {
+	// BREAKPOINTS
+	@each $breakpoint in map-keys($grid-breakpoints) {
+		@each $index in map-keys($sidebar-sizes) {
+			$size: map-get($sidebar-sizes, $index);
+			// specific
+			@include media-breakpoint-only($breakpoint) {
+				.layout-sidebar-#{$d}#{$index}-#{$breakpoint} .ls-#{$direction}-sidebar {
+					#{$direction}: $size !important;
+				}
+			}
+			// larger
+			@include media-breakpoint-up($breakpoint) {
+				.layout-sidebar-#{$d}#{$index}-#{$breakpoint}-up .ls-#{$direction}-sidebar {
+					#{$direction}: $size !important;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.top-navbar > .layout-content {
+	padding-top: $navbar-height;
+}
+.ls-top-navbar > .layout-content {
+	padding-top: $navbar-height + ($font-size-root * strip-unit($grid-gutter-width));
+}
+
+// BREAKPOINTS
+@each $breakpoint in map-keys($grid-breakpoints) {
+	// specific
+	@include media-breakpoint-only($breakpoint) {
+		.ls-top-navbar-#{$breakpoint} { 
+			top: $navbar-height !important;
+		}
+	}
+	// larger
+	@include media-breakpoint-up($breakpoint) {
+		.ls-top-navbar-#{$breakpoint}-up { 
+			top: $navbar-height !important; 
+		}
+	}
+}

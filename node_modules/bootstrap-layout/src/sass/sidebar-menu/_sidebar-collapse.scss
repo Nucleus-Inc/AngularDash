@@ -1,0 +1,7 @@
+[data-toggle="sidebar-collapse"]:not(:only-child):before {
+	font-family: $sm-collapse-toggle-family;
+	content: $sm-collapse-toggle-icon;
+}
+.open > [data-toggle="sidebar-collapse"]:not(:only-child):before {
+	content: $sm-collapse-open-toggle-icon;
+}

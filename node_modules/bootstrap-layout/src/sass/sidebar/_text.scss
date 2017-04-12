@@ -1,0 +1,9 @@
+.sidebar,
+.sidebar .simplebar-content {
+	> p,
+	> .sidebar-text {
+		padding-left: $sidebar-spacing-x;
+		padding-right: $sidebar-spacing-x;
+		margin-bottom: $sidebar-spacing-y;
+	}
+}

@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th width="160">Event Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>scroll.bl.scrollable</code></td>
+        <td>
+          <p>Fires when scrolling the element.</p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>scrollEnd.bl.scrollable</code></td>
+        <td>
+          <p>Fires when the scrolling has ended.</p>
+        </td>
+      </tr>
+  </table>
+</div>
+
+{% markdown %}
+```js
+$('#my-div').on('scroll.bl.sidebar', function (e, scrollableElement) {
+  // do something when scrolling the element
+})
+```
+{% endmarkdown %}

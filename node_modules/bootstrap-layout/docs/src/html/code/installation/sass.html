@@ -1,0 +1,44 @@
+{% markdown %}
+#### Installing dependencies
+
+> To use the Sass source files, you have to install the following dependencies:
+
+```bash
+npm install bootstrap@v4.0.0-alpha.2 sass-md-colors
+```
+
+#### Importing Sass files from node_modules
+
+> We import Sass files from other packages installed through npm. For this to work with your Sass compiler, you'll need to use something like [sass-importer-npm](https://github.com/themekit/sass-importer-npm) (for node-sass)
+
+```sass
+// For example, load bootstrap variables from node_modules/bootstrap:
+@import 'bootstrap/scss/variables';
+```
+
+---
+## Example
+
+#### Setup
+```bash
+npm install sass-importer-npm gulp gulp-sass
+```
+
+#### gulpfile.js
+```js
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var importer = require('sass-importer-npm');
+
+gulp.task('sass', function () {
+  return gulp.src('./sass/**/*.scss')
+    .pipe(sass({ importer: importer }).on('error', sass.logError))
+    .pipe(gulp.dest('./css'));
+});
+```
+
+#### Compile Sass
+```bash
+gulp sass
+```
+{% endmarkdown %}

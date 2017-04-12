@@ -1,0 +1,25 @@
+@mixin sidebar-mini() {
+	&, .dropdown-container, .dropdown-container > ul {
+		width: $sidebar-mini-width;
+	}
+	.sidebar-menu-button:not(:only-child):before {
+		display: none;
+	}
+	.sidebar-menu-button {
+		padding: 0;
+		text-align: center;
+		height: $sm-button-height;
+		span {
+			display: none;
+		}
+	}
+	.sidebar-menu-icon {
+		margin-right: 0;
+	}
+	.sidebar-heading,
+	.sidebar-block,
+	.sidebar-brand,
+	.sidebar-text {
+		display: none;
+	}
+}

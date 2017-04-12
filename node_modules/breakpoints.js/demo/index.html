@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Breakpoints.js</title>
+	<script type="text/javascript" src="vendor/jquery.min.js"></script>
+	<script type="text/javascript" src="vendor/breakpoints.js"></script>
+	<script>
+		$(function() { 
+
+			function enter (breakpoint) {
+				$('#log').append('<p>Entering ' + breakpoint + ' breakpoint</p>');
+				$('#status .breakpoint' + breakpoint).addClass('active');
+			}
+
+			function exit (breakpoint) {
+				$('#log').append('<p>Exiting ' + breakpoint + ' breakpoint</p>');
+				$('#status .breakpoint' + breakpoint).removeClass('active');
+			}
+
+			// breakpoint values
+			var values = [320, 480, 768, 1024];
+
+			// target selector
+			var target = 'body';
+
+			// interval in miliseconds
+			var interval = 250;
+
+			values.map(function(breakpoint) {
+				$(target).on('exitBreakpoint' + breakpoint, function() {
+					exit(breakpoint)
+				});
+				$(target).on('enterBreakpoint' + breakpoint, function() {
+					enter(breakpoint)
+				});
+			});
+
+			var breakpoints = new Breakpoints(target, {
+				breakpoints: values,
+				distinct: true,
+				interval: interval
+			});
+
+			$('#distinct').on('click', function() {
+				breakpoints.destroy();
+				breakpoints = new Breakpoints(target, {
+					breakpoints: values,
+					distinct: $(this).is(':checked'),
+					interval: interval
+				});
+			});
+
+		});
+	</script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Breakpoints.js</h1>
+		<p class="lead">Resize your browser window and watch custom events fire in the box below.</p>
+		<p><input name="distinct" type="checkbox" id="distinct" checked /> <label for="distinct">Use only the largest available breakpoint</label></p>
+
+		<h3>Active Breakpoints</h3>
+		<div id="status" class="list-group">
+			<div class="list-group-item breakpoint1024">1024</div>
+			<div class="list-group-item breakpoint768">768</div>
+			<div class="list-group-item breakpoint480">480</div>
+			<div class="list-group-item breakpoint320">320</div>
+		</div>
+		<div id="log">
+			<h3>Event Log:</h3>
+		</div>
+	</div>
+</body>
+</html>

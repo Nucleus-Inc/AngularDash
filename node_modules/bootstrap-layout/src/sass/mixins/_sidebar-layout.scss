@@ -1,0 +1,56 @@
+@mixin sidebar-sizes($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@each $index in map-keys($sidebar-sizes) {
+		$size: map-get($sidebar-sizes, $index);
+		.sidebar-size-#{$index}#{$breakpoint} {
+			width: $size;
+		}
+	}
+}
+@mixin sidebar-layout($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@each $index in map-keys($sidebar-sizes) {
+		$size: map-get($sidebar-sizes, $index);
+		@each $d, $direction in (l: left, r: right) {
+			.layout-sidebar-#{$d}#{$index}#{$breakpoint} > .layout-content {
+				margin-#{$direction}: $size;
+			}
+		}
+	}
+}
+@mixin sidebar-sizes-percent($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@for $percent from ceil($sidebar-percent-from / $sidebar-percent-step) through ceil($sidebar-percent-through / $sidebar-percent-step) {
+		$percent: $percent * $sidebar-percent-step;
+		.sidebar-size-#{$percent}pc#{$breakpoint} {
+			width: round(percentage($percent / 100));
+		}
+	}
+}
+@mixin sidebar-layout-percent($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@for $percent from ceil($sidebar-percent-from / $sidebar-percent-step) through ceil($sidebar-percent-through / $sidebar-percent-step) {
+		$percent: $percent * $sidebar-percent-step;
+		@each $d, $direction in (l: left, r: right) {
+			.layout-sidebar-#{$d}#{$percent}pc#{$breakpoint} > .layout-content {
+				margin-#{$direction}: round(percentage($percent / 100));
+			}
+		}
+	}
+}
+@mixin sidebar-visible($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	&.sidebar-visible#{$breakpoint} {
+		display: block;
+	}
+}

@@ -1,0 +1,54 @@
+@include media-breakpoint-up(md) {
+	.sidebar-reveal {
+		z-index: $zindex-navbar + 1;
+		transition: transform 0.5s;
+		.sidebar-menu > .sidebar-menu-item > .sidebar-menu-button span {
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+		// @TODO: SKIP SIZE 1
+		@each $index in map-keys($sidebar-sizes) {
+			$size: map-get($sidebar-sizes, $index);
+			&.sidebar-reveal-size-#{$index} {
+				&, .dropdown-container, .dropdown-container > ul {
+					width: $size;
+				}
+				&:not(:hover) {
+					@each $direction in (left, right) {
+						&.sidebar-#{$direction} {
+							@if $direction == 'left' {
+								transform: translate3d(-($size - $sidebar-mini-width), 0, 0) !important;
+							} @else {
+								transform: translate3d(($size - $sidebar-mini-width), 0, 0) !important;
+							}
+						}
+					}
+				}
+			}
+		}
+		.sidebar-category, 
+		.sidebar-heading,
+		.sidebar-block,
+		.sidebar-brand,
+		.sidebar-text {
+			opacity: 0;
+			transition-delay: 0.2s;
+			transition-timing-function: ease-in-out;
+			transition-property: opacity;
+			transition-duration: 0.3s;
+		}
+		&:hover {
+			transform: translate3d(0, 0, 0) !important;
+			.sidebar-category, 
+			.sidebar-heading,
+			.sidebar-block,
+			.sidebar-brand,
+			.sidebar-text {
+				opacity: 1;
+			}
+			.sidebar-menu > .sidebar-menu-item > .sidebar-menu-button span {
+				opacity: 1;
+			}
+		}
+	}
+}

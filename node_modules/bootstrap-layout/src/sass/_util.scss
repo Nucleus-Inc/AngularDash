@@ -1,0 +1,12 @@
+.bg-white {
+	background-color: #ffffff;
+}
+@for $i from 1 through 9 {
+	$value: $i/10;
+	.bg-dark-#{$i} {
+		background-color: rgba(0, 0, 0, $value);
+	}
+	.bg-light-#{$i} {
+		background-color: rgba(255, 255, 255, $value);
+	}
+}

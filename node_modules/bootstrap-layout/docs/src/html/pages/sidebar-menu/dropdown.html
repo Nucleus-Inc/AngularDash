@@ -1,0 +1,29 @@
+---
+title: Sidebar dropdown
+slug: sidebar-menu/dropdown
+path: ../
+---
+{% extends "layouts/default.html" %}
+
+{% block page %}
+<h1>{{ title }}</h1>
+<p>Add dropdown behaviour to <a href="submenu.html">sidebar submenus</a> for screens larger than <code>767px</code> wide. On smaller screens, the menus will automatically convert to <a href="collapse.html">collapse menus</a>.</p>
+
+<div class="card card-block">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <span class="nav-link active">Usage</span>
+    </li>
+    <li class="nav-item">
+      <a href="../demo/sidebar-dropdown.html" target="_blank" class="nav-link">Demo</a>
+    </li>
+  </ul>
+  
+  <blockquote>
+    To create a dropdown sidebar menu, add the <code>data-toggle="sidebar-dropdown"</code> attribute to any <code>.sidebar-menu-button</code> element, immediately followed by a <code>.sidebar-submenu</code>.
+  </blockquote>
+  
+  {% include 'code/sidebar-menu/dropdown.html' %}
+</div>
+
+{% endblock %}

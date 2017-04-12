@@ -1,0 +1,34 @@
+.footer {
+	text-align: center;
+	color: #888;
+	font-weight: 500;
+	background: #fff;
+	height: $footer-height;
+	line-height: $footer-height;
+	display: block;
+	[class*="bottom-footer"] > & {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		box-shadow: 0 -3px 5px -3px rgba(#000, 0.15);
+		z-index: 1000;
+	}
+}
+.bottom-footer > .layout-content {
+	padding-bottom: $footer-height;
+}
+.ls-bottom-footer > .layout-content {
+	padding-bottom: $footer-height + ($font-size-root * strip-unit($grid-gutter-width));
+}
+@include media-breakpoint-only(xs) {
+	[class*="bottom-footer"] {
+		> .layout-content {
+			padding-bottom: 0;
+		}
+		> .footer {
+			position: relative;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+html, 
+body {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}
+.layout-content {
+	min-width: 320px;
+	z-index: $zindex-sidebar - 1;
+	padding-bottom: $grid-gutter-width;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.layout-container, 
+.layout-content {
+	height: 100%;
+	position: relative;
+}
+.container,
+.container-fluid {
+	padding-left: $grid-gutter-width;
+	padding-right: $grid-gutter-width;
+}
+.ls-top > .layout-content {
+	padding-top: $font-size-root * strip-unit($grid-gutter-width);
+}
+@media print {
+	.layout-print .layout-content {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}

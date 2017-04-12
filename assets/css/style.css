@@ -1,10 +1,19 @@
+
+body{
+  background-color: #fafafa;
+}
+
 .navbar-nav>li {
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.navbar-toggleable-md .navbar-toggler {
+.navbar-toggleable-sm .navbar-toggler {
     display: block !important;
+}
+
+.nav-icon{
+  padding: 1.0em 1em !important;
 }
 
 .cards-dash {
@@ -12,105 +21,36 @@
     margin-bottom: 2%;
 }
 
-.navbar-side {
-    height: 100%;
-    width: 16%;
-    margin-left: 16%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0;
-    list-style: none;
-    background-color: #34495e;
-    overflow-y: scroll;
-    z-index: 1000;
+.sidebar{
+  background-color: #2c3e50;
+  color: white;
 }
 
-.navbar-side-item {
-    padding: 1.5rem 0;
-    margin: 0;
-    height: 5rem;
+.layout-content{
+  padding: 0 !important;
 }
 
-.side-link {
-    padding-left: 2rem;
-}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 
-.navbar-side {
-    // other code omitted
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    transform: translateX(-100%);
-    -webkit-transition: 300ms ease;
-    transition: 300ms ease;
-}
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
 
-.navbar-reveal {
-    margin-left: 16%;
-    -webkit-transition: 300ms ease-in-out;
-    transition: 300ms ease-in-out;
-}
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
 
-.view-wrapper-reveal {
-    margin-left: 16%;
-    -webkit-transition: 300ms ease-in-out;
-    transition: 300ms ease-in-out;
-}
-
-.reveal {
-    margin-left: -16%;
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(-0%);
-    transform: translateX(0%);
-    -webkit-transition: 300ms ease-in-out;
-    transition: 300ms ease-in-out;
-}
-
-.overlay {
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    cursor: pointer;
-    background-color: #ccc;
-    opacity: 0.6;
-    z-index: 990;
-}
-
-.navbar-side {
-    // other code omitted
-    @include media-breakpoint-up(xs) {
-        width: 85%;
-    } // Small
-    @include media-breakpoint-up(sm) {
-        width: 50%;
-    } // Medium
-    @include media-breakpoint-up(md) {
-        width: 25%;
-    } // Large
-}
-
-#side-picture {
-    text-align: center;
-}
-
-.navbar-side-items {
-    margin-top: 4%;
-    color: white;
-}
-
-.navbar-side>li {
-    /*  background-color: #95a5a6; */
-    padding: 0.5rem 0;
-    margin: 0;
-}
-
-.navbar-side>.navbar-side-items>li>a {
-    color: white;
-}
-
-.navbar-side>.navbar-side-items>li>a>i {
-    padding-right: 8px;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }

@@ -1,0 +1,21 @@
+---
+title: Sidebar percentage size
+path: ../
+---
+{% extends "layouts/demo.html" %}
+	
+{% block page %}
+
+	<div class="layout-container layout-sidebar-l2-md-up layout-sidebar-l20pc-lg-up ls-top">
+		<div class="layout-content" data-scrollable>
+			<div class="container-fluid">
+				<button class="btn btn-primary" data-target="#sidebar-blank-1" data-toggle="sidebar">Toggle Sidebar</button>
+				<hr>
+				<h1 class="h3">{{ title }}</h1>
+				<p>A basic layout with a sidebar element of <code>200px</code> wide by default and <code>20%</code> wide on screens larger than <code>991px</code> wide.</p>
+			</div>
+		</div>
+		{% include 'layouts/sidebars/blank.html' { size: '2', size_lg_up: '20pc', layout: ['md-up', 'lg-up'], sm_basic_mixed: true } %}
+	</div>
+
+{% endblock %}

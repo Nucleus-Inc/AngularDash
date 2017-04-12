@@ -1,0 +1,26 @@
+@mixin sidebar-transition-layout($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@each $index in map-keys($sidebar-sizes) {
+		$size: map-get($sidebar-sizes, $index);
+		@each $d, $direction in (l: left, r: right) {
+			.layout-sidebar-#{$d}#{$index}#{$breakpoint} > .st-container > .st-pusher > .st-content > .layout-content {
+				margin-#{$direction}: $size;
+			}
+		}
+	}
+}
+@mixin sidebar-transition-percent($breakpoint: '') {
+	@if $breakpoint != '' {
+		$breakpoint: -#{$breakpoint};
+	}
+	@for $percent from ceil($sidebar-percent-from / $sidebar-percent-step) through ceil($sidebar-percent-through / $sidebar-percent-step) {
+		$percent: $percent * $sidebar-percent-step;
+		@each $d, $direction in (l: left, r: right) {
+			.layout-sidebar-#{$d}#{$percent}pc#{$breakpoint} > .st-container > .st-pusher > .st-content > .layout-content {
+				margin-#{$direction}: round(percentage($percent / 100));
+			}
+		}
+	}
+}

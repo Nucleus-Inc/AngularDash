@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="bootstrap-layout">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{{ title }}</title>
+
+	{% include 'layouts/_header.html' %}
+
+</head>
+<body>
+	
+	{% block page %}{% endblock %}
+
+	{% include 'layouts/_footer.html' %}
+
+</body>
+</html>

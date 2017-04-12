@@ -8,109 +8,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-layout/dist/bootstrap-layout.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-
-    <nav class="navbar navbar-fixed-top navbar-toggleable-md bg-faded py-md-2">
-        <ul class="nav navbar-nav">
-            <button class="navbar-toggler pull-xs-left" id="navbarSideButton" type="button">
-           &#9776;
-         </button>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item py-md-2 dropdown">
-                <a href="#" class="nav-link" href="#"><span><i class="fa fa-wrench" aria-hidden="true"></i></span></a>
-            </li>
-            <li class="nav-item py-md-2 dropdown">
-                <a href="#" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-envelope" aria-hidden="true"></i></span></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Messages</a>
+    <div class="layout-container layout-sidebar-l3-md-up">
+        <div class="layout-content" data-scrollable>
+            <nav class="navbar navbar-toggleable-sm bg-white">
+                <button class="navbar-toggler" id="special-toggle-button" data-target="#sidebar-blank-1" data-toggle="sidebar" type="button">
+               &#9776;
+             </button>
+                <div class="navbar-collapse collapse" id="navbar2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link nav-icon" href="#"><span><i class="material-icons">notifications</i></span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link nav-icon" href="#"><span><i class="material-icons">mail</i></span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="assets/img/user_40_40.jpeg"><span>Username</span></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">My Profile</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Help</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </li>
-            <li class="nav-item py-md-2 dropdown">
-                <a href="#" class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-bell" aria-hidden="true"></i></span></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Messages</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="assets/img/user_40_40.jpeg"><strong>Username</strong></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">My Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Help</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
-                </div>
-            </li>
-        </ul>
-        <ul class="navbar-side" id="navbarSide">
-            <li id="side-picture">
-                <img class="" src="http://placehold.it/220x60">
-            </li>
-            <div class="navbar-side-items">
-                <li class="navbar-side-item">
-                    <a class="nav-link" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home</a>
-                </li>
-                <li class="navbar-side-item">
-                    <a class="nav-link" href="#/forms"><i class="fa fa-pencil-square-o fa-lg"></i> Forms</a>
-                </li>
-                <li class="navbar-side-item">
-                    <a class="nav-link" href="#"><i class="fa fa-table fa-lg" aria-hidden="true"></i> Tables</a>
-                </li>
-                <!-- insert more side-items if you so choose -->
+            </nav>
+            <div class="container-fluid">
+                <div ng-view></div>
             </div>
-        </ul>
-
-        <!-- other navbar code omitted -->
-
-        <div class="overlay"></div>
-    </nav>
-
-    <div id="view-wrapper">
-        <div class="container-fluid">
-            <div ng-view></div>
         </div>
-    </div>
 
-    <!-- JQuery -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- Tether -->
-    <script src="node_modules/tether/dist/js/tether.min.js"></script>
-    <!--Bootstrap js -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- AngularJS -->
-    <script src="node_modules/angular/angular.min.js"></script>
-    <!-- Angular Route -->
-    <script src="node_modules/angular-route/angular-route.min.js"></script>
-    <!--Angular Chart -->
-    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
-    <!-- Angular App -->
-    <script src="app/app.js"></script>
-    <!-- Angular Controllers -->
-    <script src="app/controllers/DashboardController.js"></script>
-    <script src="app/controllers/FormsController.js"></script>
+        <div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-dark" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3">
+            <!-- Brand -->
+            <a href="#" class="sidebar-brand ">Brand</a>
+            <div class="sidebar-heading">Heading</div>
+            <!-- Menu -->
+            <ul class="sidebar-menu sm-active-button-bg">
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="#">Menu button</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button" href="#"><i class="sidebar-menu-icon material-icons">home</i> Home</a>
+                </li>
+                <li class="sidebar-menu-item">
+                    <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">pie_chart</i>Reports</a>
+                    <!-- Submenu -->
+                    <ul class="sidebar-submenu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#"> Report #1</a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#"> Report #2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- // END Menu -->
+        </div>
 
-    <script>
-        $(document).ready(function() {
-            $(".navbar").addClass("navbar-reveal");
-            $("#view-wrapper").addClass("view-wrapper-reveal");
-            $("#navbarSideButton").click(function() {
-                $("#navbarSide").toggleClass("reveal");
-                $(".navbar").toggleClass("navbar-reveal");
-                $("#view-wrapper").toggleClass("view-wrapper-reveal");
-            });
-            $(".overlay").click(function() {
-                $("#navbarSide").removeClass("reveal");
-                $('.overlay').hide();
-            });
-        });
-    </script>
-
+        <!-- JQuery -->
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- Tether -->
+        <script src="node_modules/tether/dist/js/tether.min.js"></script>
+        <!--Bootstrap js -->
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Bootstrap Layout js -->
+        <script src="node_modules/bootstrap-layout/dist/bootstrap-layout.js"></script>
+        <!-- AngularJS -->
+        <script src="node_modules/angular/angular.min.js"></script>
+        <!-- Angular Route -->
+        <script src="node_modules/angular-route/angular-route.min.js"></script>
+        <!--Angular Chart -->
+        <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+        <!-- Angular App -->
+        <script src="app/app.js"></script>
+        <!-- Angular Controllers -->
+        <script src="app/controllers/DashboardController.js"></script>
+        <script src="app/controllers/FormsController.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,44 @@
+<div class="table-responsive">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th width="160">Event Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>show.bl.sidebar</code></td>
+        <td>
+          <p>Fires when showing the sidebar, but before the sidebar is visibile.</p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>shown.bl.sidebar</code></td>
+        <td>
+          <p>Fires when showing the sidebar, after the sidebar is visibile.</p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>hide.bl.sidebar</code></td>
+        <td>
+          <p>Fires when the sidebar is hidding, but before the sidebar is hidden.</p>
+        </td>
+      </tr>
+      <tr>
+        <td><code>hidden.bl.sidebar</code></td>
+        <td>
+          <p>Fires when the sidebar is hidding, after the sidebar is hidden.</p>
+        </td>
+      </tr>
+  </table>
+</div>
+
+{% markdown %}
+```js
+$('#my-sidebar').on('show.bl.sidebar', function (e, options) {
+  // the sidebar options
+  console.log(options)
+})
+```
+{% endmarkdown %}

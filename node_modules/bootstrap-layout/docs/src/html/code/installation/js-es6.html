@@ -1,0 +1,16 @@
+{% markdown %}
+```js
+/* Load Bootstrap Layout */
+import BootstrapLayout from 'bootstrap-layout'
+BootstrapLayout.sidebar.show('#my-sidebar')
+
+// Or get a sidebar instance
+import { sidebar } from 'bootstrap-layout'
+sidebar.show('#my-sidebar')
+
+// Or get the Sidebar constructor
+import { Sidebar } from 'bootstrap-layout'
+let sidebar = new Sidebar()
+sidebar.show('#my-sidebar')
+```
+{% endmarkdown %}

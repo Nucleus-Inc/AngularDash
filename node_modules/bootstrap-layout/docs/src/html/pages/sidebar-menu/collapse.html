@@ -1,0 +1,29 @@
+---
+title: Sidebar collapse
+slug: sidebar-menu/collapse
+path: ../
+---
+{% extends "layouts/default.html" %}
+
+{% block page %}
+<h1>{{ title }}</h1>
+<p>Add collapse behaviour to <a href="submenu.html">sidebar submenus</a>.</p>
+
+<div class="card card-block">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <span class="nav-link active">Usage</span>
+    </li>
+    <li class="nav-item">
+      <a href="../demo/sidebar-collapse.html" target="_blank" class="nav-link">Demo</a>
+    </li>
+  </ul>
+  
+  <blockquote>
+    To create a collapsible sidebar menu, add the <code>data-toggle="sidebar-collapse"</code> attribute to any <code>.sidebar-menu-button</code> element, immediately followed by a <code>.sidebar-submenu</code>.
+  </blockquote>
+  
+  {% include 'code/sidebar-menu/collapse.html' %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+@import "../mixins/sidebar-mini";
+
+@include media-breakpoint-up(md) {
+	.sidebar-mini {
+		@include sidebar-mini();
+	}
+}
