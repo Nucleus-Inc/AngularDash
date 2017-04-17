@@ -16,6 +16,50 @@ body{
   padding: 1.0em 1em !important;
 }
 
+.cards-dash> .row > .col-md-3 > a{
+  text-decoration: none;
+  color: black;
+}
+.card{
+  /*border-bottom: 1px solid #E0E0E0;*/
+}
+
+.card:hover{
+/*  border-bottom-color: #3498db;*/
+}
+
+.card-box{
+  display: inline-block;
+  width: 90px;
+  height: 100%;
+  text-align: center;
+  float: left;
+}
+
+.card-heading{
+  height: 6em;
+}
+
+.card-box{
+  display: inline-block;
+}
+
+.card-red{
+  background-color: #e74c3c;
+}
+
+.card-green{
+  background-color: #2ecc71;
+}
+
+.card-blue{
+  background-color: #3498db;
+}
+
+.card-orange{
+  background-color: #f1c40f;
+}
+
 .cards-dash {
     margin-top: 2%;
     margin-bottom: 2%;
