@@ -17,6 +17,10 @@
             controller: "FormsController as formsCtrl"
         })
 
+        .when("/buttons", {
+            templateUrl: "./views/buttons.html"
+        })
+
         .otherwise({
             redirectTo: '/'
         });
