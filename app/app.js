@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('Dashboard', ['ngRoute', 'chart.js'])
+    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table'])
 
 
     .config(function($routeProvider, $locationProvider) {
@@ -21,8 +21,18 @@
             templateUrl: "./views/buttons.html"
         })
 
+        .when("/modals", {
+            templateUrl: "./views/modals.html",
+            controller: "ModalsController as modalsCtrl"
+        })
+
+        .when("/tables", {
+            templateUrl: "./views/tables.html",
+            controller: "TablesController as tablesCtrl"
+        })
+
         .otherwise({
-            redirectTo: '/'
+            redirectTo: "/"
         });
     })
 
