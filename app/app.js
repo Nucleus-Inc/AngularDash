@@ -12,6 +12,10 @@
             controller: "DashboardController as dashCtrl"
         })
 
+        .when("/login", {
+            templateUrl: "./views/login.html"
+        })
+
         .when("/forms", {
             templateUrl: "./views/forms.html",
             controller: "FormsController as formsCtrl"
