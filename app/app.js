@@ -40,6 +40,11 @@
             controller: "NotificationsController as notificationsCtrl"
         })
 
+        .when("/blank", {
+            templateUrl: "./views/blank.html",
+            controller: "BlankController as blankCtrl"
+        })
+
         .otherwise({
             redirectTo: "/"
         });
