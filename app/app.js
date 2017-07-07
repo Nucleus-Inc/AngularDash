@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table'])
+    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table', 'cgNotify'])
 
 
     .config(function($routeProvider, $locationProvider) {
@@ -33,6 +33,11 @@
         .when("/tables", {
             templateUrl: "./views/tables.html",
             controller: "TablesController as tablesCtrl"
+        })
+
+        .when("/notifications", {
+            templateUrl: "./views/notifications.html",
+            controller: "NotificationsController as notificationsCtrl"
         })
 
         .otherwise({
