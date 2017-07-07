@@ -97,3 +97,14 @@ body {
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
+}

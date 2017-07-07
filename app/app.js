@@ -45,6 +45,11 @@
             controller: "BlankController as blankCtrl"
         })
 
+        .when("/account", {
+            templateUrl: "./views/account.html",
+            controller: "AccountController as accountCtrl"
+        })
+
         .otherwise({
             redirectTo: "/"
         });
