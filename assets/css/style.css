@@ -2,6 +2,11 @@ body {
     background-color: #fafafa;
 }
 
+
+.submitted .ng-invalid {
+    border: 1px solid #a94442;
+}
+
 .navbar-nav>li {
     padding-left: 10px;
     padding-right: 10px;
