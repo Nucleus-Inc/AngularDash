@@ -11,9 +11,88 @@ body {
     border: 1px solid #a94442;
 }
 
-.navbar-nav>li {
+.navbar-nav {
+  &>li {
     padding-left: 10px;
     padding-right: 10px;
+    .nav-link.dropdown-toggle{
+      vertical-align: middle;
+      display: inherit;
+      img {
+        margin-right: 10px;
+      }
+    }
+    .dropdown-menu {
+      -webkit-box-shadow: none;
+      background: #fff;
+      margin-top: 0;
+      border: 1px solid #D9DEE4;
+      -webkit-box-shadow: none;
+      padding: 0;
+      .dropdown-item {
+        color: #5A738E;
+        font-size: 13px;
+        line-height: 30px;
+        &:hover {
+          color: #333;
+        }
+      }
+      .dropdown-divider {
+        margin: 0;
+      }
+      &.msg-list, &.notif-list {
+        // width: 100%;
+        width: 250px;
+        padding: 0px 3px 6px 0px;
+        span {
+          white-space: normal;
+        }
+        .dropdown-item {
+          position: relative;
+          background: #f7f7f7;
+          // display: -ms-flexbox;
+          // display: flex;
+          margin: 6px 6px 0;
+          padding: 3px 5px!important;
+          width: 96%;
+          .image img {
+              border-radius: 2px;
+              -webkit-border-radius: 2px;
+              float: left;
+              margin-right: 10px;
+              width: 30px;
+          }
+          .time {
+              font-size: 11px;
+              font-style: italic;
+              font-weight: 700;
+              position: absolute;
+              right: 10px;
+          }
+          .message {
+              font-size: 11px;
+              padding-top: 5px;
+              line-height: 18px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              max-height: 60px;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+          }
+        }
+      }
+      &.notif-list {
+        .dropdown-item {
+          .message {
+            padding-top: 0px;
+            max-height: 40px;
+            -webkit-line-clamp: 2;
+          }
+        }
+      }
+    }
+  }
 }
 
 .navbar-toggleable-sm .navbar-toggler {
@@ -117,4 +196,37 @@ body {
 
 .nav-tabs {
     text-align:center;
+}
+
+
+// Pages
+.login-card {
+  border-color: transparent;
+  width: 40%;
+  display: block;
+  margin: auto;
+  @include tastyShadow;
+  .card-title {
+    height: 12%;
+    text-align: center;
+  }
+  .form-group {
+    .input-group {
+      .input-group-addon {
+        width: 48px;
+        background: transparent
+      }
+      .form-control-lg, .form-check-input {
+        background-color: #fff;
+        font-size: 1rem;
+      }
+      .btn-lg {
+        font-size: 1rem;
+      }
+    }
+  }
+  .card-footer {
+    background: white;
+    text-align: center
+  }
 }

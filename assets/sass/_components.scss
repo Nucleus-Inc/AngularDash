@@ -1,3 +1,9 @@
+.card-title, .title {
+  font-family: $title-font;
+}
+
+// Buttons
+
 .btn-primary {
   @include button-variant($primary, $primary);
 }

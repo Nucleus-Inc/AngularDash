@@ -45,6 +45,12 @@
   -o-transition: all ease .5s;
   transition: all ease .5s;
 }
+@mixin tastyShadow {
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
 @mixin hover {
   // TODO: re-enable along with mq4-hover-shim
 //  @if $enable-hover-media-query {
@@ -55,12 +61,12 @@
 //    }
 //  }
 //  @else {
-    &:hover { @content }
+    &:hover { @content; }
 //  }
 }
 @mixin button-variant($background, $border) {
-  $active-background: darken($background, 10%);
-  $active-border: darken($border, 12%);
+  $active-background: darken($background, 8%);
+  $active-border: darken($border, 10%);
 
   background-color: $background;
   border-color: $border;
