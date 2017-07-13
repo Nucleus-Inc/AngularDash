@@ -1,7 +1,11 @@
 .card-title, .title {
   font-family: $title-font;
 }
-
+.btn {
+  .material-icons {
+    font-size: 1rem !important;
+  }
+}
 // Buttons
 
 .btn-primary {

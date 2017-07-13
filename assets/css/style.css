@@ -11,6 +11,9 @@
 .card-title, .title {
   font-family: "Montserrat", sans-serif; }
 
+.btn .material-icons {
+  font-size: 1rem !important; }
+
 .btn-primary {
   background-color: #2196F3;
   border-color: #2196F3; }
@@ -336,15 +339,16 @@ body {
   -ms-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1); }
   .login-card .card-title {
-    height: 12%;
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 0; }
   .login-card .form-group .input-group .input-group-addon {
     width: 48px;
-    background: transparent; }
+    background: transparent;
+    color: #292b2c; }
   .login-card .form-group .input-group .form-control-lg, .login-card .form-group .input-group .form-check-input {
     background-color: #fff;
     font-size: 1rem; }
-  .login-card .form-group .input-group .btn-lg {
+  .login-card .form-group .btn-lg {
     font-size: 1rem; }
   .login-card .card-footer {
     background: white;

@@ -26,7 +26,7 @@ body {
       -webkit-box-shadow: none;
       background: #fff;
       margin-top: 0;
-      border: 1px solid #D9DEE4;
+      border: 1px solid $gray;
       -webkit-box-shadow: none;
       padding: 0;
       .dropdown-item {
@@ -207,22 +207,24 @@ body {
   margin: auto;
   @include tastyShadow;
   .card-title {
-    height: 12%;
+    // height: 12%;
     text-align: center;
+    margin-bottom: 0;
   }
   .form-group {
     .input-group {
       .input-group-addon {
         width: 48px;
-        background: transparent
+        background: transparent;
+        color: $body-color;
       }
       .form-control-lg, .form-check-input {
         background-color: #fff;
         font-size: 1rem;
       }
-      .btn-lg {
-        font-size: 1rem;
-      }
+    }
+    .btn-lg {
+      font-size: 1rem;
     }
   }
   .card-footer {
