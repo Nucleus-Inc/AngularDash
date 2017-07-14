@@ -1,5 +1,28 @@
+body {
+  font-family: $body-font;
+}
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: $title-font;
+}
 a {
   color: $blue;
+}
+.form-inline {
+  .custom-select, .btn {
+    @include mobile {
+      display: block;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+}
+.table-responsive {
+  @include mobile {
+    .btn {
+      display: block;
+      width: 100%;
+    }
+  }
 }
 .page-item.active .page-link {
     color: #fff;

@@ -16,13 +16,16 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     .nav-link {
-      color: $sidebar-color;
+      color: darken($gray, 20%);
     }
     .nav-link.dropdown-toggle{
       vertical-align: middle;
       display: inherit;
       img {
         margin-right: 10px;
+      }
+      span {
+        .material-icons { padding-top: 15px;}
       }
     }
     .dropdown-menu {
@@ -100,6 +103,7 @@ body {
 
 .navbar-toggleable-sm .navbar-toggler {
     display: block !important;
+    color: darken($gray, 20%);
 }
 
 .nav-icon {
@@ -138,19 +142,19 @@ body {
 }
 
 .bg-thunderbird {
-    background-color: #D91E18;
+    background-color: $red;
 }
 
 .bg-shamrock {
-    background-color: #2ECC71;
+    background-color: $green;
 }
 
 .bg-picton {
-    background-color: #22A7F0;
+    background-color: $blue;
 }
 
 .bg-sandstorm {
-    background-color: #F9BF3B;
+    background-color: $orange;
 }
 
 .cards-dash {

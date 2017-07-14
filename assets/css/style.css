@@ -8,8 +8,25 @@
 @keyframes rotate-up {
   100% {
     transform: rotateZ(-4deg); } }
+body {
+  font-family: "Lato", sans-serif; }
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: "Montserrat", sans-serif; }
+
 a {
   color: #2196F3; }
+
+@media only screen and (max-width: 767px) {
+  .form-inline .custom-select, .form-inline .btn {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .table-responsive .btn {
+    display: block;
+    width: 100%; } }
 
 .page-item.active .page-link {
   color: #fff;
@@ -259,12 +276,14 @@ body {
   padding-left: 10px;
   padding-right: 10px; }
   .navbar-nav > li .nav-link {
-    color: #2c3e50; }
+    color: #9daaba; }
   .navbar-nav > li .nav-link.dropdown-toggle {
     vertical-align: middle;
     display: inherit; }
     .navbar-nav > li .nav-link.dropdown-toggle img {
       margin-right: 10px; }
+    .navbar-nav > li .nav-link.dropdown-toggle span .material-icons {
+      padding-top: 15px; }
   .navbar-nav > li .dropdown-menu {
     -webkit-box-shadow: none;
     background: #fff;
@@ -319,7 +338,8 @@ body {
       -webkit-line-clamp: 2; }
 
 .navbar-toggleable-sm .navbar-toggler {
-  display: block !important; }
+  display: block !important;
+  color: #9daaba; }
 
 .nav-icon {
   padding: 1.0em 1em !important; }
@@ -349,16 +369,16 @@ body {
   float: left; }
 
 .bg-thunderbird {
-  background-color: #D91E18; }
+  background-color: #f44336; }
 
 .bg-shamrock {
-  background-color: #2ECC71; }
+  background-color: #4CAF50; }
 
 .bg-picton {
-  background-color: #22A7F0; }
+  background-color: #2196F3; }
 
 .bg-sandstorm {
-  background-color: #F9BF3B; }
+  background-color: #FF9800; }
 
 .cards-dash {
   margin-top: 2%;
