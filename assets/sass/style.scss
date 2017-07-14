@@ -15,6 +15,9 @@ body {
   &>li {
     padding-left: 10px;
     padding-right: 10px;
+    .nav-link {
+      color: $sidebar-color;
+    }
     .nav-link.dropdown-toggle{
       vertical-align: middle;
       display: inherit;
@@ -156,37 +159,13 @@ body {
 }
 
 .sidebar {
-    background-color: #2c3e50;
+    background-color: $sidebar-color;
     color: white;
 }
 
 .layout-content {
     padding: 0 !important;
 }
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
-    font-feature-settings: 'liga';
-}
-
 
 .nav-tabs > li {
     float:none;
@@ -197,7 +176,48 @@ body {
 .nav-tabs {
     text-align:center;
 }
-
+// Responsive table
+@media screen and (max-width: 600px) {
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+.table-responsive {
+  @media only screen and (max-width: 767px) {
+    display: block;
+    thead {
+      display: none
+    }
+    tbody, tbody tr {
+      width: 100%;
+      display: block;
+    }
+    tr:nth-of-type(2n) {
+      background-color: inherit;
+    }
+    tr td {
+      &:first-child {
+        display: none;
+      }
+      &:nth-child(2) {
+        background: $gray;
+        font-weight: bold;
+        font-size: 1em;
+        width: 100%;
+      }
+    }
+    tbody td {
+      display: block;
+      text-align: center;
+    }
+    tbody td:before {
+      content: attr(data-th);
+      display: block;
+      text-align: center;
+    }
+  }
+}
 
 // Pages
 .login-card {

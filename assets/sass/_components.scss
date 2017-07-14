@@ -1,10 +1,46 @@
+a {
+  color: $blue;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: $blue;
+    border-color: $blue;
+}
+.page-link {
+    color: $blue;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+.btn, .input-group-addon {
+  .material-icons {
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+}
 .card-title, .title {
   font-family: $title-font;
-}
-.btn {
-  .material-icons {
-    font-size: 1rem !important;
-  }
 }
 // Buttons
 
@@ -39,4 +75,35 @@
 }
 .btn-outline-danger {
   @include button-outline-variant($danger);
+}
+
+// Alerts
+.alert-success {
+  background-color: $green;
+  border-color: darken($green, 5%);
+  color: #fff;
+  .alert-link {color: #fff;}
+}
+.alert-info {
+  background-color: $blue;
+  border-color: darken($blue, 5%);
+  color: #fff;
+  .alert-link {color: #fff;}
+}
+.alert-warning {
+  background-color: $orange;
+  border-color: darken($orange, 5%);
+  color: #fff;
+  .alert-link {color: #fff;}
+}
+.alert-danger {
+  background-color: $red;
+  border-color: darken($red, 5%);
+  color: #fff;
+  .alert-link {color: #fff;}
+}
+.cg-notify-message {
+  background-color: $teal;
+  color: #fff;
+  a {color: #fff;}
 }
