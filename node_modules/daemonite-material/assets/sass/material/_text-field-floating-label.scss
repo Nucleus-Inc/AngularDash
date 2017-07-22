@@ -1,0 +1,56 @@
+.floating-label {
+  position: relative;
+  @include floating-label-size($textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
+
+  > label {
+    color: $floating-label-color;
+    cursor: text;
+    display: block;
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+      left: 0;
+    text-overflow: ellipsis;
+    transform-origin: 0 0;
+    white-space: nowrap;
+    @include transition-standard(color, top, transform);
+  }
+
+  &.has-value > label,
+  &.is-focused > label {
+    // position
+      top: 0;
+  }
+
+  &.is-focused > label {
+    color: $floating-label-color-focus;
+  }
+
+  > .form-control {
+    position: relative;
+
+    &::placeholder {
+      color: transparent;
+      opacity: 0;
+    }
+  }
+}
+
+// size
+  .floating-label-lg {
+    @include floating-label-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+
+    > .form-control {
+      @extend .form-control-lg;
+    }
+  }
+
+  .floating-label-sm {
+    @include floating-label-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+
+    > .form-control {
+      @extend .form-control-sm;
+    }
+  }

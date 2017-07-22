@@ -1,0 +1,25 @@
+.login-gct{
+	background-color: #35AFE3;
+}
+.nav-login{
+	height: 90px; 
+	background-color: #62c1e9;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 
+				0 1px 5px 0 rgba(0,0,0,.12), 
+				0 3px 1px -2px rgba(0,0,0,.2);
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    z-index: 20;
+}
+.img-login{
+	left:46%; 
+	width: 110px; 
+	position:absolute; 
+	margin-top: 10px; 
+	background-color: #fff; 
+	border: 10px solid #62c1e9; 
+	border-radius: 50%; 
+	padding:10px;
+}

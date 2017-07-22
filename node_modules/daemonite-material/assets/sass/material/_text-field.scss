@@ -1,0 +1,188 @@
+.form-control {
+  background-clip: padding-box;
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  border-bottom: $textfield-border-width solid $textfield-border-color;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
+  @include transition-standard(border-bottom-color);
+
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &::placeholder {
+    color: $textfield-hint-color;
+    opacity: 1;
+  }
+
+  // active, focus, hover
+    &:focus {
+      border-bottom-color: $textfield-border-color-focus;
+      border-bottom-width: ($textfield-border-width + 1);
+      outline: 0;
+    }
+
+  // disbaled
+    &:disabled,
+    &[readonly] {
+      border-bottom-style: dotted;
+      color: $textfield-color-disabled;
+      opacity: 1;
+    }
+
+    &:disabled {
+      cursor: $cursor-disabled;
+    }
+}
+
+select.form-control {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    $select-bg-size: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size);
+
+    background-image: url($caret-bg);
+    background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
+    background-repeat: no-repeat;
+    background-size: $select-bg-size $select-bg-size;
+    padding-right: $select-bg-size;
+
+    &[multiple],
+    &[size] {
+      background-image: none;
+      height: auto;
+      padding-right: 0;
+    }
+  }
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+// colour
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .form-control-#{$color} {
+      &,
+      &:focus {
+        border-bottom-color: nth($palettes-color, $i);
+      }
+
+      &::placeholder {
+        color: nth($palettes-color-light, $i);
+      }
+    }
+  }
+
+// size
+  .form-control-lg {
+    @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+  }
+
+  select.form-control-lg {
+    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+      $select-bg-size-lg: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-lg);
+
+      background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
+      background-size: $select-bg-size-lg $select-bg-size-lg;
+      padding-right: $select-bg-size-lg;
+    }
+  }
+
+  .form-control-sm {
+    @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+  }
+
+  select.form-control-sm {
+    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+      $select-bg-size-sm: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-sm);
+
+      background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
+      background-size: $select-bg-size-sm $select-bg-size-sm;
+      padding-right: $select-bg-size-sm;
+    }
+  }
+
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"] {
+    &.form-control {
+      height: $textfield-height;
+    }
+
+    &.form-control-lg {
+      height: $textfield-height-lg;
+    }
+
+    &.form-control-sm {
+      height: $textfield-height-sm;
+    }
+  }
+
+  input[type="color"] {
+    &.form-control {
+      min-width: $textfield-font-size;
+    }
+
+    &.form-control-lg {
+      min-width: $textfield-font-size-lg;
+    }
+
+    &.form-control-sm {
+      min-width: $textfield-font-size-sm;
+    }
+  }
+
+//
+// form control state
+//
+  .has-danger {
+    @include form-control-validation($palette-red-500);
+  }
+
+  .has-success {
+    @include form-control-validation($palette-green-500);
+  }
+
+  .has-warning {
+    @include form-control-validation($palette-orange-500);
+  }
+
+//
+// form control static
+//
+  .form-control-static {
+    margin-bottom: 0;
+    @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
+
+    &.form-control-lg {
+      @include form-control-size(0px, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+    }
+
+    &.form-control-sm {
+      @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+    }
+  }
+
+//
+// style of material `select` should also be applied to `.custom-select`
+//
+  .custom-select {
+    @extend .form-control;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+  }

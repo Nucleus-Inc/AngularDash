@@ -1,0 +1,78 @@
+.input-group {
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  .form-control {
+    align-self: center;
+    flex: 1 1 auto;
+    width: 1%;
+  }
+}
+
+.input-group-addon {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size);
+  justify-content: center;
+  line-height: 1;
+  min-width: $textfield-height;
+  white-space: nowrap;
+
+  + .form-control,
+  .form-control + & {
+    margin-left: $input-group-addon-margin-x;
+  }
+}
+
+.input-group-btn {
+  display: flex;
+  justify-content: center;
+  margin-right: $input-group-addon-margin-x;
+  margin-left: $input-group-addon-margin-x;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .btn {
+    min-width: 0;
+    @include border-radius(0);
+
+    &:first-child {
+      @include border-left-radius($border-radius);
+    }
+
+    &:last-child {
+      @include border-right-radius($border-radius);
+    }
+  }
+}
+
+// size
+  .input-group-addon {
+    &.form-control-lg,
+    .input-group-lg > & {
+      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-lg);
+      min-width: $textfield-height-lg;
+    }
+
+    &.form-control-sm,
+    .input-group-sm > & {
+      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-sm);
+      min-width: $textfield-height-sm;
+    }
+  }
+
+  .input-group-lg > .form-control {
+    @extend .form-control-lg;
+  }
+
+  .input-group-sm > .form-control {
+    @extend .form-control-sm;
+  }

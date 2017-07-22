@@ -1,0 +1,26 @@
+/*Componetes Projeto Grupo Completta Telecom*/
+/*Colors*/
+/*Buttons*/
+.btn-primary, .btn-primary:focus, .btn-primary:hover {
+  background-color: #35AFE3;
+  color: #FFFFFF; }
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:focus {
+  background-color: #3F51B5; }
+
+.btn-success, .btn-success:hover, .btn-success:focus {
+  color: #FFFFFF; }
+
+.btn-warning, .btn-warning:hover, .btn-warning:focus {
+  color: #FFFFFF; }
+
+.btn-link, .btn-link:hover, .btn-link:focus {
+  color: #35AFE3; }
+
+.btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:focus {
+  color: #35AFE3; }
+
+.btn-outline-secondary, .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+  color: #3F51B5; }
+
+/*# sourceMappingURL=components.css.map */

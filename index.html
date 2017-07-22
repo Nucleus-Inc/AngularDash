@@ -7,12 +7,16 @@
     <title> Angular Aside Dashboard </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="node_modules/daemonite-material/css/material.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="node_modules/daemonite-material/css/material.css">
     <link rel="stylesheet" href="node_modules/bootstrap-layout/dist/bootstrap-layout.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/@cgross/angular-notify/dist/angular-notify.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/nucleus-grids.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:200,400,700" rel="stylesheet">
 </head>
 
@@ -20,14 +24,15 @@
     <div class="layout-container layout-sidebar-l3-md-up">
         <div class="layout-content" data-scrollable>
             <nav class="navbar navbar-toggleable-sm bg-white">
-                <button class="navbar-toggler" id="special-toggle-button" data-target="#sidebar-blank-1" data-toggle="sidebar" type="button">
+                <button class="navbar-toggler"  id="special-toggle-button" data-target="#sidebar-blank-1" data-toggle="sidebar" type="button">
                &#9776;
              </button>
                 <div class="navbar-collapse collapse" id="navbar2">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="material-icons">notifications</i></span></a>
-                            <div class="dropdown-menu notif-list" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu notif-list dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="drop-title"><small>Notificações</small></div>
                               <a class="dropdown-item" href="#">
                                 <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
                                 <span class="message">
@@ -50,7 +55,8 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i class="material-icons">mail</i></span></a>
-                            <div class="dropdown-menu msg-list" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu msg-list dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="drop-title"><small>Mensagens</small></div>
                                 <a class="dropdown-item" href="#">
                                   <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
                                   <span>
@@ -84,13 +90,15 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="assets/img/user_40_40.jpeg"><span>Username</span></a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">My Profile</a>
-                                <a class="dropdown-item" href="#">Settings</a>
-                                <a class="dropdown-item" href="#">Help</a>
+                            <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="assets/img/user_40_40.jpeg"></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <div class="drop-title"><img class="rounded-circle img-drop-title" src="assets/img/user_40_40.jpeg"></a> Username
+                                <div style="padding-left: 21%; margin-top: -20; font-size: small;">name@dominio.com.br</div></div>
+                                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">account_box</i> My Profile</a>
+                                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">settings</i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">help</i> Help</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">exit_to_app</i>Log out</a>
                             </div>
                         </li>
                     </ul>
@@ -101,14 +109,14 @@
             </div>
         </div>
 
-        <div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-dark" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3">
+        <div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-title" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3">
             <!-- Brand -->
             <a href="#" class="sidebar-brand ">Brand</a>
             <div class="sidebar-heading">Heading</div>
             <!-- Menu -->
-            <ul class="sidebar-menu sm-active-button-bg">
+            <ul class="sidebar-menu sm-active-button-bg sidebar-text">
                 <li class="sidebar-menu-item">
-                    <a class="sidebar-menu-button" href="#">Menu button</a>
+                    <a class="sidebar-menu-button " href="#">Menu button</a>
                 </li>
                 <li class="sidebar-menu-item">
                     <a class="sidebar-menu-button" href="#"><i class="sidebar-menu-icon material-icons">dashboard</i> Dashboard</a>
@@ -169,9 +177,12 @@
         <script src="node_modules/angular/angular.min.js"></script>
         <!-- Tether -->
         <script src="node_modules/tether/dist/js/tether.min.js"></script>
-        <!--Bootstrap js -->
+         <!--Bootstrap js 
+        <script src="node_modules/daemonite-material/js/material.min.js"></script>-->
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!--Bootstrap Layout js -->
+
+        <script src="node_modules/daemonite-material/js/material.min.js"></script>
         <script src="node_modules/bootstrap-layout/dist/bootstrap-layout.js"></script>
         <!-- Angular Route -->
         <script src="node_modules/angular-route/angular-route.min.js"></script>

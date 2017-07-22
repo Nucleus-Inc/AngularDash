@@ -70,6 +70,9 @@ a {
 .btn-primary {
   @include button-variant($primary, $primary);
 }
+.btn-secondary {
+  @include button-variant($secondary, $secondary);
+}
 .btn-info {
   @include button-variant($info, $info);
 }
@@ -83,9 +86,13 @@ a {
   @include button-variant($danger, $danger);
 }
 
+
 // Remove all backgrounds
 .btn-outline-primary {
   @include button-outline-variant($primary);
+}
+.btn-outline-secondary {
+  @include button-outline-variant($secondary);
 }
 .btn-outline-info {
   @include button-outline-variant($info);
@@ -102,26 +109,26 @@ a {
 
 // Alerts
 .alert-success {
-  background-color: $green;
+  background-color: $success;
   border-color: darken($green, 5%);
   color: #fff;
   .alert-link {color: #fff;}
 }
 .alert-info {
-  background-color: $blue;
-  border-color: darken($blue, 5%);
+  background-color: $info;
+  border-color: darken($info, 5%);
   color: #fff;
   .alert-link {color: #fff;}
 }
 .alert-warning {
-  background-color: $orange;
-  border-color: darken($orange, 5%);
+  background-color: $warning;
+  border-color: darken($warning, 5%);
   color: #fff;
   .alert-link {color: #fff;}
 }
 .alert-danger {
-  background-color: $red;
-  border-color: darken($red, 5%);
+  background-color: $danger;
+  border-color: darken($danger, 5%);
   color: #fff;
   .alert-link {color: #fff;}
 }

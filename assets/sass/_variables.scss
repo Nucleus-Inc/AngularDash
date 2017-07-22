@@ -1,19 +1,21 @@
 // New colors: Override Bootstrap
 // https://www.materialui.co/colors
 $red:    #f44336;
-$orange: #FF9800;
+$orange: #FFC107;
 $yellow: #FFEB3B;
 $green:  #4CAF50;
-$blue:   #2196F3;
-$teal:   #5bc0de;
+$blue:   #4051b5;
+$teal:   #2196f3;
 $pink:   #E91E63;
 $purple: #9C27B0;
 $gray:   #D9DEE4;
+$amber:  #ff9800;
 
 $body-color: #292b2c;
 $sidebar-color: #2c3e50;
 
 $primary: $blue !default;
+$secondary: $amber !default;
 $success: $green !default;
 $info:    $teal !default;
 $warning: $orange !default;
@@ -34,4 +36,4 @@ $nav-height: 70px;
 
 // Fonts
 $title-font: 'Montserrat', sans-serif;
-$body-font: 'Lato', sans-serif;
+$body-font: 'Roboto', sans-serif;
