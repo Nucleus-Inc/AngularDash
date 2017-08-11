@@ -14,7 +14,6 @@ module.exports = function(config) {
       'node_modules/angular-chart.js/dist/angular-chart.min.js',
       'vendors/angular-modal-service.min.js',
       'vendors/angular-notify.min.js',
-      'node_modules/angular-table-1.0.7/dist/angular-table.js',
       'app/**/*.js',
       'tests/**/*.js',
       'views/*.html',
