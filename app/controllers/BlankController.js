@@ -1,7 +1,11 @@
 (function() {
-    angular.module('Dashboard').controller('BlankController', ['$scope', function($scope) {
+  angular.module('Dashboard')
+    .controller('BlankController', function() {
 
-        var vm = this;
-
-    }]);
+      this.awesomeThings = [
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
+      ];
+    });
 }());
