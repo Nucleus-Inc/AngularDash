@@ -122,7 +122,7 @@ module.exports = function(grunt) {
       },
 
       continuous: {
-        singleRun: false,
+        singleRun: true,
         autoWatch: true
       }
     }
