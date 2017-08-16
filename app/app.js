@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', /*'angular-table',*/'cgNotify'])
+    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table','cgNotify'])
 
 
     .config(function($routeProvider, $locationProvider) {

@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', /*'angular-table',*/'cgNotify'])
+    var app = angular.module('Dashboard', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table','cgNotify'])
 
 
     .config(function($routeProvider, $locationProvider) {
@@ -956,7 +956,7 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "                            <button type=\"button\" class=\"btn btn-success\"> Add user</button>\n" +
     "                        </form>\n" +
     "                    </div>\n" +
-    "                </div><!--\n" +
+    "                </div>\n" +
     "                <table class=\"table table-striped table-responsive\" at-table at-paginated at-list=\"filteredList\" at-config=\"config\">\n" +
     "                    <thead></thead>\n" +
     "                    <tbody >\n" +
@@ -990,6 +990,6 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>-->\n" +
+    "</div>\n" +
     "");
 }]);
