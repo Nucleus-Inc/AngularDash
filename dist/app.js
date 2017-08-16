@@ -957,7 +957,6 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "                        </form>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <span ng-show=\"!filteredList.length\">No results have been found</span>\n" +
     "                <table ng-show=\"filteredList.length\" class=\"table table-striped table-responsive\" at-table at-paginated at-list=\"filteredList\" at-config=\"config\">\n" +
     "                    <thead></thead>\n" +
     "                    <tbody>\n" +
