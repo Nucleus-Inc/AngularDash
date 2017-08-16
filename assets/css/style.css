@@ -26,7 +26,7 @@ a {
 @media only screen and (max-width: 767px) {
   .table-responsive .btn {
     display: inline;
-    width: 30%; } 
+    width: 30%; }
   .btn-smn{
     margin-top: -10px;
   }
@@ -379,7 +379,7 @@ body {
       max-height: 40px;
       -webkit-line-clamp: 2; }
       .drop-title{
-        padding: 10 10; 
+        padding: 10 10;
         background: #f2f2f2;
       }
       .img-drop-title{
@@ -387,7 +387,7 @@ body {
       }
 
 .navbar-toggleable-sm .navbar-toggler {
-  display: block !important; 
+  display: block !important;
   margin-bottom: 20px;
 }
 
@@ -418,7 +418,7 @@ body {
   text-align: center;
   float: left; }
 .icon-card{
-  font-size:48px; 
+  font-size:48px;
   color: white;
   margin-top: 20px;
   display: inline-block;
