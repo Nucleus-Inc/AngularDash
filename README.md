@@ -3,4 +3,14 @@
 
 Bootstrap 4 &amp; AngularJS admin dashboard
 
+## Run App
+
+Install dependencies:
+
+`npm install`
+
+Start web server:
+
+`grunt dev`
+
 
