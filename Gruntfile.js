@@ -22,7 +22,7 @@ module.exports = function(grunt) {
           'js/angular-modal-service.min.js': 'angular-modal-service/dst/angular-modal-service.min.js',
           'css/angular-notify.min.css': 'angular-notify/dist/angular-notify.min.css',
           'js/angular-notify.min.js': 'angular-notify/dist/angular-notify.min.js',
-          'js/angular-table.min.js': 'at-table/dist/angular-table.min.js',
+          'js/angular-table.js': 'at-table/dist/angular-table.js',
           'js/angular-loaders.min.js': 'angular-loaders/dist/angular-loaders.min.js',
           'css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
           'js/bootstrap.min.js': 'bootstrap/dist/js/bootstrap.min.js',
