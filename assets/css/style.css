@@ -658,7 +658,14 @@ body {
 .nav-tabs .nav-link {
    height: auto;
 }
-
+@media (max-width: 959px){
+  .collapse {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+}
 
 @media screen and (max-width: 600px) {
   table {
