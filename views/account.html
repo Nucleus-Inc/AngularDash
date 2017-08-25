@@ -18,14 +18,14 @@
                     </div>
                 </div>
                 <div ng-show="isSet(1)">
-                    <div class="row" style="margin-top: 2%; margin-left: 2%">
+                    <div class="row account-col" >
                         <div class="col-md-3">
                             <div class="form-group">
                                 <p class="font-weight-bold">Public avatar</p>
                                 <p class="font-weight-normal">You can change your avatar here or remove the current avatar to revert to gravatar.com</p>
                             </div>
                         </div>
-                        <div class="col-md-3" style="text-align: center">
+                        <div class="col-md-3 img-perfil">
                             <img src="//placehold.it/160" class="rounded-circle" />
                         </div>
                         <div class="col-md-3">
@@ -33,11 +33,11 @@
                                 <div class="form-group">
                                     <label for="subject">Upload new avatar</label>
                                 </div>
-                                <button type="submit" class="btn btn-secondary">Remove avatar</button>
+                                <button type="submit" class="btn btn-primary">Remove avatar</button>
                             </form>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 2%; margin-left: 2%">
+                    <div class="row account-col" >
                         <div class="col-md-3">
                             <div class="form-group">
                                 <p class="font-weight-bold">Main settings</p>
@@ -67,7 +67,7 @@
                 </div>
 
                 <div ng-show="isSet(2)">
-                    <div class="row" style="margin-top: 2%; margin-left: 2%">
+                    <div class="row account-col" >
                         <div class="col-md-3">
                             <div class="form-group">
                                 <p class="font-weight-bold">Private Token</p>
@@ -81,7 +81,7 @@
                                     <input ng-model="accountCtrl.account.token" ng-disabled="true" type="text" class="form-control" aria-describedby="tokenHelp">
                                     <small id="tokenHelp" class="form-text text-muted">Your private token is used to access the API without username/password authentication.</small>
                                 </div>
-                                <button type="submit" class="btn btn-secondary">Reset private token</button>
+                                <button type="submit" class="btn btn-primary">Reset private token</button>
                             </form>
                         </div>
                         <div class="col-md-3">
@@ -119,7 +119,7 @@
                 </div>
 
                 <div ng-show="isSet(3)">
-                    <div class="row" style="margin-top: 2%; margin-left: 2%">
+                    <div class="row account-col" >
                         <div class="col-md-3">
                             <div class="form-group">
                                 <p class="font-weight-bold">Password</p>

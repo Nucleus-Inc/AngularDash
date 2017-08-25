@@ -16,6 +16,14 @@
             templateUrl: "./views/login.html"
         })
 
+        .when("/forgot", {
+            templateUrl: "./views/forgot.html"
+        })
+
+        .when("/register", {
+            templateUrl: "./views/register.html"
+        })
+
         .when("/forms", {
             templateUrl: "./views/forms.html",
             controller: "FormsController as formsCtrl"
