@@ -26,21 +26,21 @@
                     <thead></thead>
                     <tbody class="col-md-12" >
                         <tr>
-                            <td at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>
-                            <td at-implicit at-sortable at-attribute="name" width="250"></td>
-                            <td at-implicit at-sortable at-attribute="email"></td>
-                            <td at-title="Ação">
+                            <td class="align-middle" at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>
+                            <td class="align-middle" at-implicit at-sortable at-attribute="name" width="250"></td>
+                            <td class="align-middle" at-implicit at-sortable at-attribute="email"></td>
+                            <td class="align-middle" at-title="Ação">
                                 <button class="btn btn-primary btn-smn"><i class="material-icons">search</i></button>
                                 <button class="btn btn-danger btn-smn"><i class="material-icons">delete_forever</i></button>
                             </td>
                         </tr>
                     </tbffody>
                 </table >
-                <div class="row">
+                <div class="row controler-table">
                     <div class="col-md-6">
                         <div class="form-group form-inline">
                             <label >Mostrar </label>
-                            <select class="pagination-table" ng-init="config.itemsPerPage = '5'" ng-model="config.itemsPerPage" class="form-control">
+                            <select class="pagination-table custom-select" ng-init="config.itemsPerPage = '5'" ng-model="config.itemsPerPage" class="form-control">
                               <option value="3">3</option>
                               <option value="5">5</option>
                               <option value="9">9</option>

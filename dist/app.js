@@ -16,14 +16,6 @@
             templateUrl: "./views/login.html"
         })
 
-        .when("/forgot", {
-            templateUrl: "./views/forgot.html"
-        })
-
-        .when("/register", {
-            templateUrl: "./views/register.html"
-        })
-
         .when("/forms", {
             templateUrl: "./views/forms.html",
             controller: "FormsController as formsCtrl"
@@ -366,7 +358,7 @@
 
     }]);
 }());
-;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/tables.html"]);
+;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forgot.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/register.html", "../views/tables.html"]);
 
 angular.module("../views/account.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/account.html",
@@ -390,14 +382,14 @@ angular.module("../views/account.html", []).run(["$templateCache", function($tem
     "                    </div>\n" +
     "                </div>\n" +
     "                <div ng-show=\"isSet(1)\">\n" +
-    "                    <div class=\"row\" style=\"margin-top: 2%; margin-left: 2%\">\n" +
+    "                    <div class=\"row account-col\" >\n" +
     "                        <div class=\"col-md-3\">\n" +
     "                            <div class=\"form-group\">\n" +
     "                                <p class=\"font-weight-bold\">Public avatar</p>\n" +
     "                                <p class=\"font-weight-normal\">You can change your avatar here or remove the current avatar to revert to gravatar.com</p>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
-    "                        <div class=\"col-md-3\" style=\"text-align: center\">\n" +
+    "                        <div class=\"col-md-3 img-perfil\">\n" +
     "                            <img src=\"//placehold.it/160\" class=\"rounded-circle\" />\n" +
     "                        </div>\n" +
     "                        <div class=\"col-md-3\">\n" +
@@ -405,11 +397,11 @@ angular.module("../views/account.html", []).run(["$templateCache", function($tem
     "                                <div class=\"form-group\">\n" +
     "                                    <label for=\"subject\">Upload new avatar</label>\n" +
     "                                </div>\n" +
-    "                                <button type=\"submit\" class=\"btn btn-secondary\">Remove avatar</button>\n" +
+    "                                <button type=\"submit\" class=\"btn btn-primary\">Remove avatar</button>\n" +
     "                            </form>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
-    "                    <div class=\"row\" style=\"margin-top: 2%; margin-left: 2%\">\n" +
+    "                    <div class=\"row account-col\" >\n" +
     "                        <div class=\"col-md-3\">\n" +
     "                            <div class=\"form-group\">\n" +
     "                                <p class=\"font-weight-bold\">Main settings</p>\n" +
@@ -439,7 +431,7 @@ angular.module("../views/account.html", []).run(["$templateCache", function($tem
     "                </div>\n" +
     "\n" +
     "                <div ng-show=\"isSet(2)\">\n" +
-    "                    <div class=\"row\" style=\"margin-top: 2%; margin-left: 2%\">\n" +
+    "                    <div class=\"row account-col\" >\n" +
     "                        <div class=\"col-md-3\">\n" +
     "                            <div class=\"form-group\">\n" +
     "                                <p class=\"font-weight-bold\">Private Token</p>\n" +
@@ -453,7 +445,7 @@ angular.module("../views/account.html", []).run(["$templateCache", function($tem
     "                                    <input ng-model=\"accountCtrl.account.token\" ng-disabled=\"true\" type=\"text\" class=\"form-control\" aria-describedby=\"tokenHelp\">\n" +
     "                                    <small id=\"tokenHelp\" class=\"form-text text-muted\">Your private token is used to access the API without username/password authentication.</small>\n" +
     "                                </div>\n" +
-    "                                <button type=\"submit\" class=\"btn btn-secondary\">Reset private token</button>\n" +
+    "                                <button type=\"submit\" class=\"btn btn-primary\">Reset private token</button>\n" +
     "                            </form>\n" +
     "                        </div>\n" +
     "                        <div class=\"col-md-3\">\n" +
@@ -491,7 +483,7 @@ angular.module("../views/account.html", []).run(["$templateCache", function($tem
     "                </div>\n" +
     "\n" +
     "                <div ng-show=\"isSet(3)\">\n" +
-    "                    <div class=\"row\" style=\"margin-top: 2%; margin-left: 2%\">\n" +
+    "                    <div class=\"row account-col\" >\n" +
     "                        <div class=\"col-md-3\">\n" +
     "                            <div class=\"form-group\">\n" +
     "                                <p class=\"font-weight-bold\">Password</p>\n" +
@@ -607,7 +599,7 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                                <div class=\"card-box bg-picton\">\n" +
     "                                      <span><i class=\"material-icons icon-card\" >account_circle</i></span>\n" +
     "                                </div>\n" +
-    "                                <div class=\"card-block\" style=\"display: inline-block;\">\n" +
+    "                                <div class=\"card-block\">\n" +
     "                                    <h4 class=\"card-title\">74</h4>\n" +
     "                                    <p class=\"card-text\">New Users</p>\n" +
     "                                </div>\n" +
@@ -622,7 +614,7 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                                <div class=\"card-box bg-shamrock\">\n" +
     "                                      <span><i class=\"material-icons icon-card\">shopping_cart</i></span>\n" +
     "                                </div>\n" +
-    "                                <div class=\"card-block\" style=\"display: inline-block;\">\n" +
+    "                                <div class=\"card-block\">\n" +
     "                                    <h4 class=\"card-title\">12</h4>\n" +
     "                                    <p class=\"card-text\">New Orders</p>\n" +
     "                                </div>\n" +
@@ -630,20 +622,6 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                        </div>\n" +
     "                    </a>\n" +
     "                </div>\n" +
-    "                <!--<div class=\"col-md-3\">\n" +
-    "                    <a href=\"#\">\n" +
-    "                        <div class=\"card\">\n" +
-    "                            <div class=\"card-heading card-green\" style=\"text-align: center;\">\n" +
-    "                                <span><i class=\"material-icons\" style=\"font-size:48px; color: white;margin-top: 24px\">shopping_cart</i></span>\n" +
-    "                                <span class=\"badge badge-default\">12</span>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"card-block\" style=\"text-align: center; padding-bottom: 0;\">\n" +
-    "                                <p style=\"\">New Orders</p>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "                    </a>\n" +
-    "                </div>-->\n" +
-    "\n" +
     "                <div class=\"col-md-3\">\n" +
     "                    <a href=\"#\">\n" +
     "                        <div class=\"card\">\n" +
@@ -651,7 +629,7 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                                <div class=\"card-box bg-sandstorm\">\n" +
     "                                      <span><i class=\"material-icons icon-card\">refresh</i></span>\n" +
     "                                </div>\n" +
-    "                                <div class=\"card-block\" style=\"display: inline-block;\">\n" +
+    "                                <div class=\"card-block\" >\n" +
     "                                    <h4 class=\"card-title\">5</h4>\n" +
     "                                    <p class=\"card-text\">Issues</p>\n" +
     "                                </div>\n" +
@@ -667,7 +645,7 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                                <div class=\"card-box bg-thunderbird\">\n" +
     "                                      <span><i class=\"material-icons icon-card\">report_problem</i></span>\n" +
     "                                </div>\n" +
-    "                                <div class=\"card-block\" style=\"display: inline-block;\">\n" +
+    "                                <div class=\"card-block\">\n" +
     "                                    <h4 class=\"card-title\">5</h4>\n" +
     "                                    <p class=\"card-text\">Issues</p>\n" +
     "                                </div>\n" +
@@ -692,10 +670,10 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                    </div>\n" +
     "                    <div class=\"col-md-4\">\n" +
     "                        <div class=\"card\">\n" +
-    "                            <div class=\"card-header\">\n" +
+    "                            <div class=\"card-header contet-gaph\">\n" +
     "                                Sales Types\n" +
     "                            </div>\n" +
-    "                            <div class=\"card-block\">\n" +
+    "                            <div class=\"card-block\" >\n" +
     "                                <canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"donutData\" chart-labels=\"donutLabels\"></canvas>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
@@ -706,6 +684,31 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "    </div>\n" +
     "</div>\n" +
     "");
+}]);
+
+angular.module("../views/forgot.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../views/forgot.html",
+    "<div class=\"login-gct\">\n" +
+    "    <div class=\"nav-login\">\n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "    </div>\n" +
+    "    <div class=\"row justify-content-center position-lgn\">\n" +
+    "        <div class=\"col-md-4 lgn-gct\">\n" +
+    "            <div class=\"card card-forgot\">\n" +
+    "                <h3 class=\"text-center title-lgn\">Redefinir Senha</h3>\n" +
+    "                <div class=\"col-md-10 offset-md-1\">\n" +
+    "                    <form >\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Email</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Enviar</button>\n" +
+    "                    </form>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
 }]);
 
 angular.module("../views/forms.html", []).run(["$templateCache", function($templateCache) {
@@ -759,41 +762,33 @@ angular.module("../views/forms.html", []).run(["$templateCache", function($templ
 
 angular.module("../views/login.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/login.html",
-    "<div class=\"card login-card\">\n" +
-    "    <div class=\"card-block\">\n" +
-    "        <div class=\"card-title\">\n" +
-    "            <h3>Login</h3>\n" +
-    "            <hr>\n" +
-    "        </div>\n" +
-    "        <form>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <div class=\"input-group\">\n" +
-    "                    <input type=\"email\" class=\"form-control form-control-lg\" id=\"\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n" +
+    "<div class=\"login-gct\">\n" +
+    "    <div class=\"nav-login\">\n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "    </div>\n" +
+    "    <div class=\"row justify-content-center position-lgn\">\n" +
+    "        <div class=\"col-md-4 lgn-gct\">\n" +
+    "            <div class=\"card card-login\">\n" +
+    "                <h3 class=\"text-center title-lgn\" >Acessar sua conta</h3>\n" +
+    "                <div class=\"col-md-10 offset-md-1\">\n" +
+    "                    <form >\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Email</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Senha</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">LOGIN</button>\n" +
+    "                        <br>\n" +
+    "                        <a href=\"#\">Esqueceu da senha?</a>\n" +
+    "                    </form>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <div class=\"input-group\">\n" +
-    "                    <input type=\"password\" class=\"form-control form-control-lg\" id=\"\" placeholder=\"Password\">\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <div class=\"form-check\">\n" +
-    "                    <label class=\"form-check-label\">\n" +
-    "                  <input type=\"checkbox\" class=\"form-check-input\"> Remember me\n" +
-    "                </label>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <a href=\"#\" class=\"btn btn-primary btn-block btn-lg\">Log in</a>\n" +
-    "            </div>\n" +
-    "        </form>\n" +
-    "        <div class=\"card-footer\">\n" +
-    "            <div class=\"card-text\">Don't have an account? <a href=\"#\">Signup</a></div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("../views/modals.html", []).run(["$templateCache", function($templateCache) {
@@ -939,6 +934,47 @@ angular.module("../views/notifications.html", []).run(["$templateCache", functio
     "");
 }]);
 
+angular.module("../views/register.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("../views/register.html",
+    "<div class=\"login-gct\">\n" +
+    "    <div class=\"nav-login\">\n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "    </div>\n" +
+    "    <div class=\"row justify-content-center position-lgn\">\n" +
+    "        <div class=\"col-md-4 lgn-gct\">\n" +
+    "            <div class=\"card card-register\">\n" +
+    "                <h3 class=\"text-center title-lgn\" >Registre-se agora</h3>\n" +
+    "                <div class=\"col-md-10 offset-md-1\">\n" +
+    "                    <form >\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Nome</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Sobrenome</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Email</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Senha</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <div class=\"form-group\">\n" +
+    "                            <label for=\"formGroupExampleInput\">Confirmar Senha</label>\n" +
+    "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
+    "                        </div>\n" +
+    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">LOGIN</button>\n" +
+    "                    </form>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>");
+}]);
+
 angular.module("../views/tables.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/tables.html",
     "<div class=\"row\">\n" +
@@ -947,8 +983,8 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "            <div class=\"card-header\">\n" +
     "                Angular Data Tables\n" +
     "            </div>\n" +
-    "            <div class=\"card-block\">\n" +
-    "                <div class=\"row\" style=\"margin-bottom: 1%\">\n" +
+    "            <div class=\"card-block \">\n" +
+    "                <div class=\"row\">\n" +
     "                    <div class=\"col-md-12\">\n" +
     "                        <form class=\"form-inline\">\n" +
     "                            <div class=\"input-group mb-4 mr-sm-4 mb-sm-0\">\n" +
@@ -965,25 +1001,25 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "                        </form>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <table ng-show=\"filteredList.length\" class=\"table table-striped table-responsive\" at-table at-paginated at-list=\"filteredList\" at-config=\"config\">\n" +
+    "                <table class=\"table table-striped table-responsive \"  at-table at-paginated at-list=\"filteredList\" at-config=\"config\">\n" +
     "                    <thead></thead>\n" +
-    "                    <tbody>\n" +
+    "                    <tbody class=\"col-md-12\" >\n" +
     "                        <tr>\n" +
-    "                            <td at-implicit at-sortable at-attribute=\"index\" width=\"150\" at-initial-sorting=\"asc\"></td>\n" +
-    "                            <td at-implicit at-sortable at-attribute=\"name\" width=\"250\"></td>\n" +
-    "                            <td at-implicit at-sortable at-attribute=\"email\"></td>\n" +
-    "                            <td at-title=\"Ação\">\n" +
+    "                            <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"index\" width=\"150\" at-initial-sorting=\"asc\"></td>\n" +
+    "                            <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"name\" width=\"250\"></td>\n" +
+    "                            <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"email\"></td>\n" +
+    "                            <td class=\"align-middle\" at-title=\"Ação\">\n" +
     "                                <button class=\"btn btn-primary btn-smn\"><i class=\"material-icons\">search</i></button>\n" +
     "                                <button class=\"btn btn-danger btn-smn\"><i class=\"material-icons\">delete_forever</i></button>\n" +
     "                            </td>\n" +
     "                        </tr>\n" +
-    "                    </tbody>\n" +
-    "                </table>\n" +
-    "                <div class=\"row\">\n" +
+    "                    </tbffody>\n" +
+    "                </table >\n" +
+    "                <div class=\"row controler-table\">\n" +
     "                    <div class=\"col-md-6\">\n" +
     "                        <div class=\"form-group form-inline\">\n" +
-    "                            <label>Mostrar </label>\n" +
-    "                            <select ng-init=\"config.itemsPerPage = '5'\" ng-model=\"config.itemsPerPage\" class=\"form-control\">\n" +
+    "                            <label >Mostrar </label>\n" +
+    "                            <select class=\"pagination-table custom-select\" ng-init=\"config.itemsPerPage = '5'\" ng-model=\"config.itemsPerPage\" class=\"form-control\">\n" +
     "                              <option value=\"3\">3</option>\n" +
     "                              <option value=\"5\">5</option>\n" +
     "                              <option value=\"9\">9</option>\n" +
@@ -992,7 +1028,7 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "                        </div>\n" +
     "                    </div>\n" +
     "                    <div class=\"col-md-6\">\n" +
-    "                        <at-pagination at-list=\"filteredList\" at-config=\"config\" style=\"float: right\"></at-pagination>\n" +
+    "                        <at-pagination at-list=\"filteredList\" at-config=\"config\" class=\"pag-table\"></at-pagination>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +

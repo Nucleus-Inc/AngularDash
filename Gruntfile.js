@@ -29,6 +29,7 @@ module.exports = function(grunt) {
           'js/tether.min.js': 'tether/dist/js/tether.min.js',
           'js/material.min.js': 'daemonite-material/js/material.min.js',
           'css/material.min.css': 'daemonite-material/css/material.min.css',
+          'css/material.css': 'daemonite-material/css/material.css',
           'fonts/fontawesome-webfont.ttf': 'font-awesome/fonts/fontawesome-webfont.ttf',
           'fonts/fontawesome-webfont.woff': 'font-awesome/fonts/fontawesome-webfont.woff',
           'fonts/fontawesome-webfont.woff2': 'font-awesome/fonts/fontawesome-webfont.woff2',
