@@ -664,7 +664,7 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                                Graph\n" +
     "                            </div>\n" +
     "                            <div class=\"card-block\">\n" +
-    "                                <canvas class=\"chart chart-line\" chart-data=\"data\" chart-labels=\"labels\" chart-series=\"series\" chart-click=\"onClick\"></canvas>\n" +
+    "                                <canvas class=\"chart chart-line\" height=\"100\" chart-data=\"data\" chart-labels=\"labels\" chart-series=\"series\" chart-click=\"onClick\"></canvas>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
@@ -673,8 +673,8 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "                            <div class=\"card-header contet-gaph\">\n" +
     "                                Sales Types\n" +
     "                            </div>\n" +
-    "                            <div class=\"card-block\" >\n" +
-    "                                <canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"donutData\" chart-labels=\"donutLabels\"></canvas>\n" +
+    "                            <div class=\"card-block\">\n" +
+    "                                <canvas  id=\"doughnut\" class=\"chart chart-doughnut\" height=\"192\" chart-data=\"donutData\" chart-labels=\"donutLabels\" ></canvas>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
