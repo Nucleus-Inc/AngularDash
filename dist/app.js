@@ -50,6 +50,16 @@
             controller: "AccountController as accountCtrl"
         })
 
+        .when("/register", {
+            templateUrl: "./views/register.html",
+            controller: "RegisterController as registerCtrl"
+        })
+
+        .when("/forgot", {
+            templateUrl: "./views/forgot.html",
+            controller: "ForgotController as forgotCtrl"
+        })
+
         .otherwise({
             redirectTo: "/"
         });
@@ -144,6 +154,17 @@
         $scope.donutData = [300, 500, 100];
 
     }]);
+}());
+;(function() {
+  angular.module('Dashboard')
+    .controller('ForgotController', function() {
+
+      this.awesomeThings = [
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
+      ];
+    });
 }());
 ;(function() {
     angular.module('Dashboard').controller('FormModalController', ['$scope', 'ModalService', 'close',
@@ -276,6 +297,17 @@
         };
 
     }]);
+}());
+;(function() {
+  angular.module('Dashboard')
+    .controller('RegisterController', function() {
+
+      this.awesomeThings = [
+        'HTML5 Boilerplate',
+        'AngularJS',
+        'Karma'
+      ];
+    });
 }());
 ;(function() {
     angular.module('Dashboard').controller('TablesController', ['filterFilter', '$scope', '$http', '$filter', function(filterFilter, $scope, $http, $filter) {

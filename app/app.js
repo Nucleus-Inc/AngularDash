@@ -50,6 +50,16 @@
             controller: "AccountController as accountCtrl"
         })
 
+        .when("/register", {
+            templateUrl: "./views/register.html",
+            controller: "RegisterController as registerCtrl"
+        })
+
+        .when("/forgot", {
+            templateUrl: "./views/forgot.html",
+            controller: "ForgotController as forgotCtrl"
+        })
+
         .otherwise({
             redirectTo: "/"
         });
