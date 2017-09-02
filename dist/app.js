@@ -187,20 +187,29 @@
     ]);
 }());
 ;(function() {
-    angular.module('Dashboard').controller('FormsController', ['$scope', function($scope) {
+  angular.module('Dashboard').controller('FormsController', ['$scope', function($scope) {
 
-        var vm = this;
+    var vm = this;
 
-        this.inputs = [];
+    vm.inputs = [];
+    vm.alertMessage = {};
 
-        $scope.test = function() {
-            if ($scope.formModal.$valid) {
-                console.log("valid");
-            } else {
-                console.log("not valid");
-            }
-        }
-    }]);
+    vm.submit = function() {
+      if ($scope.sampleForm.$valid) {
+        vm.alertMessage.type = 'success';
+        vm.alertMessage.message = 'Form is valid !';
+      } else {
+        vm.alertMessage.type = 'danger';
+        vm.alertMessage.message = 'Form is invalid !';
+      }
+      vm.alertMessage.show = true;
+    };
+
+    vm.closeAlert = function() {
+      vm.alertMessage.show = false;
+    };
+
+  }]);
 }());
 ;(function() {
     angular.module('Dashboard').controller('ModalsController', ['$scope', 'ModalService', function($scope, ModalService) {
@@ -722,72 +731,78 @@ angular.module("../views/forgot.html", []).run(["$templateCache", function($temp
   $templateCache.put("../views/forgot.html",
     "<div class=\"login-gct\">\n" +
     "    <div class=\"nav-login\">\n" +
-    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\">\n" +
     "    </div>\n" +
     "    <div class=\"row justify-content-center position-lgn\">\n" +
     "        <div class=\"col-md-4 lgn-gct\">\n" +
     "            <div class=\"card card-forgot\">\n" +
-    "                <h3 class=\"text-center title-lgn\">Redefinir Senha</h3>\n" +
+    "                <h3 class=\"text-center title-lgn\">Reset password</h3>\n" +
     "                <div class=\"col-md-10 offset-md-1\">\n" +
     "                    <form >\n" +
     "                        <div class=\"form-group\">\n" +
     "                            <label for=\"formGroupExampleInput\">Email</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
-    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Enviar</button>\n" +
+    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Send</button>\n" +
     "                    </form>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("../views/forms.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/forms.html",
     "<div class=\"row\">\n" +
-    "    <div class=\"col-md-12\">\n" +
-    "        <div class=\"card\">\n" +
-    "            <div class=\"card-header\">\n" +
-    "                Basic Validation\n" +
-    "            </div>\n" +
-    "            <div class=\"card-block\">\n" +
-    "                <form role=\"form\" name=\"formModal\" ng-class=\"{'submitted': submitted}\" ng-submit=\"test()\" novalidate>\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label for=\"email-input\">Email address</label>\n" +
-    "                        <input ng-model=\"formsCtrl.inputs.email\" type=\"email\" name=\"email\" class=\"form-control\" id=\"email-input\" aria-describedby=\"email-help\" placeholder=\"Enter email\" required>\n" +
-    "                        <small class=\"form-text text-muted text-danger\" ng-if=\"formModal.$submitted\" ng-show=\"formModal.email.$error.required\">Email address is required</small>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label for=\"subject\">First Name</label>\n" +
-    "                        <input ng-model=\"formsCtrl.inputs.firstName\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"First Name\" required>\n" +
-    "                          <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.firstName.$error.required\" class=\"form-text text-muted text-danger\">First name is required</small>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label for=\"subject\">Last Name</label>\n" +
-    "                          <input ng-model=\"formsCtrl.inputs.lastName\" class=\"form-control\" type=\"text\" name=\"lastName\" placeholder=\"Last Name\" required>\n" +
-    "                          <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.lastName.$error.required\" class=\"form-text text-muted text-danger\">Last name is required</small>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <label for=\"text-area\">Description</label>\n" +
-    "                        <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.description.$error.required\" class=\"form-text text-muted text-danger\">Description is required</small>\n" +
-    "                        <textarea ng-model=\"formsCtrl.inputs.message\" class=\"form-control\" name=\"description\" id=\"text-area\" rows=\"3\" required></textarea>\n" +
-    "\n" +
-    "                    </div>\n" +
-    "                    <div class=\"form-check\">\n" +
-    "                        <label class=\"form-check-label\">\n" +
-    "                        <input ng-model=\"formsCtrl.inputs.terms\" type=\"checkbox\" class=\"form-check-input\" name=\"terms\" required>\n" +
-    "                        I have read and accept the terms\n" +
-    "                      </label>\n" +
-    "                      <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.terms.$error.required\" class=\"form-text text-muted text-danger\">Your need to accept the terms</small>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"form-group\">\n" +
-    "                        <button ng-click=\"submitted= true;\" type=\"submit\" class=\"btn btn-primary\"> Enviar</button>\n" +
-    "                    </div>\n" +
-    "                </form>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
+    "  <div class=\"col-md-12\">\n" +
+    "    <div class=\"card\">\n" +
+    "      <div class=\"card-header\">\n" +
+    "        Form Validation\n" +
+    "      </div>\n" +
+    "      <div class=\"card-block\">\n" +
+    "        <form role=\"form\" name=\"sampleForm\" ng-submit=\"formsCtrl.submit()\" novalidate>\n" +
+    "          <div ng-show=\"formsCtrl.alertMessage.show\" ng-class=\"'alert-' + (formsCtrl.alertMessage.type)\" class=\"alert alert-dismissible fade show\" role=\"alert\">\n" +
+    "              <button ng-click=\"formsCtrl.closeAlert()\" type=\"button\" class=\"close\" aria-label=\"Close\">\n" +
+    "                <span aria-hidden=\"true\">&times;</span>\n" +
+    "              </button>\n" +
+    "              <strong> {{formsCtrl.alertMessage.message}}\n" +
+    "          </div>\n" +
+    "          <div class=\"form-group\">\n" +
+    "            <label for=\"email-input\">Email address</label>\n" +
+    "            <input ng-model=\"formsCtrl.inputs.email\" ng-class=\"{'form-control-danger': submitted && sampleForm.email.$error.required}\" type=\"email\" name=\"email\" class=\"form-control\" id=\"email-input\" aria-describedby=\"email-help\" placeholder=\"Enter email\" required>\n" +
+    "            <small class=\"form-text text-muted text-danger\" ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.email.$error.required\">Email address is required</small>\n" +
+    "          </div>\n" +
+    "          <div class=\"form-group\">\n" +
+    "            <label for=\"subject\">First Name</label>\n" +
+    "            <input ng-model=\"formsCtrl.inputs.firstName\" ng-class=\"{'form-control-danger': submitted && sampleForm.firstName.$error.required}\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"First Name\" required>\n" +
+    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.firstName.$error.required\" class=\"form-text text-muted text-danger\">First name is required</small>\n" +
+    "          </div>\n" +
+    "          <div class=\"form-group\">\n" +
+    "            <label for=\"subject\">Last Name</label>\n" +
+    "            <input ng-model=\"formsCtrl.inputs.lastName\" ng-class=\"{'form-control-danger': submitted && sampleForm.lastName.$error.required}\" class=\"form-control\" type=\"text\" name=\"lastName\" placeholder=\"Last Name\" required>\n" +
+    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.lastName.$error.required\" class=\"form-text text-muted text-danger\">Last name is required</small>\n" +
+    "          </div>\n" +
+    "          <div class=\"form-group\">\n" +
+    "            <label for=\"text-area\">Description</label>\n" +
+    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.description.$error.required\" class=\"form-text text-muted text-danger\">Description is required</small>\n" +
+    "            <textarea ng-model=\"formsCtrl.inputs.message\" ng-class=\"{'form-control-danger': submitted && sampleForm.description.$error.required}\" class=\"form-control\" name=\"description\" id=\"text-area\" rows=\"3\" required></textarea>\n" +
+    "          </div>\n" +
+    "          <div class=\"form-check\">\n" +
+    "            <label class=\"form-check-label has-danger\">\n" +
+    "              <input ng-model=\"formsCtrl.inputs.terms\" ng-class=\"{'form-control-danger': submitted && sampleForm.terms.$error.required}\" type=\"checkbox\" class=\"form-check-input\" name=\"terms\" required>\n" +
+    "                I have read and accept the terms\n" +
+    "              </label>\n" +
+    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.terms.$error.required\" class=\"form-text text-muted text-danger\">Your need to accept the terms</small>\n" +
+    "          </div>\n" +
+    "          <div class=\"form-group\">\n" +
+    "            <button ng-click=\"submitted= true;\" type=\"submit\" class=\"btn btn-primary\"> Enviar</button>\n" +
+    "          </div>\n" +
+    "        </form>\n" +
+    "      </div>\n" +
     "    </div>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);
@@ -796,12 +811,12 @@ angular.module("../views/login.html", []).run(["$templateCache", function($templ
   $templateCache.put("../views/login.html",
     "<div class=\"login-gct\">\n" +
     "    <div class=\"nav-login\">\n" +
-    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\">\n" +
     "    </div>\n" +
     "    <div class=\"row justify-content-center position-lgn\">\n" +
     "        <div class=\"col-md-4 lgn-gct\">\n" +
     "            <div class=\"card card-login\">\n" +
-    "                <h3 class=\"text-center title-lgn\" >Acessar sua conta</h3>\n" +
+    "                <h3 class=\"text-center title-lgn\" >Log in</h3>\n" +
     "                <div class=\"col-md-10 offset-md-1\">\n" +
     "                    <form >\n" +
     "                        <div class=\"form-group\">\n" +
@@ -809,18 +824,19 @@ angular.module("../views/login.html", []).run(["$templateCache", function($templ
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <div class=\"form-group\">\n" +
-    "                            <label for=\"formGroupExampleInput\">Senha</label>\n" +
+    "                            <label for=\"formGroupExampleInput\">Password</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">LOGIN</button>\n" +
     "                        <br>\n" +
-    "                        <a href=\"#\">Esqueceu da senha?</a>\n" +
+    "                        <a href=\"#\">Forgot your password?</a>\n" +
     "                    </form>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("../views/modals.html", []).run(["$templateCache", function($templateCache) {
@@ -970,20 +986,20 @@ angular.module("../views/register.html", []).run(["$templateCache", function($te
   $templateCache.put("../views/register.html",
     "<div class=\"login-gct\">\n" +
     "    <div class=\"nav-login\">\n" +
-    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\"> \n" +
+    "        <img class=\"img-login\" src=\"assets/img/nucleus.min.png\">\n" +
     "    </div>\n" +
     "    <div class=\"row justify-content-center position-lgn\">\n" +
     "        <div class=\"col-md-4 lgn-gct\">\n" +
     "            <div class=\"card card-register\">\n" +
-    "                <h3 class=\"text-center title-lgn\" >Registre-se agora</h3>\n" +
+    "                <h3 class=\"text-center title-lgn\" >Sign Up</h3>\n" +
     "                <div class=\"col-md-10 offset-md-1\">\n" +
     "                    <form >\n" +
     "                    <div class=\"form-group\">\n" +
-    "                            <label for=\"formGroupExampleInput\">Nome</label>\n" +
+    "                            <label for=\"formGroupExampleInput\">Name</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <div class=\"form-group\">\n" +
-    "                            <label for=\"formGroupExampleInput\">Sobrenome</label>\n" +
+    "                            <label for=\"formGroupExampleInput\">Last name</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <div class=\"form-group\">\n" +
@@ -991,20 +1007,21 @@ angular.module("../views/register.html", []).run(["$templateCache", function($te
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <div class=\"form-group\">\n" +
-    "                            <label for=\"formGroupExampleInput\">Senha</label>\n" +
+    "                            <label for=\"formGroupExampleInput\">Password</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
     "                        <div class=\"form-group\">\n" +
-    "                            <label for=\"formGroupExampleInput\">Confirmar Senha</label>\n" +
+    "                            <label for=\"formGroupExampleInput\">Repeat Password</label>\n" +
     "                            <input type=\"text\" class=\"form-control\" id=\"formGroupExampleInput\" placeholder=\"\">\n" +
     "                        </div>\n" +
-    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">LOGIN</button>\n" +
+    "                        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">REGISTER</button>\n" +
     "                    </form>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("../views/tables.html", []).run(["$templateCache", function($templateCache) {
@@ -1050,13 +1067,13 @@ angular.module("../views/tables.html", []).run(["$templateCache", function($temp
     "                <div class=\"row controler-table\">\n" +
     "                    <div class=\"col-md-6\">\n" +
     "                        <div class=\"form-group form-inline\">\n" +
-    "                            <label >Mostrar </label>\n" +
+    "                            <label >Show </label>\n" +
     "                            <select class=\"pagination-table custom-select\" ng-init=\"config.itemsPerPage = '5'\" ng-model=\"config.itemsPerPage\" class=\"form-control\">\n" +
     "                              <option value=\"3\">3</option>\n" +
     "                              <option value=\"5\">5</option>\n" +
     "                              <option value=\"9\">9</option>\n" +
     "                            </select>\n" +
-    "                            <label>entradas</label>\n" +
+    "                            <label>items</label>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                    <div class=\"col-md-6\">\n" +

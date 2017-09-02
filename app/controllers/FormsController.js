@@ -1,16 +1,25 @@
 (function() {
-    angular.module('Dashboard').controller('FormsController', ['$scope', function($scope) {
+  angular.module('Dashboard').controller('FormsController', ['$scope', function($scope) {
 
-        var vm = this;
+    var vm = this;
 
-        this.inputs = [];
+    vm.inputs = [];
+    vm.alertMessage = {};
 
-        $scope.test = function() {
-            if ($scope.formModal.$valid) {
-                console.log("valid");
-            } else {
-                console.log("not valid");
-            }
-        }
-    }]);
+    vm.submit = function() {
+      if ($scope.sampleForm.$valid) {
+        vm.alertMessage.type = 'success';
+        vm.alertMessage.message = 'Form is valid !';
+      } else {
+        vm.alertMessage.type = 'danger';
+        vm.alertMessage.message = 'Form is invalid !';
+      }
+      vm.alertMessage.show = true;
+    };
+
+    vm.closeAlert = function() {
+      vm.alertMessage.show = false;
+    };
+
+  }]);
 }());
