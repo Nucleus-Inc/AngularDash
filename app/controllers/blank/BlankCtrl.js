@@ -1,6 +1,6 @@
 (function() {
-  angular.module('Dashboard')
-    .controller('RegisterController', function() {
+  angular.module('angularDash')
+    .controller('BlankCtrl', function() {
 
       this.awesomeThings = [
         'HTML5 Boilerplate',

@@ -1,5 +1,5 @@
 (function() {
-    angular.module('Dashboard').controller('NotificationsController', ['$scope', 'notify', function($scope, notify) {
+    angular.module('angularDash').controller('NotificationsCtrl', ['$scope', 'notify', function($scope, notify) {
 
         var vm = this;
 

@@ -3,7 +3,7 @@
 describe('Controller: BlankCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('Dashboard'));
+  beforeEach(module('angularDash'));
 
   var BlankController,
     scope;
@@ -11,7 +11,7 @@ describe('Controller: BlankCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    BlankController = $controller('BlankController', {
+    BlankController = $controller('BlankCtrl', {
       $scope: scope
       // place here mocked dependencies
     });

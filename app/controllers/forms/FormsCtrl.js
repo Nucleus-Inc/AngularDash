@@ -1,5 +1,5 @@
 (function() {
-  angular.module('Dashboard').controller('FormsController', ['$scope', function($scope) {
+  angular.module('angularDash').controller('FormsCtrl', ['$scope', function($scope) {
 
     var vm = this;
 

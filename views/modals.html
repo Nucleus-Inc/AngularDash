@@ -1,43 +1,43 @@
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                A Simple Yes/No Modal
-            </div>
-            <div class="card-block">
-                <form>
-                    <div class="form-group">
-                        <label for="modalTitle">Modal Title</label>
-                        <input type="text" class="form-control" id="modalTitle" aria-describedby="Enter a title for the modal" placeholder="Enter a title for the modal" ng-model="modalsCtrl.alertTitle">
-                    </div>
-                    <div class="form-group">
-                        <label for="modalQuestion">Modal Question</label>
-                        <input type="text" class="form-control" id="modalQuestion" aria-describedby="Enter a question for the modal" placeholder="Enter a question for the modal" ng-model="modalsCtrl.alertQuestion">
-                    </div>
-                    <div class="form-group">
-                        <pre>Your answer: {{modalsCtrl.alertResult}}</pre>
-                    </div>
-                    <button type="button" class="btn btn-primary" ng-click="modalsCtrl.showAlertModal()">Yes or No</button>
-                </form>
-            </div>
-        </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        A Simple Yes/No Modal
+      </div>
+      <div class="card-block">
+        <form>
+          <div class="form-group">
+            <label for="modalTitle">Modal Title</label>
+            <input type="text" class="form-control" id="modalTitle" aria-describedby="Enter a title for the modal" placeholder="Enter a title for the modal" ng-model="modalsCtrl.alertTitle">
+          </div>
+          <div class="form-group">
+            <label for="modalQuestion">Modal Question</label>
+            <input type="text" class="form-control" id="modalQuestion" aria-describedby="Enter a question for the modal" placeholder="Enter a question for the modal" ng-model="modalsCtrl.alertQuestion">
+          </div>
+          <div class="form-group">
+            <pre>Your answer: {{modalsCtrl.alertResult}}</pre>
+          </div>
+          <button type="button" class="btn btn-primary" ng-click="modalsCtrl.showAlertModal()">Yes or No</button>
+        </form>
+      </div>
     </div>
-    <div class="col-md-12 marg-t15">
-        <div class="card">
-            <div class="card-header">
-                Modal with form
-            </div>
-            <div class="card-block">
-                <form>
-                    <div class="form-group">
-                        <pre>Email: {{modalsCtrl.formResult.email}}</pre>
-                        <pre>Subject: {{modalsCtrl.formResult.subject}}</pre>
-                        <pre>Message: {{modalsCtrl.formResult.message}}</pre>
-                        <pre>Checkbox: {{modalsCtrl.formResult.checkbox}}</pre>
-                    </div>
-                </form>
-                <button type="button" class="btn btn-primary" ng-click="modalsCtrl.showFormModal()">Modal with Form</button>
-            </div>
-        </div>
+  </div>
+  <div class="col-md-12 marg-t15">
+    <div class="card">
+      <div class="card-header">
+        Modal with form
+      </div>
+      <div class="card-block">
+        <form>
+          <div class="form-group">
+            <pre>Email: {{modalsCtrl.formResult.email}}</pre>
+            <pre>Subject: {{modalsCtrl.formResult.subject}}</pre>
+            <pre>Message: {{modalsCtrl.formResult.message}}</pre>
+            <pre>Checkbox: {{modalsCtrl.formResult.checkbox}}</pre>
+          </div>
+        </form>
+        <button type="button" class="btn btn-primary" ng-click="modalsCtrl.showFormModal()">Modal with Form</button>
+      </div>
     </div>
+  </div>
 </div>

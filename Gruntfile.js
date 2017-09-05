@@ -18,7 +18,6 @@ module.exports = function(grunt) {
           'js/angular.min.js': 'angular/angular.min.js',
           'js/angular-route.min.js': 'angular-route/angular-route.min.js',
           'js/angular-mocks.js': 'angular-mocks/angular-mocks.js',
-          'js/Chart.min.js': 'chart.js/dist/Chart.min.js',
           'js/angular-modal-service.min.js': 'angular-modal-service/dst/angular-modal-service.min.js',
           'css/angular-notify.min.css': 'angular-notify/dist/angular-notify.min.css',
           'js/angular-notify.min.js': 'angular-notify/dist/angular-notify.min.js',
@@ -68,7 +67,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['app/**/*.js', 'tmp/*.js'],
+        src: ['app/app.js', 'app/**/*.js', 'tmp/*.js'],
         dest: 'dist/app.js'
       }
     },

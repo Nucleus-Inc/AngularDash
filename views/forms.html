@@ -7,10 +7,10 @@
       <div class="card-block">
         <form role="form" name="sampleForm" ng-submit="formsCtrl.submit()" novalidate>
           <div ng-show="formsCtrl.alertMessage.show" ng-class="'alert-' + (formsCtrl.alertMessage.type)" class="alert alert-dismissible fade show" role="alert">
-              <button ng-click="formsCtrl.closeAlert()" type="button" class="close" aria-label="Close">
+            <button ng-click="formsCtrl.closeAlert()" type="button" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <strong> {{formsCtrl.alertMessage.message}}
+            <strong> {{formsCtrl.alertMessage.message}}
           </div>
           <div class="form-group">
             <label for="email-input">Email address</label>
