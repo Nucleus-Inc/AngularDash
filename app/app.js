@@ -1,6 +1,14 @@
 (function() {
 
-  var app = angular.module('angularDash', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table', 'cgNotify', 'alexjoffroy.angular-loaders'])
+  var app = angular.module('angularDash',
+      [
+          'ngRoute',
+          'chart.js',
+          'angularModalService',
+          'angular-table',
+          'cgNotify',
+          'alexjoffroy.angular-loaders'
+      ])
 
     .config(function($routeProvider, $locationProvider) {
 
@@ -80,6 +88,14 @@
           console.log("Previous Url: " + previous.originalPath);
         }
         console.log("Current Url: " + current.originalPath);
+
+        // função background
+        if(current.originalPath === '/register'){
+            //angular.element('body').css({ 'background': '#4051b5'});
+        } else {
+            //angular.element('body').css({'background': '#fff'});
+        }
+
       });
     });
 })();

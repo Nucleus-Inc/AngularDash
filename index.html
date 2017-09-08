@@ -1,201 +1,32 @@
 <html ng-app="angularDash">
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <meta name="author" content="Igor Lopes">
-  <meta name="description" content="">
-  <title> Angular Aside Dashboard </title>
-  <!--Bootstrap layout-->
-  <link rel="stylesheet" href="node_modules/bootstrap-layout/dist/bootstrap-layout.css">
-  <!-- Daemonite materials -->
-  <link rel="stylesheet" href="vendors/css/material.min.css">
-  <!-- Material icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="vendors/css/loaders.min.css">
-  <link rel="stylesheet" href="vendors/css/font-awesome.min.css">
-  <link rel="stylesheet" href="vendors/css/angular-notify.min.css">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:200,400,700" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="author" content="Igor Lopes">
+    <meta name="description" content="">
+    <title> Angular Aside Dashboard </title>
+    <!--Bootstrap layout-->
+    <link rel="stylesheet" href="node_modules/bootstrap-layout/dist/bootstrap-layout.css">
+    <!-- Daemonite materials -->
+    <link rel="stylesheet" href="vendors/css/material.min.css">
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/css/loaders.min.css">
+    <link rel="stylesheet" href="vendors/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/css/angular-notify.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:200,400,700" rel="stylesheet">
 </head>
 
 <body>
-  <div class="layout-container layout-sidebar-l3-md-up">
-    <div class="layout-content" data-scrollable>
-      <nav class="navbar navbar-toggleable-sm bg-white">
-        <button class="navbar-toggler" id="special-toggle-button" data-target="#sidebar-blank-1" data-toggle="sidebar" type="button">
-               &#9776;
-             </button>
-        <div class="navbar-collapse collapse" id="navbar2">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle" href="#" target="_self" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span><i class="material-icons">notifications</i>
-                                <span class="badge badge-danger">4</span></span>
-                            </a>
-              <div class="dropdown-menu notif-list dropdown-menu-right dropdownresp   " aria-labelledby="navbarDropdownMenuLink">
-                <div class="drop-title"><small>Notificações</small></div>
-                <a class="dropdown-item" href="#">
-                                <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                <span class="message">
-                                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                                </span>
-                              </a>
-                <a class="dropdown-item" href="#">
-                                <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                <span class="message">
-                                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                                </span>
-                              </a>
-                <a class="dropdown-item" href="#">
-                                <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                <span class="message">
-                                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                                </span>
-                              </a>
-                <div class="drop-footer text-center">
-                  <a href="dropdown-item" href="#"><small>Show all</small></a> </div>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" target="_self" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span><i class="material-icons">mail</i></span>
-                                <span class="badge badge-danger">2</span></span>
-                            </a>
-              <div class="dropdown-menu msg-list dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <div class="drop-title"><small>Mensagens</small></div>
-                <a class="dropdown-item" href="#">
-                                  <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                  <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                  </span>
-                                  <span class="message">
-                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                  </span>
-                                </a>
-                <a class="dropdown-item" href="#">
-                                  <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                  <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                  </span>
-                                  <span class="message">
-                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                  </span>
-                                </a>
-                <a class="dropdown-item" href="#">
-                                  <span class="image"><img src="assets/img/user_100_100.jpeg" alt="Profile Image"></span>
-                                  <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                  </span>
-                                  <span class="message">
-                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                  </span>
-                                </a>
-                <div class="drop-footer text-center">
-                  <a href="dropdown-item" href="#"><small>Show all</small></a> </div>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#" target="_self" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle" src="assets/img/user_40_40.jpeg"></a>
-              <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-                <div class="drop-title"><img class="rounded-circle img-drop-title" src="assets/img/user_40_40.jpeg"></a> Username
-                  <div class="title-notify">name@domain.com</div>
-                </div>
-                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">account_box</i> My Profile</a>
-                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">settings</i> Settings</a>
-                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">help</i> Help</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="material-icons marg-r15">exit_to_app</i>Log out</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="container-fluid">
-        <div ng-view></div>
-      </div>
-    </div>
 
-    <div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-title s" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3">
-      <!-- Brand -->
-      <a href="#" class="sidebar-brand ">Brand</a>
-      <div class="sidebar-heading">Heading</div>
-      <!-- Menu -->
-      <ul class="sidebar-menu sm-active-button-bg sidebar-text">
-        <li class="sidebar-menu-item">
-          <a class="sidebar-menu-button " href="#">Menu button</a>
-        </li>
+    <div ng-view></div>
 
-        <li class="sidebar-menu-item">
-          <a class="sidebar-menu-button" href="#"><i class="sidebar-menu-icon material-icons">dashboard</i> Dashboard</a>
-        </li>
-        <li class="sidebar-menu-item">
-          <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">computer</i> UI Elements</a>
-          <!-- Submenu -->
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/buttons"> Buttons</a>
-            </li>
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/forms"> Forms</a>
-            </li>
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/tables"> Tables</a>
-            </li>
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/notifications"> Notifications</a>
-            </li>
-          </ul>
-        </li>
-        <li class="sidebar-menu-item">
-          <a class="sidebar-menu-button" href="#/modals"><i class="sidebar-menu-icon material-icons">chat_bubble_outline</i> Modals</a>
-        </li>
-        <li class="sidebar-menu-item">
-          <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">pie_chart</i>Reports</a>
-          <!-- Submenu -->
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#"> Report #1</a>
-            </li>
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#"> Report #2</a>
-            </li>
-          </ul>
-        </li>
-        <li class="sidebar-menu-item">
-          <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">web_asset</i>Pages</a>
-          <!-- Submenu -->
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/login"> Login</a>
-            </li>
-          </ul>
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/blank"> Blank</a>
-            </li>
-          </ul>
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/forgot"> Forgot</a>
-            </li>
-          </ul>
-          <ul class="sidebar-submenu">
-            <li class="sidebar-menu-item">
-              <a class="sidebar-menu-button" href="#/register"> Register</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <!-- // END Menu -->
-    </div>
 
     <!-- JQuery -->
     <script src="vendors/js/jquery.min.js"></script>

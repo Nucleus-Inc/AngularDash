@@ -80,6 +80,14 @@
           console.log("Previous Url: " + previous.originalPath);
         }
         console.log("Current Url: " + current.originalPath);
+
+        // função background
+        if(current.originalPath === '/register'){
+            //angular.element('body').css({ 'background': '#4051b5'});
+        } else {
+            //angular.element('body').css({'background': '#fff'});
+        }
+
       });
     });
 })();
@@ -297,6 +305,24 @@
     });
 }());
 ;(function() {
+  angular.module('angularDash')
+    .controller('SidebarCtrl', function() {
+
+        var vm = this;
+
+        var openMenu = function() {
+
+        };
+
+        var init = function(){
+            openMenu();
+        };
+
+        //init();
+
+    });
+}());
+;(function() {
   angular.module('angularDash').controller('TablesCtrl', ['filterFilter', '$scope', '$http', '$filter', function(filterFilter, $scope, $http, $filter) {
 
     var vm = this;
@@ -378,7 +404,13 @@
 
   }]);
 }());
-;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forgot.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/register.html", "../views/tables.html"]);
+;angular.module('angularDash').directive('sidebar', function() {
+   return {
+       //template: '<div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-title s" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3"> <a href="#" class="sidebar-brand ">Brand</a> <div class="sidebar-heading">Heading</div><ul class="sidebar-menu sm-active-button-bg sidebar-text"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button " href="#">Menu button</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"><i class="sidebar-menu-icon material-icons">dashboard</i> Dashboard</a> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">computer</i> UI Elements</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/buttons"> Buttons</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/forms"> Forms</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/tables"> Tables</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/notifications"> Notifications</a> </li></ul> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/modals"><i class="sidebar-menu-icon material-icons">chat_bubble_outline</i> Modals</a> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">pie_chart</i>Reports</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"> Report #1</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"> Report #2</a> </li></ul> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">web_asset</i>Pages</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/login"> Login</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/blank"> Blank</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/forgot"> Forgot</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/register"> Register</a> </li></ul> </li></ul> </div><script src="node_modules/bootstrap-layout/dist/bootstrap-layout.js"></script>'
+       templateUrl: './views/partials/sidebar.html'
+   } ;
+
+});;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forgot.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/register.html", "../views/tables.html"]);
 
 angular.module("../views/account.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/account.html",
@@ -607,93 +639,109 @@ angular.module("../views/buttons.html", []).run(["$templateCache", function($tem
 
 angular.module("../views/dashboard.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/dashboard.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-lg-12\">\n" +
-    "    <div class=\"cards-dash\">\n" +
-    "      <div class=\"row\">\n" +
-    "        <div class=\"col-md-3\">\n" +
-    "          <a href=\"#\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-heading\">\n" +
-    "                <div class=\"card-box bg-picton\">\n" +
-    "                  <span><i class=\"material-icons icon-card\" >account_circle</i></span>\n" +
-    "                </div>\n" +
-    "                <div class=\"card-block\">\n" +
-    "                  <h4 class=\"card-title\">74</h4>\n" +
-    "                  <p class=\"card-text\">New Users</p>\n" +
-    "                </div>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "          </a>\n" +
-    "        </div>\n" +
-    "        <div class=\"col-md-3\">\n" +
-    "          <a href=\"#\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-heading\">\n" +
-    "                <div class=\"card-box bg-shamrock\">\n" +
-    "                  <span><i class=\"material-icons icon-card\">shopping_cart</i></span>\n" +
-    "                </div>\n" +
-    "                <div class=\"card-block\">\n" +
-    "                  <h4 class=\"card-title\">12</h4>\n" +
-    "                  <p class=\"card-text\">New Orders</p>\n" +
-    "                </div>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "          </a>\n" +
-    "        </div>\n" +
-    "        <div class=\"col-md-3\">\n" +
-    "          <a href=\"#\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-heading\">\n" +
-    "                <div class=\"card-box bg-sandstorm\">\n" +
-    "                  <span><i class=\"material-icons icon-card\">refresh</i></span>\n" +
-    "                </div>\n" +
-    "                <div class=\"card-block\">\n" +
-    "                  <h4 class=\"card-title\">5</h4>\n" +
-    "                  <p class=\"card-text\">Issues</p>\n" +
-    "                </div>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "          </a>\n" +
-    "        </div>\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
     "\n" +
-    "        <div class=\"col-md-3\">\n" +
-    "          <a href=\"#\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-heading\">\n" +
-    "                <div class=\"card-box bg-thunderbird\">\n" +
-    "                  <span><i class=\"material-icons icon-card\">report_problem</i></span>\n" +
-    "                </div>\n" +
-    "                <div class=\"card-block\">\n" +
-    "                  <h4 class=\"card-title\">5</h4>\n" +
-    "                  <p class=\"card-text\">Issues</p>\n" +
-    "                </div>\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <div class=\"cards-dash\">\n" +
+    "            <div class=\"row\">\n" +
+    "              <div class=\"col-md-3\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-heading\">\n" +
+    "                      <div class=\"card-box bg-picton\">\n" +
+    "                        <span><i class=\"material-icons icon-card\" >account_circle</i></span>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"card-block\">\n" +
+    "                        <h4 class=\"card-title\">74</h4>\n" +
+    "                        <p class=\"card-text\">New Users</p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </a>\n" +
     "              </div>\n" +
-    "            </div>\n" +
-    "          </a>\n" +
-    "        </div>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"row\">\n" +
-    "      <div class=\"col-lg-12\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-8\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-header\">\n" +
-    "                Graph\n" +
+    "              <div class=\"col-md-3\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-heading\">\n" +
+    "                      <div class=\"card-box bg-shamrock\">\n" +
+    "                        <span><i class=\"material-icons icon-card\">shopping_cart</i></span>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"card-block\">\n" +
+    "                        <h4 class=\"card-title\">12</h4>\n" +
+    "                        <p class=\"card-text\">New Orders</p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </a>\n" +
     "              </div>\n" +
-    "              <div class=\"card-block\">\n" +
-    "                <canvas class=\"chart chart-line\" height=\"100\" chart-data=\"dashCtrl.data\" chart-labels=\"dashCtrl.labels\" chart-series=\"series\" chart-click=\"dashCtrl.onClick\"></canvas>\n" +
+    "              <div class=\"col-md-3\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-heading\">\n" +
+    "                      <div class=\"card-box bg-sandstorm\">\n" +
+    "                        <span><i class=\"material-icons icon-card\">refresh</i></span>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"card-block\">\n" +
+    "                        <h4 class=\"card-title\">5</h4>\n" +
+    "                        <p class=\"card-text\">Issues</p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </a>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div class=\"col-md-3\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-heading\">\n" +
+    "                      <div class=\"card-box bg-thunderbird\">\n" +
+    "                        <span><i class=\"material-icons icon-card\">report_problem</i></span>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"card-block\">\n" +
+    "                        <h4 class=\"card-title\">5</h4>\n" +
+    "                        <p class=\"card-text\">Issues</p>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </a>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "          <div class=\"col-md-4\">\n" +
-    "            <div class=\"card\">\n" +
-    "              <div class=\"card-header contet-gaph\">\n" +
-    "                Sales Types\n" +
-    "              </div>\n" +
-    "              <div class=\"card-block\">\n" +
-    "                <canvas id=\"doughnut\" class=\"chart chart-doughnut\" height=\"192\" chart-data=\"dashCtrl.donutData\" chart-labels=\"dashCtrl.donutLabels\"></canvas>\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "              <div class=\"row\">\n" +
+    "                <div class=\"col-md-8\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-header\">\n" +
+    "                      Graph\n" +
+    "                    </div>\n" +
+    "                    <div class=\"card-block\">\n" +
+    "                      <canvas class=\"chart chart-line\" height=\"100\" chart-data=\"dashCtrl.data\" chart-labels=\"dashCtrl.labels\" chart-series=\"series\" chart-click=\"dashCtrl.onClick\"></canvas>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-md-4\">\n" +
+    "                  <div class=\"card\">\n" +
+    "                    <div class=\"card-header contet-gaph\">\n" +
+    "                      Sales Types\n" +
+    "                    </div>\n" +
+    "                    <div class=\"card-block\">\n" +
+    "                      <canvas id=\"doughnut\" class=\"chart chart-doughnut\" height=\"192\" chart-data=\"dashCtrl.donutData\" chart-labels=\"dashCtrl.donutLabels\"></canvas>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
     "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
@@ -701,7 +749,10 @@ angular.module("../views/dashboard.html", []).run(["$templateCache", function($t
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "\n" +
     "</div>\n" +
+    "\n" +
+    "\n" +
     "");
 }]);
 
@@ -807,7 +858,17 @@ angular.module("../views/login.html", []).run(["$templateCache", function($templ
     "            </div>\n" +
     "            <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">LOGIN</button>\n" +
     "            <br>\n" +
-    "            <a href=\"#\">Forgot your password?</a>\n" +
+    "\n" +
+    "           <div class=\"row\">\n" +
+    "             <div class=\"col\">\n" +
+    "               <a href=\"#\">Register</a>\n" +
+    "             </div>\n" +
+    "\n" +
+    "             <div class=\"col text-right\">\n" +
+    "               <a href=\"#\">Forgot your password?</a>\n" +
+    "             </div>\n" +
+    "           </div>\n" +
+    "\n" +
     "          </form>\n" +
     "        </div>\n" +
     "      </div>\n" +

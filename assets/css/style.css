@@ -17,6 +17,8 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  overflow-y: scroll;
+  background: #fff;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
@@ -161,7 +163,7 @@ a {
 
 .title-notify {
   padding-left: 21%;
-  margin-top: -20;
+  margin-top: -20px;
   font-size: small;
 }
 
@@ -222,7 +224,7 @@ a:active, a:focus, a:hover {
 
 .btn-secondary::before {
   color: #000;
-  background-color: fff;
+  background-color: #fff;
 }
 
 .btn-secondary.disabled, .btn-secondary:disabled {
@@ -381,7 +383,7 @@ a:active, a:focus, a:hover {
   border-color: #4051b5;
 }
 
-.btn-outline-primary:active, {
+.btn-outline-primary:active {
   color: #fff;
 }
 
@@ -708,12 +710,12 @@ body {
 }
 
 .drop-title {
-  padding: 10 10;
+  padding: 10px 10px;
   background: #f2f2f2;
 }
 
 .drop-footer {
-  padding: 10 10;
+  padding: 10px 10px;
   margin-top: 3px;
   background: #f2f2f2;
 }
@@ -781,11 +783,15 @@ body {
     margin-top: 15px;
   }
   .dropdownresp {
-    right: -70;
+    right: -70px;
   }
   .page-link {
     padding: 10px 14px;
     margin-right: 2px;
+  }
+
+  .position-lgn {
+    margin-top: 30px;
   }
 }
 
@@ -872,6 +878,11 @@ body {
 
 .layout-content {
   padding: 0 !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-tabs>li {
@@ -983,7 +994,6 @@ body {
 
 .login-gct {
   background-color: #4051b5;
-  height: 100%;
   padding-bottom: 20px;
 }
 
@@ -1017,8 +1027,7 @@ body {
   }
 }
 
-@media(max-width: 475px;
-) {
+@media(max-width: 475px) {
   .none {
     display: none;
   }
