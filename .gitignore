@@ -3,3 +3,4 @@ bower_components/
 vendors/
 tmp/
 .sass-cache/
+.idea/
