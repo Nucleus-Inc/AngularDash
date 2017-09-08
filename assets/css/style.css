@@ -995,6 +995,7 @@ body {
 .login-gct {
   background-color: #4051b5;
   padding-bottom: 20px;
+  height: 100%;
 }
 
 .nav-login {
