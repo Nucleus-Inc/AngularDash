@@ -1,6 +1,14 @@
 (function() {
 
-  var app = angular.module('angularDash', ['ngRoute', 'chart.js', 'angularModalService', 'angular-table', 'cgNotify', 'alexjoffroy.angular-loaders'])
+  var app = angular.module('angularDash',
+      [
+          'ngRoute',
+          'chart.js',
+          'angularModalService',
+          'angular-table',
+          'cgNotify',
+          'alexjoffroy.angular-loaders'
+      ])
 
     .config(function($routeProvider, $locationProvider) {
 
@@ -404,243 +412,289 @@
 
   }]);
 }());
-;angular.module('angularDash').directive('sidebar', function() {
-   return {
-       //template: '<div class="sidebar sidebar-left sidebar-visible-md-up sidebar-size-3 sidebar-title s" id="sidebar-blank-1" data-scrollable data-position="left" data-size="3"> <a href="#" class="sidebar-brand ">Brand</a> <div class="sidebar-heading">Heading</div><ul class="sidebar-menu sm-active-button-bg sidebar-text"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button " href="#">Menu button</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"><i class="sidebar-menu-icon material-icons">dashboard</i> Dashboard</a> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">computer</i> UI Elements</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/buttons"> Buttons</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/forms"> Forms</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/tables"> Tables</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/notifications"> Notifications</a> </li></ul> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/modals"><i class="sidebar-menu-icon material-icons">chat_bubble_outline</i> Modals</a> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">pie_chart</i>Reports</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"> Report #1</a> </li><li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#"> Report #2</a> </li></ul> </li><li class="sidebar-menu-item"> <a href="#" class="sidebar-menu-button" data-toggle="sidebar-collapse"><i class="sidebar-menu-icon material-icons">web_asset</i>Pages</a> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/login"> Login</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/blank"> Blank</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/forgot"> Forgot</a> </li></ul> <ul class="sidebar-submenu"> <li class="sidebar-menu-item"> <a class="sidebar-menu-button" href="#/register"> Register</a> </li></ul> </li></ul> </div><script src="node_modules/bootstrap-layout/dist/bootstrap-layout.js"></script>'
-       templateUrl: './views/partials/sidebar.html'
-   } ;
-
-});;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forgot.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/register.html", "../views/tables.html"]);
+;angular.module("templates-dist", ["../views/account.html", "../views/blank.html", "../views/buttons.html", "../views/dashboard.html", "../views/forgot.html", "../views/forms.html", "../views/login.html", "../views/modals.html", "../views/notifications.html", "../views/register.html", "../views/tables.html"]);
 
 angular.module("../views/account.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/account.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-12\">\n" +
-    "            <ul class=\"nav nav-tabs nav-justified\">\n" +
-    "              <li ng-class=\"{ active: accountCtrl.isSet(1) }\" class=\"nav-item\">\n" +
-    "                <a ng-click=\"accountCtrl.setTab(1)\" class=\"nav-link\" href>Profile</a>\n" +
-    "              </li>\n" +
-    "              <li ng-class=\"{ active: accountCtrl.isSet(2) }\" class=\"nav-item\">\n" +
-    "                <a ng-click=\"accountCtrl.setTab(2)\" class=\"nav-link\" href>Account</a>\n" +
-    "              </li>\n" +
-    "              <li ng-class=\"{ active: accountCtrl.isSet(3) }\" class=\"nav-item\">\n" +
-    "                <a ng-click=\"accountCtrl.setTab(3)\" class=\"nav-link\" href>Password</a>\n" +
-    "              </li>\n" +
-    "            </ul>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "        <div ng-show=\"accountCtrl.isSet(1)\">\n" +
-    "          <div class=\"row account-col\">\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold\">Public avatar</p>\n" +
-    "                <p class=\"font-weight-normal\">You can change your avatar here or remove the current avatar to revert to gravatar.com</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-3 img-perfil\">\n" +
-    "              <img src=\"//placehold.it/160\" class=\"rounded-circle\" />\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"subject\">Upload new avatar</label>\n" +
-    "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-primary\">Remove avatar</button>\n" +
-    "              </form>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"row account-col\">\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold\">Main settings</p>\n" +
-    "                <p class=\"font-weight-normal\">This information will appear on your profile.</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-8\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"subject\">Your Name</label>\n" +
-    "                  <input ng-model=\"formsCtrl.inputs.firstName\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"Your Name\" required>\n" +
-    "                  <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.firstName.$error.required\" class=\"form-text text-muted text-danger\">Your name is required</small>\n" +
-    "                </div>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Email address</label>\n" +
-    "                  <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n" +
-    "                  <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n" +
-    "                </div>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleTextarea\">Your bio</label>\n" +
-    "                  <textarea class=\"form-control\" id=\"exampleTextarea\" rows=\"3\"></textarea>\n" +
-    "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-success\">Update profile settings</button>\n" +
-    "              </form>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
     "\n" +
-    "        <div ng-show=\"accountCtrl.isSet(2)\">\n" +
-    "          <div class=\"row account-col\">\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold\">Private Token</p>\n" +
-    "                <p class=\"font-weight-normal\">Keep this token secret, anyone with access to them can interact with the app as if they were you.</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-8\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Private Token</label>\n" +
-    "                  <input ng-model=\"accountCtrl.account.token\" ng-disabled=\"true\" type=\"text\" class=\"form-control\" aria-describedby=\"tokenHelp\">\n" +
-    "                  <small id=\"tokenHelp\" class=\"form-text text-muted\">Your private token is used to access the API without username/password authentication.</small>\n" +
-    "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-primary\">Reset private token</button>\n" +
-    "              </form>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold\">Two-Factor Authentication</p>\n" +
-    "                <p class=\"font-weight-normal\">Increase your account's security by enabling Two-Factor Authentication (2FA).</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-8\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Status: Disabled</label>\n" +
-    "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-success\">Enable Two-Factor Authentication</button>\n" +
-    "              </form>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold text-danger\">Remove account</p>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-8\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Deleting an account has the following effects:</label>\n" +
-    "                  <ul class=\"list-group\">\n" +
-    "                    <li class=\"list-group-item\">All user content like authored issues, snippets, comments will be removed</li>\n" +
-    "                    <li class=\"list-group-item\">Personal projects will be removed and cannot be restored</li>\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <div class=\"row\">\n" +
+    "                <div class=\"col-md-12\">\n" +
+    "                  <ul class=\"nav nav-tabs nav-justified\">\n" +
+    "                    <li ng-class=\"{ active: accountCtrl.isSet(1) }\" class=\"nav-item\">\n" +
+    "                      <a ng-click=\"accountCtrl.setTab(1)\" class=\"nav-link\" href>Profile</a>\n" +
+    "                    </li>\n" +
+    "                    <li ng-class=\"{ active: accountCtrl.isSet(2) }\" class=\"nav-item\">\n" +
+    "                      <a ng-click=\"accountCtrl.setTab(2)\" class=\"nav-link\" href>Account</a>\n" +
+    "                    </li>\n" +
+    "                    <li ng-class=\"{ active: accountCtrl.isSet(3) }\" class=\"nav-item\">\n" +
+    "                      <a ng-click=\"accountCtrl.setTab(3)\" class=\"nav-link\" href>Password</a>\n" +
+    "                    </li>\n" +
     "                  </ul>\n" +
     "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-danger\">Delete account</button>\n" +
-    "              </form>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "\n" +
-    "        <div ng-show=\"accountCtrl.isSet(3)\">\n" +
-    "          <div class=\"row account-col\">\n" +
-    "            <div class=\"col-md-3\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <p class=\"font-weight-bold\">Password</p>\n" +
-    "                <p class=\"font-weight-normal\">After a successful password update, you will be redirected to the login page where you can log in with your new password.</p>\n" +
     "              </div>\n" +
-    "            </div>\n" +
-    "            <div class=\"col-md-8\">\n" +
-    "              <form>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Current password</label>\n" +
-    "                  <input ng-model=\"accountCtrl.account.currentPassword\" type=\"text\" class=\"form-control\" aria-describedby=\"passwordHelp\">\n" +
-    "                  <small id=\"passwordHelp\" class=\"form-text text-muted\">You must provide your current password in order to change it.</small>\n" +
+    "              <div ng-show=\"accountCtrl.isSet(1)\">\n" +
+    "                <div class=\"row account-col\">\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold\">Public avatar</p>\n" +
+    "                      <p class=\"font-weight-normal\">You can change your avatar here or remove the current avatar to revert to gravatar.com</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-3 img-perfil\">\n" +
+    "                    <img src=\"//placehold.it/160\" class=\"rounded-circle\" />\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"subject\">Upload new avatar</label>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-primary\">Remove avatar</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
     "                </div>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">New password</label>\n" +
-    "                  <input ng-model=\"accountCtrl.account.newPassword\" type=\"text\" class=\"form-control\">\n" +
+    "                <div class=\"row account-col\">\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold\">Main settings</p>\n" +
+    "                      <p class=\"font-weight-normal\">This information will appear on your profile.</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-8\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"subject\">Your Name</label>\n" +
+    "                        <input ng-model=\"formsCtrl.inputs.firstName\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"Your Name\" required>\n" +
+    "                        <small ng-if=\"formModal.$submitted\" ng-show=\"formModal.firstName.$error.required\" class=\"form-text text-muted text-danger\">Your name is required</small>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Email address</label>\n" +
+    "                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n" +
+    "                        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleTextarea\">Your bio</label>\n" +
+    "                        <textarea class=\"form-control\" id=\"exampleTextarea\" rows=\"3\"></textarea>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-success\">Update profile settings</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
     "                </div>\n" +
-    "                <div class=\"form-group\">\n" +
-    "                  <label for=\"exampleInputEmail1\">Current password</label>\n" +
-    "                  <input ng-model=\"accountCtrl.account.newPasswordConf\" type=\"text\" class=\"form-control\" aria-describedby=\"newPasswordHelp\">\n" +
-    "                  <small id=\"newPasswordHelp\" class=\"form-text text-muted\">You must provide your current password in order to change it.</small>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div ng-show=\"accountCtrl.isSet(2)\">\n" +
+    "                <div class=\"row account-col\">\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold\">Private Token</p>\n" +
+    "                      <p class=\"font-weight-normal\">Keep this token secret, anyone with access to them can interact with the app as if they were you.</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-8\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Private Token</label>\n" +
+    "                        <input ng-model=\"accountCtrl.account.token\" ng-disabled=\"true\" type=\"text\" class=\"form-control\" aria-describedby=\"tokenHelp\">\n" +
+    "                        <small id=\"tokenHelp\" class=\"form-text text-muted\">Your private token is used to access the API without username/password authentication.</small>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-primary\">Reset private token</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold\">Two-Factor Authentication</p>\n" +
+    "                      <p class=\"font-weight-normal\">Increase your account's security by enabling Two-Factor Authentication (2FA).</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-8\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Status: Disabled</label>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-success\">Enable Two-Factor Authentication</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold text-danger\">Remove account</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-8\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Deleting an account has the following effects:</label>\n" +
+    "                        <ul class=\"list-group\">\n" +
+    "                          <li class=\"list-group-item\">All user content like authored issues, snippets, comments will be removed</li>\n" +
+    "                          <li class=\"list-group-item\">Personal projects will be removed and cannot be restored</li>\n" +
+    "                        </ul>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-danger\">Delete account</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
     "                </div>\n" +
-    "                <button type=\"submit\" class=\"btn btn-success\">Save password</button>\n" +
-    "              </form>\n" +
+    "              </div>\n" +
+    "\n" +
+    "              <div ng-show=\"accountCtrl.isSet(3)\">\n" +
+    "                <div class=\"row account-col\">\n" +
+    "                  <div class=\"col-md-3\">\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                      <p class=\"font-weight-bold\">Password</p>\n" +
+    "                      <p class=\"font-weight-normal\">After a successful password update, you will be redirected to the login page where you can log in with your new password.</p>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"col-md-8\">\n" +
+    "                    <form>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Current password</label>\n" +
+    "                        <input ng-model=\"accountCtrl.account.currentPassword\" type=\"text\" class=\"form-control\" aria-describedby=\"passwordHelp\">\n" +
+    "                        <small id=\"passwordHelp\" class=\"form-text text-muted\">You must provide your current password in order to change it.</small>\n" +
+    "                      </div>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">New password</label>\n" +
+    "                        <input ng-model=\"accountCtrl.account.newPassword\" type=\"text\" class=\"form-control\">\n" +
+    "                      </div>\n" +
+    "                      <div class=\"form-group\">\n" +
+    "                        <label for=\"exampleInputEmail1\">Current password</label>\n" +
+    "                        <input ng-model=\"accountCtrl.account.newPasswordConf\" type=\"text\" class=\"form-control\" aria-describedby=\"newPasswordHelp\">\n" +
+    "                        <small id=\"newPasswordHelp\" class=\"form-text text-muted\">You must provide your current password in order to change it.</small>\n" +
+    "                      </div>\n" +
+    "                      <button type=\"submit\" class=\"btn btn-success\">Save password</button>\n" +
+    "                    </form>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "\n" +
     "</div>\n" +
+    "\n" +
     "");
 }]);
 
 angular.module("../views/blank.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/blank.html",
-    "<div class=\"row\">\n" +
-    "    <div class=\"col-md-12\">\n" +
-    "        <div class=\"card\">\n" +
-    "            <div class=\"card-header\">\n" +
-    "                Blank\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "    <!-- sidebar -->\n" +
+    "    <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "    <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "        <!-- navbar -->\n" +
+    "        <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "        <div class=\"container-fluid\">\n" +
+    "\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-md-12\">\n" +
+    "                    <div class=\"card\">\n" +
+    "                        <div class=\"card-header\">\n" +
+    "                            Blank\n" +
+    "                        </div>\n" +
+    "                        <div class=\"card-block\">\n" +
+    "                            <h1>Blank Page</h1>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
     "            </div>\n" +
-    "            <div class=\"card-block\">\n" +
-    "                <h1>Blank Page</h1>\n" +
-    "            </div>\n" +
+    "\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "");
+    "\n" +
+    "</div>");
 }]);
 
 angular.module("../views/buttons.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/buttons.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Bootstrap Buttons\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Bootstrap Buttons\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <h4 class=\"card-title\">Buttons</h4>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary\">Primary</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-secondary\">Secondary</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-success\">Success</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-info\">Info</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-warning\">Warning</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-danger\">Danger</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-link\">Link</button>\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <h4 class=\"card-title\">Outline Buttons</h4>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-primary\">Primary</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-secondary\">Secondary</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-success\">Success</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-info\">Info</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-warning\">Warning</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-outline-danger\">Danger</button>\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <h4 class=\"card-title\">Large Buttons</h4>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary btn-lg\">Large button</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-secondary btn-lg\">Large button</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary btn-sm\">Small button</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-secondary btn-sm\">Small button</button>\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <h4 class=\"card-title\">Small Buttons</h4>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary btn-sm\">Small button</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-secondary btn-sm\">Small button</button>\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <h4 class=\"card-title\">Block Level Buttons</h4>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Block level button</button>\n" +
+    "              <button type=\"button\" class=\"btn btn-secondary btn-lg btn-block\">Block level button</button>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <h4 class=\"card-title\">Buttons</h4>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary\">Primary</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-secondary\">Secondary</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-success\">Success</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-info\">Info</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-warning\">Warning</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-danger\">Danger</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-link\">Link</button>\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <h4 class=\"card-title\">Outline Buttons</h4>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-primary\">Primary</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-secondary\">Secondary</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-success\">Success</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-info\">Info</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-warning\">Warning</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-outline-danger\">Danger</button>\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <h4 class=\"card-title\">Large Buttons</h4>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary btn-lg\">Large button</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-secondary btn-lg\">Large button</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary btn-sm\">Small button</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-secondary btn-sm\">Small button</button>\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <h4 class=\"card-title\">Small Buttons</h4>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary btn-sm\">Small button</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-secondary btn-sm\">Small button</button>\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <h4 class=\"card-title\">Block Level Buttons</h4>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Block level button</button>\n" +
-    "        <button type=\"button\" class=\"btn btn-secondary btn-lg btn-block\">Block level button</button>\n" +
-    "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "\n" +
     "</div>\n" +
+    "\n" +
+    "\n" +
     "");
 }]);
 
 angular.module("../views/dashboard.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/dashboard.html",
     "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
-    "\n" +
     "\n" +
     "  <!-- sidebar -->\n" +
     "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
@@ -784,56 +838,72 @@ angular.module("../views/forgot.html", []).run(["$templateCache", function($temp
 
 angular.module("../views/forms.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/forms.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Form Validation\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Form Validation\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <form role=\"form\" name=\"sampleForm\" ng-submit=\"formsCtrl.submit()\" novalidate>\n" +
+    "                <div ng-show=\"formsCtrl.alertMessage.show\" ng-class=\"'alert-' + (formsCtrl.alertMessage.type)\" class=\"alert alert-dismissible fade show\" role=\"alert\">\n" +
+    "                  <button ng-click=\"formsCtrl.closeAlert()\" type=\"button\" class=\"close\" aria-label=\"Close\">\n" +
+    "                    <span aria-hidden=\"true\">&times;</span>\n" +
+    "                  </button>\n" +
+    "                  <strong> {{formsCtrl.alertMessage.message}}\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"email-input\">Email address</label>\n" +
+    "                  <input ng-model=\"formsCtrl.inputs.email\" ng-class=\"{'form-control-danger': submitted && sampleForm.email.$error.required}\" type=\"email\" name=\"email\" class=\"form-control\" id=\"email-input\" aria-describedby=\"email-help\" placeholder=\"Enter email\" required>\n" +
+    "                  <small class=\"form-text text-muted text-danger\" ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.email.$error.required\">Email address is required</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"subject\">First Name</label>\n" +
+    "                  <input ng-model=\"formsCtrl.inputs.firstName\" ng-class=\"{'form-control-danger': submitted && sampleForm.firstName.$error.required}\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"First Name\" required>\n" +
+    "                  <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.firstName.$error.required\" class=\"form-text text-muted text-danger\">First name is required</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"subject\">Last Name</label>\n" +
+    "                  <input ng-model=\"formsCtrl.inputs.lastName\" ng-class=\"{'form-control-danger': submitted && sampleForm.lastName.$error.required}\" class=\"form-control\" type=\"text\" name=\"lastName\" placeholder=\"Last Name\" required>\n" +
+    "                  <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.lastName.$error.required\" class=\"form-text text-muted text-danger\">Last name is required</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"text-area\">Description</label>\n" +
+    "                  <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.description.$error.required\" class=\"form-text text-muted text-danger\">Description is required</small>\n" +
+    "                  <textarea ng-model=\"formsCtrl.inputs.message\" ng-class=\"{'form-control-danger': submitted && sampleForm.description.$error.required}\" class=\"form-control\" name=\"description\" id=\"text-area\" rows=\"3\" required></textarea>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-check\">\n" +
+    "                  <label class=\"form-check-label has-danger\">\n" +
+    "                    <input ng-model=\"formsCtrl.inputs.terms\" ng-class=\"{'form-control-danger': submitted && sampleForm.terms.$error.required}\" type=\"checkbox\" class=\"form-check-input\" name=\"terms\" required>\n" +
+    "                    I have read and accept the terms\n" +
+    "                  </label>\n" +
+    "                  <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.terms.$error.required\" class=\"form-text text-muted text-danger\">Your need to accept the terms</small>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <button ng-click=\"submitted= true;\" type=\"submit\" class=\"btn btn-primary\"> Enviar</button>\n" +
+    "                </div>\n" +
+    "              </form>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <form role=\"form\" name=\"sampleForm\" ng-submit=\"formsCtrl.submit()\" novalidate>\n" +
-    "          <div ng-show=\"formsCtrl.alertMessage.show\" ng-class=\"'alert-' + (formsCtrl.alertMessage.type)\" class=\"alert alert-dismissible fade show\" role=\"alert\">\n" +
-    "            <button ng-click=\"formsCtrl.closeAlert()\" type=\"button\" class=\"close\" aria-label=\"Close\">\n" +
-    "                <span aria-hidden=\"true\">&times;</span>\n" +
-    "              </button>\n" +
-    "            <strong> {{formsCtrl.alertMessage.message}}\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"email-input\">Email address</label>\n" +
-    "            <input ng-model=\"formsCtrl.inputs.email\" ng-class=\"{'form-control-danger': submitted && sampleForm.email.$error.required}\" type=\"email\" name=\"email\" class=\"form-control\" id=\"email-input\" aria-describedby=\"email-help\" placeholder=\"Enter email\" required>\n" +
-    "            <small class=\"form-text text-muted text-danger\" ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.email.$error.required\">Email address is required</small>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"subject\">First Name</label>\n" +
-    "            <input ng-model=\"formsCtrl.inputs.firstName\" ng-class=\"{'form-control-danger': submitted && sampleForm.firstName.$error.required}\" class=\"form-control\" type=\"text\" name=\"firstName\" placeholder=\"First Name\" required>\n" +
-    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.firstName.$error.required\" class=\"form-text text-muted text-danger\">First name is required</small>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"subject\">Last Name</label>\n" +
-    "            <input ng-model=\"formsCtrl.inputs.lastName\" ng-class=\"{'form-control-danger': submitted && sampleForm.lastName.$error.required}\" class=\"form-control\" type=\"text\" name=\"lastName\" placeholder=\"Last Name\" required>\n" +
-    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.lastName.$error.required\" class=\"form-text text-muted text-danger\">Last name is required</small>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"text-area\">Description</label>\n" +
-    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.description.$error.required\" class=\"form-text text-muted text-danger\">Description is required</small>\n" +
-    "            <textarea ng-model=\"formsCtrl.inputs.message\" ng-class=\"{'form-control-danger': submitted && sampleForm.description.$error.required}\" class=\"form-control\" name=\"description\" id=\"text-area\" rows=\"3\" required></textarea>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-check\">\n" +
-    "            <label class=\"form-check-label has-danger\">\n" +
-    "              <input ng-model=\"formsCtrl.inputs.terms\" ng-class=\"{'form-control-danger': submitted && sampleForm.terms.$error.required}\" type=\"checkbox\" class=\"form-check-input\" name=\"terms\" required>\n" +
-    "                I have read and accept the terms\n" +
-    "              </label>\n" +
-    "            <small ng-if=\"sampleForm.$submitted\" ng-show=\"sampleForm.terms.$error.required\" class=\"form-text text-muted text-danger\">Your need to accept the terms</small>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <button ng-click=\"submitted= true;\" type=\"submit\" class=\"btn btn-primary\"> Enviar</button>\n" +
-    "          </div>\n" +
-    "        </form>\n" +
-    "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "\n" +
+    "</div>");
 }]);
 
 angular.module("../views/login.html", []).run(["$templateCache", function($templateCache) {
@@ -880,144 +950,181 @@ angular.module("../views/login.html", []).run(["$templateCache", function($templ
 
 angular.module("../views/modals.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/modals.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        A Simple Yes/No Modal\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              A Simple Yes/No Modal\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <form>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"modalTitle\">Modal Title</label>\n" +
+    "                  <input type=\"text\" class=\"form-control\" id=\"modalTitle\" aria-describedby=\"Enter a title for the modal\" placeholder=\"Enter a title for the modal\" ng-model=\"modalsCtrl.alertTitle\">\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"modalQuestion\">Modal Question</label>\n" +
+    "                  <input type=\"text\" class=\"form-control\" id=\"modalQuestion\" aria-describedby=\"Enter a question for the modal\" placeholder=\"Enter a question for the modal\" ng-model=\"modalsCtrl.alertQuestion\">\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <pre>Your answer: {{modalsCtrl.alertResult}}</pre>\n" +
+    "                </div>\n" +
+    "                <button type=\"button\" class=\"btn btn-primary\" ng-click=\"modalsCtrl.showAlertModal()\">Yes or No</button>\n" +
+    "              </form>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "        <div class=\"col-md-12 marg-t15\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Modal with form\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <form>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <pre>Email: {{modalsCtrl.formResult.email}}</pre>\n" +
+    "                  <pre>Subject: {{modalsCtrl.formResult.subject}}</pre>\n" +
+    "                  <pre>Message: {{modalsCtrl.formResult.message}}</pre>\n" +
+    "                  <pre>Checkbox: {{modalsCtrl.formResult.checkbox}}</pre>\n" +
+    "                </div>\n" +
+    "              </form>\n" +
+    "              <button type=\"button\" class=\"btn btn-primary\" ng-click=\"modalsCtrl.showFormModal()\">Modal with Form</button>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <form>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"modalTitle\">Modal Title</label>\n" +
-    "            <input type=\"text\" class=\"form-control\" id=\"modalTitle\" aria-describedby=\"Enter a title for the modal\" placeholder=\"Enter a title for the modal\" ng-model=\"modalsCtrl.alertTitle\">\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"modalQuestion\">Modal Question</label>\n" +
-    "            <input type=\"text\" class=\"form-control\" id=\"modalQuestion\" aria-describedby=\"Enter a question for the modal\" placeholder=\"Enter a question for the modal\" ng-model=\"modalsCtrl.alertQuestion\">\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <pre>Your answer: {{modalsCtrl.alertResult}}</pre>\n" +
-    "          </div>\n" +
-    "          <button type=\"button\" class=\"btn btn-primary\" ng-click=\"modalsCtrl.showAlertModal()\">Yes or No</button>\n" +
-    "        </form>\n" +
-    "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "  <div class=\"col-md-12 marg-t15\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Modal with form\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <form>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <pre>Email: {{modalsCtrl.formResult.email}}</pre>\n" +
-    "            <pre>Subject: {{modalsCtrl.formResult.subject}}</pre>\n" +
-    "            <pre>Message: {{modalsCtrl.formResult.message}}</pre>\n" +
-    "            <pre>Checkbox: {{modalsCtrl.formResult.checkbox}}</pre>\n" +
-    "          </div>\n" +
-    "        </form>\n" +
-    "        <button type=\"button\" class=\"btn btn-primary\" ng-click=\"modalsCtrl.showFormModal()\">Modal with Form</button>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
+    "\n" +
     "</div>\n" +
+    "\n" +
     "");
 }]);
 
 angular.module("../views/notifications.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/notifications.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Bootstrap Notifications\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Bootstrap Notifications\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">\n" +
+    "                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+    "                  <span aria-hidden=\"true\">&times;</span>\n" +
+    "                </button>\n" +
+    "                <strong>Well done!</strong> You successfully read <a href=\"#\" class=\"alert-link\">this important alert message</a>.\n" +
+    "              </div>\n" +
+    "              <div class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">\n" +
+    "                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+    "                  <span aria-hidden=\"true\">&times;</span>\n" +
+    "                </button>\n" +
+    "                <strong>Heads up!</strong> This <a href=\"#\" class=\"alert-link\">alert needs your attention</a>, but it's not super important.\n" +
+    "              </div>\n" +
+    "              <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\n" +
+    "                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+    "                  <span aria-hidden=\"true\">&times;</span>\n" +
+    "                </button>\n" +
+    "                <strong>Warning!</strong> Better check yourself, you're <a href=\"#\" class=\"alert-link\">not looking too good</a>.\n" +
+    "              </div>\n" +
+    "              <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">\n" +
+    "                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+    "                  <span aria-hidden=\"true\">&times;</span>\n" +
+    "                </button>\n" +
+    "                <strong>Oh snap!</strong> <a href=\"#\" class=\"alert-link\">Change a few things up</a> and try submitting again.\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">\n" +
-    "          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
-    "                      <span aria-hidden=\"true\">&times;</span>\n" +
-    "                    </button>\n" +
-    "          <strong>Well done!</strong> You successfully read <a href=\"#\" class=\"alert-link\">this important alert message</a>.\n" +
-    "        </div>\n" +
-    "        <div class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">\n" +
-    "          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
-    "                      <span aria-hidden=\"true\">&times;</span>\n" +
-    "                    </button>\n" +
-    "          <strong>Heads up!</strong> This <a href=\"#\" class=\"alert-link\">alert needs your attention</a>, but it's not super important.\n" +
-    "        </div>\n" +
-    "        <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\n" +
-    "          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
-    "                      <span aria-hidden=\"true\">&times;</span>\n" +
-    "                    </button>\n" +
-    "          <strong>Warning!</strong> Better check yourself, you're <a href=\"#\" class=\"alert-link\">not looking too good</a>.\n" +
-    "        </div>\n" +
-    "        <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">\n" +
-    "          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
-    "                      <span aria-hidden=\"true\">&times;</span>\n" +
-    "                    </button>\n" +
-    "          <strong>Oh snap!</strong> <a href=\"#\" class=\"alert-link\">Change a few things up</a> and try submitting again.\n" +
+    "\n" +
+    "      <div class=\"row marg-t15\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Angular Notify\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block\">\n" +
+    "              <form ng-submit=\"notificationsCtrl.demo()\" class=\"form-horizontal\" role=\"form\">\n" +
+    "                <legend>Demo Options</legend>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"msg\" class=\"col-sm-4 control-label\">Message</label>\n" +
+    "                  <div class=\"col-sm-8\">\n" +
+    "                    <input ng-model=\"notificationsCtrl.msg\" type=\"text\" class=\"form-control\" id=\"msg\" placeholder=\"Message\">\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"position\" class=\"col-sm-4 control-label\">Position</label>\n" +
+    "                  <div class=\"col-sm-8\">\n" +
+    "                    <select ng-model=\"notificationsCtrl.position\" ng-options=\"p for p in notificationsCtrl.positions\" class=\"form-control\"></select>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"position\" class=\"col-sm-4 control-label\">Duration</label>\n" +
+    "                  <div class=\"col-sm-8\">\n" +
+    "                    <input ng-model=\"notificationsCtrl.duration\" type=\"text\" class=\"form-control\" id=\"duration\" placeholder=\"Duration\">\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"clz\" class=\"col-sm-4 control-label\">CSS Class</label>\n" +
+    "                  <div class=\"col-sm-8\">\n" +
+    "                    <input ng-model=\"notificationsCtrl.classes\" type=\"text\" class=\"form-control\" id=\"clz\" placeholder=\"CSS class names\">\n" +
+    "                    <span class=\"help-block\">Try Bootstrap alert classes like \"alert-danger\" or \"alert-success\".</span>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <label for=\"template\" class=\"col-sm-4 control-label\">Template</label>\n" +
+    "                  <div class=\"col-sm-8\">\n" +
+    "                    <select ng-model=\"notificationsCtrl.template\" class=\"form-control\">\n" +
+    "                      <option value=\"\">(standard template)</option>\n" +
+    "                      <option value=\"gmail-template.html\">gmail-template.html</option>\n" +
+    "                    </select>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                  <div class=\"col-sm-offset-4 col-sm-8\">\n" +
+    "                    <button type=\"submit\" class=\"btn btn-primary\">Demo</button>\n" +
+    "                    <button ng-click=\"notificationsCtrl.closeAll()\" type=\"button\" class=\"btn btn-primary\">Close All</button>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </form>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"row marg-t15\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Angular Notify\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block\">\n" +
-    "        <form ng-submit=\"notificationsCtrl.demo()\" class=\"form-horizontal\" role=\"form\">\n" +
-    "          <legend>Demo Options</legend>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"msg\" class=\"col-sm-4 control-label\">Message</label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "              <input ng-model=\"notificationsCtrl.msg\" type=\"text\" class=\"form-control\" id=\"msg\" placeholder=\"Message\">\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"position\" class=\"col-sm-4 control-label\">Position</label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "              <select ng-model=\"notificationsCtrl.position\" ng-options=\"p for p in notificationsCtrl.positions\" class=\"form-control\"></select>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"position\" class=\"col-sm-4 control-label\">Duration</label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "              <input ng-model=\"notificationsCtrl.duration\" type=\"text\" class=\"form-control\" id=\"duration\" placeholder=\"Duration\">\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"clz\" class=\"col-sm-4 control-label\">CSS Class</label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "              <input ng-model=\"notificationsCtrl.classes\" type=\"text\" class=\"form-control\" id=\"clz\" placeholder=\"CSS class names\">\n" +
-    "              <span class=\"help-block\">Try Bootstrap alert classes like \"alert-danger\" or \"alert-success\".</span>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <label for=\"template\" class=\"col-sm-4 control-label\">Template</label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "              <select ng-model=\"notificationsCtrl.template\" class=\"form-control\">\n" +
-    "                <option value=\"\">(standard template)</option>\n" +
-    "                <option value=\"gmail-template.html\">gmail-template.html</option>\n" +
-    "              </select>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "          <div class=\"form-group\">\n" +
-    "            <div class=\"col-sm-offset-4 col-sm-8\">\n" +
-    "              <button type=\"submit\" class=\"btn btn-primary\">Demo</button>\n" +
-    "              <button ng-click=\"notificationsCtrl.closeAll()\" type=\"button\" class=\"btn btn-primary\">Close All</button>\n" +
-    "            </div>\n" +
-    "          </div>\n" +
-    "        </form>\n" +
-    "      </div>\n" +
-    "    </div>\n" +
-    "  </div>\n" +
-    "</div>\n" +
+    "\n" +
     "");
 }]);
 
@@ -1065,63 +1172,79 @@ angular.module("../views/register.html", []).run(["$templateCache", function($te
 
 angular.module("../views/tables.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("../views/tables.html",
-    "<div class=\"row\">\n" +
-    "  <div class=\"col-md-12\">\n" +
-    "    <div class=\"card\">\n" +
-    "      <div class=\"card-header\">\n" +
-    "        Angular Data Tables\n" +
-    "      </div>\n" +
-    "      <div class=\"card-block \">\n" +
-    "        <div class=\"row\">\n" +
-    "          <div class=\"col-md-12\">\n" +
-    "            <form class=\"form-inline\">\n" +
-    "              <div class=\"input-group mb-4 mr-sm-4 mb-sm-0\">\n" +
-    "                <div class=\"input-group-addon\"><i class=\"material-icons\">search</i></div>\n" +
-    "                <input ng-model=\"tablesCtrl.key\" ng-change=\"tablesCtrl.updateList()\" type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Search ...\">\n" +
+    "<div class=\"layout-container layout-sidebar-l3-md-up\">\n" +
+    "\n" +
+    "  <!-- sidebar -->\n" +
+    "  <div ng-include=\"'views/partials/sidebar.html'\" ng-controller=\"SidebarCtrl as sidebarCtrl\"></div>\n" +
+    "\n" +
+    "  <div class=\"layout-content\" data-scrollable>\n" +
+    "\n" +
+    "    <!-- navbar -->\n" +
+    "    <div ng-include=\"'views/partials/navbar.html'\"></div>\n" +
+    "\n" +
+    "    <div class=\"container-fluid\">\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <div class=\"col-md-12\">\n" +
+    "          <div class=\"card\">\n" +
+    "            <div class=\"card-header\">\n" +
+    "              Angular Data Tables\n" +
+    "            </div>\n" +
+    "            <div class=\"card-block \">\n" +
+    "              <div class=\"row\">\n" +
+    "                <div class=\"col-md-12\">\n" +
+    "                  <form class=\"form-inline\">\n" +
+    "                    <div class=\"input-group mb-4 mr-sm-4 mb-sm-0\">\n" +
+    "                      <div class=\"input-group-addon\"><i class=\"material-icons\">search</i></div>\n" +
+    "                      <input ng-model=\"tablesCtrl.key\" ng-change=\"tablesCtrl.updateList()\" type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Search ...\">\n" +
+    "                    </div>\n" +
+    "                    <select class=\"custom-select mb-sm-0 mr-sm-2 input-md\" id=\"inlineFormCustomSelect\">\n" +
+    "                      <option selected>Filter</option>\n" +
+    "                      <option value=\"1\">One</option>\n" +
+    "                      <option value=\"2\">Two</option>\n" +
+    "                      <option value=\"3\">Three</option>\n" +
+    "                    </select>\n" +
+    "                    <button type=\"button\" class=\"btn btn-success\"> Add user</button>\n" +
+    "                  </form>\n" +
+    "                </div>\n" +
     "              </div>\n" +
-    "              <select class=\"custom-select mb-sm-0 mr-sm-2 input-md\" id=\"inlineFormCustomSelect\">\n" +
-    "                <option selected>Filter</option>\n" +
-    "                <option value=\"1\">One</option>\n" +
-    "                <option value=\"2\">Two</option>\n" +
-    "                <option value=\"3\">Three</option>\n" +
-    "              </select>\n" +
-    "              <button type=\"button\" class=\"btn btn-success\"> Add user</button>\n" +
-    "            </form>\n" +
-    "          </div>\n" +
-    "        </div>\n" +
-    "        <table class=\"table table-striped table-responsive \" at-table at-paginated at-list=\"tablesCtrl.filteredList\" at-config=\"tablesCtrl.config\">\n" +
-    "          <thead></thead>\n" +
-    "          <tbody class=\"col-md-12\">\n" +
-    "            <tr>\n" +
-    "              <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"index\" width=\"150\" at-initial-sorting=\"asc\"></td>\n" +
-    "              <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"name\" width=\"250\"></td>\n" +
-    "              <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"email\"></td>\n" +
-    "              <td class=\"align-middle\" at-title=\"Ação\">\n" +
-    "                <button class=\"btn btn-primary btn-smn\"><i class=\"material-icons\">search</i></button>\n" +
-    "                <button class=\"btn btn-danger btn-smn\"><i class=\"material-icons\">delete_forever</i></button>\n" +
-    "              </td>\n" +
-    "            </tr>\n" +
-    "          </tbody>\n" +
-    "        </table>\n" +
-    "        <div class=\"row controler-table\">\n" +
-    "          <div class=\"col-md-6\">\n" +
-    "            <div class=\"form-group form-inline\">\n" +
-    "              <label>Show </label>\n" +
-    "              <select class=\"pagination-table custom-select\" ng-init=\"tablesCtrl.config.itemsPerPage = '5'\" ng-model=\"tablesCtrl.config.itemsPerPage\" class=\"form-control\">\n" +
-    "                <option value=\"3\">3</option>\n" +
-    "                <option value=\"5\">5</option>\n" +
-    "                <option value=\"9\">9</option>\n" +
-    "              </select>\n" +
-    "              <label>items</label>\n" +
+    "              <table class=\"table table-striped table-responsive \" at-table at-paginated at-list=\"tablesCtrl.filteredList\" at-config=\"tablesCtrl.config\">\n" +
+    "                <thead></thead>\n" +
+    "                <tbody class=\"col-md-12\">\n" +
+    "                <tr>\n" +
+    "                  <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"index\" width=\"150\" at-initial-sorting=\"asc\"></td>\n" +
+    "                  <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"name\" width=\"250\"></td>\n" +
+    "                  <td class=\"align-middle\" at-implicit at-sortable at-attribute=\"email\"></td>\n" +
+    "                  <td class=\"align-middle\" at-title=\"Ação\">\n" +
+    "                    <button class=\"btn btn-primary btn-smn\"><i class=\"material-icons\">search</i></button>\n" +
+    "                    <button class=\"btn btn-danger btn-smn\"><i class=\"material-icons\">delete_forever</i></button>\n" +
+    "                  </td>\n" +
+    "                </tr>\n" +
+    "                </tbody>\n" +
+    "              </table>\n" +
+    "              <div class=\"row controler-table\">\n" +
+    "                <div class=\"col-md-6\">\n" +
+    "                  <div class=\"form-group form-inline\">\n" +
+    "                    <label>Show </label>\n" +
+    "                    <select class=\"pagination-table custom-select\" ng-init=\"tablesCtrl.config.itemsPerPage = '5'\" ng-model=\"tablesCtrl.config.itemsPerPage\" class=\"form-control\">\n" +
+    "                      <option value=\"3\">3</option>\n" +
+    "                      <option value=\"5\">5</option>\n" +
+    "                      <option value=\"9\">9</option>\n" +
+    "                    </select>\n" +
+    "                    <label>items</label>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-md-6\">\n" +
+    "                  <at-pagination at-list=\"tablesCtrl.filteredList\" at-config=\"tablesCtrl.config\" class=\"pag-table\"></at-pagination>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
-    "          <div class=\"col-md-6\">\n" +
-    "            <at-pagination at-list=\"tablesCtrl.filteredList\" at-config=\"tablesCtrl.config\" class=\"pag-table\"></at-pagination>\n" +
-    "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
+    "\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "\n" +
+    "</div>");
 }]);
