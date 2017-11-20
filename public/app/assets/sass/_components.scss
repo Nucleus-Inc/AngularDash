@@ -1,0 +1,56 @@
+html,body {
+  height: 100%;
+  overflow: unset;
+  background-color: #fafafa;
+}
+
+form {
+  padding: 15px;
+}
+
+#content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.views {
+  height: 100%;
+  width: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.vertically-align {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin-top: 50px;
+}
+
+.horizontal-align {
+  margin: 0px auto;
+  margin-top: 70px;
+  padding-bottom: 30px;
+}
+
+.fa-position {
+  float: right;
+  color: $secondary-color;
+  margin-right: 7px;
+  margin-top: -25px;
+  cursor: pointer;
+}
+
+.clean-margin {
+  margin: 0;
+}

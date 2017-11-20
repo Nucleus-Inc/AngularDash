@@ -1,6 +1,7 @@
+.idea/
+.sass-cache/
 node_modules/
 bower_components/
-vendors/
-tmp/
-.sass-cache/
-.idea/
+public/dist/app.css
+public/dist/app.css.map
+public/dist/app.js

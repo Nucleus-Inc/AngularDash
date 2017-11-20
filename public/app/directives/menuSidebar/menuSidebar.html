@@ -1,0 +1,21 @@
+<div id="sidebar" class="sidebar sidebar-left sidebar-visible sidebar-size-3 sidebar-transition sidebar-title">
+    <!-- Brand -->
+    <!--<img class="img img-responsive" src="app/assets/img/logos/nucleus.png"/>-->
+    <a href="#" class="sidebar-brand">Brand</a>
+    <div class="sidebar-heading">Heading</div>
+    <ul class="sidebar-menu sidebar-text">
+      <li ng-repeat="menuItem in menuSidebarCtrl.menuItens" class="sidebar-menu-item">
+        <div link-sidebar link-sidebar-close ng-if="!menuItem.hasSubmenu" class="sidebar-menu-button" data-toggle="sidebar-collapse" href="{{menuItem.href}}">
+          <i class="sidebar-menu-icon material-icons">{{menuItem.icon}}</i> {{menuItem.label}}
+        </div>
+        <span submenu-sidebar ng-if="menuItem.hasSubmenu" class="sidebar-menu-button sidebar-menuItem-button" data-toggle="sidebar-collapse">
+          <i class="sidebar-menu-icon material-icons">{{menuItem.icon}}</i> {{menuItem.label}}
+        </span>
+        <ul ng-if="menuItem.hasSubmenu" class="sidebar-submenu">
+          <li ng-repeat="submenuItem in menuItem.submenu" class="sidebar-menu-item">
+              <div link-sidebar link-sidebar-close class="sidebar-menu-button" href="{{submenuItem.href}}">{{submenuItem.label}}</div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+</div>

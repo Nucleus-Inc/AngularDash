@@ -1,0 +1,35 @@
+<div class="container-fluid pages">
+  <div class="nav-login">
+    <img class="img-login" src="app/assets/img/logos/icon.png">
+  </div>
+  <div class="container-fluid">
+    <div class="col col-sm-6 col-md-4 vertically-align">
+      <div ng-show="forgotCtrl.send" class="alert alert-warning text-center" role="alert">
+        <span class="alert-close-btn" ng-click="forgotCtrl.close()">&times;</span>
+			  <span>Check your inbox for the next steps.</span>
+      </div>
+      <div class="cards">
+        <h3 class="text-center card-title">Forgot my password</h3>
+        <form role="form" name="ForgotForm" ng-submit="forgotCtrl.submit()" novalidate>
+          <div class="form-group">
+            <label class="card-label" for="formGroupExampleInput">Email Address</label>
+            <input type="email" name="email" class="form-control" id="formGroupExampleInput" placeholder="you@example.com" ng-model="forgotCtrl.user.email" ng-class="{'has-error': ForgotForm.email.$invalid && ForgotForm.email.$dirty}" ui-email required>
+            <div class="error-container" ng-show="ForgotForm.email.$dirty && ForgotForm.email.$invalid">
+              <small ng-show="ForgotForm.email.$error.required" class="form-text text-muted text-danger">Your email is required.</small>
+            </div>
+          </div>
+          <button class="mybutton btn-primary btn-block" ng-disabled="ForgotForm.$invalid" type="submit" name="Forgot">SEND</button>
+          <br>
+          <div class="row align-items-center">
+             <div class="col">
+               <a href="#/login">Login</a>
+             </div>
+             <div class="col text-right">
+               <a href="#/register">Register</a>
+             </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

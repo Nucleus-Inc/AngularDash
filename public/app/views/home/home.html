@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <div id="navbarContainer" class="layout-sidebar-l3-md-up">
+
+    <div class="menu-sidebar"></div>
+
+    <div class="layout-content card-layout-style" data-scrollable>
+      <div ng-include="'app/views/partials/navbar.html'" ng-controller="NavbarCtrl as navbarCtrl"></div>
+      <div id="content" class="container-fluid side-toogle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cards-dash">
+              <div class="row">
+                <div class="col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-heading">
+                      <div class="card-box bg-picton">
+                        <i class="material-icons icon-card">account_circle</i>
+                      </div>
+                      <div class="card-block">
+                        <h4 class="cards-title">{{homeCtrl.infos[0].number}}</h4>
+                        <p class="card-text">{{homeCtrl.infos[0].label}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-heading">
+                      <div class="card-box bg-shamrock">
+                        <i class="material-icons icon-card">shopping_cart</i>
+                      </div>
+                      <div class="card-block">
+                        <h4 class="cards-title">{{homeCtrl.infos[1].number}}</h4>
+                        <p class="card-text">{{homeCtrl.infos[1].label}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-heading">
+                      <div class="card-box bg-sandstorm">
+                        <i class="material-icons icon-card">refresh</i>
+                      </div>
+                      <div class="card-block">
+                        <h4 class="cards-title">{{homeCtrl.infos[2].number}}</h4>
+                        <p class="card-text">{{homeCtrl.infos[2].label}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-heading">
+                      <div class="card-box bg-thunderbird">
+                        <i class="material-icons icon-card">report_problem</i>
+                      </div>
+                      <div class="card-block">
+                        <h4 class="cards-title">{{homeCtrl.infos[3].number}}</h4>
+                        <p class="card-text">{{homeCtrl.infos[3].label}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row card-row-style">
+              <div class="card card-style">
+                <div class="card-header">
+                  Graph
+                </div>
+                <div class="card-block">
+                  <canvas class="chart chart-line" height="110" chart-data="homeCtrl.data" chart-labels="homeCtrl.labels" chart-series="series" chart-click="homeCtrl.onClick"></canvas>
+                </div>
+              </div>
+              <div class="card card-style-graph">
+                <div class="card-header contet-gaph">
+                  Sales Types
+                </div>
+                <div class="card-block">
+                  <canvas id="doughnut" class="chart chart-doughnut" height="192" chart-data="homeCtrl.donutData" chart-labels="homeCtrl.donutLabels"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

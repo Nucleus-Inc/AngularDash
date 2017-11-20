@@ -1,0 +1,22 @@
+.alert-success {
+  background-color: $green;
+  border-color: #449d48;
+  color: $white;
+}
+
+.alert-danger {
+  background-color: $red;
+  border-color: #f32c1e;
+  color: $white;
+}
+
+.alert-close-btn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

@@ -1,12 +1,12 @@
 {
-  "name": "angular-aside-dashboard",
-  "description": "",
-  "main": "index.js",
+  "name": "dashboard",
+  "description": "ERP do Grupo Completta Telecom",
+  "main": "app.js",
   "authors": [
-    "igor-lopes"
+    "Nucleus.eti"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Nucleus-Inc/AngularDash",
+  "homepage": "",
   "private": true,
   "ignore": [
     "**/.*",
@@ -29,12 +29,23 @@
     "angular-loaders": "^1.0.0",
     "loaders.css": "^0.1.2",
     "at-table": "https://github.com/Igor-Lopes/angular-table.git#v1.0.8",
-    "angular-chart.js": "^1.1.1"
+    "angular-chart.js": "^1.1.1",
+    "angular-sanitize": "^1.6.6",
+    "angular-input-masks": "^2.6.0",
+    "angular-animate": "^1.6.6",
+    "angular-messages": "^1.6.6",
+    "angular-mocks": "^1.6.6",
+    "angular-local-storage": "^0.7.1",
+    "popper.js": "^1.12.5",
+    "zxcvbn": "^4.4.2",
+    "angular-zxcvbn": "^3.2.2",
+    "angular-validation-match": "^1.9.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.6"
   },
   "resolutions": {
-    "angular": "1.6.6"
+    "angular": "1.6.6",
+    "zxcvbn": "4.4.2"
   }
 }
