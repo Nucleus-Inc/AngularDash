@@ -24,40 +24,77 @@ angular
       'zxcvbn',
       'validation.match'
   ])
-  .config(function($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider, $httpProvider) {
 
     // Remove '!' from path
     $locationProvider.hashPrefix('');
 
+    // Allow cross domain requests
+    $httpProvider.defaults.withCredentials = true;
+
     $routeProvider
       .when('/',{
         templateUrl: 'app/views/home/home.html',
-        controller: 'HomeCtrl as homeCtrl'/*,
+        controller: 'HomeCtrl as homeCtrl',
         resolve: {
           access: function(Auth) {
             return Auth.isAuthenticated();
           }
-        }*/
+        }
+      })
+      .when('/consultores',{
+        templateUrl: 'app/views/admins/admins.html',
+        controller: 'AdminsCtrl as adminsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/tables',{
         templateUrl: 'app/views/uiElements/tables.html',
-        controller: 'TablesCtrl as tablesCtrl'
+        controller: 'TablesCtrl as tablesCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/forms',{
         templateUrl: 'app/views/uiElements/forms.html',
-        controller: 'FormsCtrl as formsCtrl'
+        controller: 'FormsCtrl as formsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/buttons',{
         templateUrl: 'app/views/uiElements/buttons.html',
-        controller: 'ButtonsCtrl as buttonsCtrl'
+        controller: 'ButtonsCtrl as buttonsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/notifications',{
         templateUrl: 'app/views/uiElements/notifications.html',
-        controller: 'NotificationsCtrl as notificationsCtrl'
+        controller: 'NotificationsCtrl as notificationsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/blank',{
         templateUrl: 'app/views/pages/blank.html',
-        controller: 'BlankCtrl as blankCtrl'
+        controller: 'BlankCtrl as blankCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
       })
       .when('/login',{
         templateUrl: 'app/views/auth/login.html',

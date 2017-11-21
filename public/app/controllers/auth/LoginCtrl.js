@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('LoginCtrl', ['$scope','Auth', function($scope,Auth) {
+  angular.module('dashboard').controller('LoginCtrl', ['$scope','Auth','$location', function($scope,Auth,$location) {
 
     var vm = this;
 
@@ -27,11 +27,13 @@
     vm.submit = function() {
       if(!$scope.LoginForm.$invalid) {
         Auth.login(vm.user.email,vm.user.password).then(function(res){
-          console.log(res);
+          if(res.status == 200 && res.data && res.data.isActive)
+            $location.path('/');
+          else
+            vm.errLogin = true;
         }).catch(function(err){
-          console.log(err);
+          vm.errLogin = true;
         });
-        vm.errLogin = false;
       }else{
         vm.errLogin = true;
       }

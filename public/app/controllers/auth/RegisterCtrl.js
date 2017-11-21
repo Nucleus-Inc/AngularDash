@@ -1,7 +1,8 @@
 (function() {
-  angular.module('dashboard').controller('RegisterCtrl', ['$scope','Auth', function($scope,Auth) {
+  angular.module('dashboard').controller('RegisterCtrl', ['$scope','Account', function($scope,Account) {
 
     var vm = this;
+    var _id = -1;
 
     vm.hidepasswordA = true;
     vm.hidepasswordB = true;
@@ -39,14 +40,26 @@
 
     vm.submit = function() {
       if(!$scope.RegisterForm.$invalid) {
-        Auth.signup(vm.user.name,vm.user.email,vm.user.password).then(function(res){
+        Account.signup(vm.user.name,vm.user.email,vm.user.password).then(function(res){
+          if(res.data)
+            _id = res.data._id;
           vm.create = false;
         });
       }
     };
 
     vm.send = function() {
-      vm.sendDanger = true;
+      if(_id!=-1){
+        Account.setActivationCode(_id).then(function(res){
+          if(res.status==200){
+            vm.sendSuccess = true;
+            vm.sendDanger = false;
+          }else{
+            vm.sendSuccess = false;
+            vm.sendDanger = true;
+          }
+        });
+      }
     };
 
     vm.close = function(code) {

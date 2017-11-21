@@ -39,12 +39,54 @@
   background-color: rgba(0,0,0,.17);
 }
 
+/*
 .btn-primary {
-  background-color: $secondary-color;
-  border-color: $secondary-color;
+  background-color: $secondary-color-color;
+  border-color: $secondary-color-color;
 }
 
 .btn-primary:hover {
-  background-color: $secondary-color-hover;
-  border-color: $secondary-color-hover;
+  background-color: $secondary-color-color-hover;
+  border-color: $secondary-color-color-hover;
+}*/
+
+// Buttons
+
+.btn-primary {
+  @include button-variant($primary-color, $primary-color);
+}
+.btn-secondary {
+  @include button-variant($secondary-color, $secondary-color);
+}
+.btn-info {
+  @include button-variant($info, $info);
+}
+.btn-success {
+  @include button-variant($success, $success);
+}
+.btn-warning {
+  @include button-variant($warning, $warning);
+}
+.btn-danger {
+  @include button-variant($danger, $danger);
+}
+
+// Remove all backgrounds
+.btn-outline-primary {
+  @include button-outline-variant($primary-color);
+}
+.btn-outline-secondary {
+  @include button-outline-variant($secondary-color);
+}
+.btn-outline-info {
+  @include button-outline-variant($info);
+}
+.btn-outline-success {
+  @include button-outline-variant($success);
+}
+.btn-outline-warning {
+  @include button-outline-variant($warning);
+}
+.btn-outline-danger {
+  @include button-outline-variant($danger);
 }
