@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('LoginCtrl', ['$scope', function($scope) {
+  angular.module('dashboard').controller('LoginCtrl', ['$scope','Auth', function($scope,Auth) {
 
     var vm = this;
 
@@ -26,7 +26,12 @@
 
     vm.submit = function() {
       if(!$scope.LoginForm.$invalid) {
-        vm.errLogin = true;
+        Auth.login(vm.user.email,vm.user.password).then(function(res){
+          console.log(res);
+        }).catch(function(err){
+          console.log(err);
+        });
+        vm.errLogin = false;
       }else{
         vm.errLogin = true;
       }

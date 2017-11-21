@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('RegisterCtrl', ['$scope', function($scope) {
+  angular.module('dashboard').controller('RegisterCtrl', ['$scope','Auth', function($scope,Auth) {
 
     var vm = this;
 
@@ -39,7 +39,9 @@
 
     vm.submit = function() {
       if(!$scope.RegisterForm.$invalid) {
-        vm.create = false;
+        Auth.signup(vm.user.name,vm.user.email,vm.user.password).then(function(res){
+          vm.create = false;
+        });
       }
     };
 
