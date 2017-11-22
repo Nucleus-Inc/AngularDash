@@ -19,7 +19,7 @@
         "submenu": []
       },
       {
-        "icon": "shopping_cart",
+        "icon": "list",
         "label": "Categorias",
         "href": "/categorias",
         "hasSubmenu": false,

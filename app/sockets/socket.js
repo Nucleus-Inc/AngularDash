@@ -12,6 +12,14 @@ module.exports = function(io){
       io.emit('admin active',msg);
     });
 
+    socket.on('category create', function(msg){
+      io.emit('category create',msg);
+    });
+
+    socket.on('category update', function(msg){
+      io.emit('category update',msg);
+    });
+
 	  socket.on('disconnect', function(){
 	  	console.log('User disconnected');
 	  });

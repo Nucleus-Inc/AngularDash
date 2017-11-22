@@ -33,16 +33,16 @@
                   <thead></thead>
                   <tbody class="col-md-12">
                   <tr ng-repeat="item in adminsCtrl.filteredList">
-                    <td class="align-middle" at-title="Nome" at-initial-sorting="asc" at-attribute="name" at-sortable width="250">{{item.name}}</td>
+                    <td class="align-middle" at-title="Nome" at-initial-sorting="asc" at-attribute="name" at-sortable>{{item.name}}</td>
                     <td class="align-middle" at-title="Email" at-sortable at-attribute="email">{{item.email}}</td>
-                    <td class="align-middle" at-title="Status" at-sortable at-attribute="isActive" width="130">{{item.isActive | status}}</td>
+                    <td class="align-middle" at-title="Status" at-sortable at-attribute="isActive">{{item.isActive | status}}</td>
                     <td class="align-middle" at-title="Ação">
                       <button ng-hide="true" class="btn btn-primary btn-smn"><i class="material-icons">search</i></button>
-                      <button ng-click="adminsCtrl.active(item._id,item.email,item.isActive)" class="btn btn-info btn-smn">
+                      <button ng-click="adminsCtrl.active(item._id,item.email,item.isActive)" class="btn btn-primary btn-smn">
                         <i ng-if="item.isActive" class="material-icons">check_circle</i>
                         <i ng-if="!item.isActive" class="material-icons">radio_button_unchecked</i>
                       </button>
-                      <button class="btn btn-danger btn-smn"><i class="material-icons">delete_forever</i></button>
+                      <button ng-hide="true" class="btn btn-danger btn-smn"><i class="material-icons">delete_forever</i></button>
                     </td>
                   </tr>
                   </tbody>

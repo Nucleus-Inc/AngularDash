@@ -1,6 +1,6 @@
 (function() {
   angular.module('dashboard').factory('Socket', ['$rootScope', function($rootScope) {
-    var socket = io.connect();
+    var socket = io.connect('http://localhost:8080');
     return {
       on: function (eventName, callback) {
         socket.on(eventName, function () {

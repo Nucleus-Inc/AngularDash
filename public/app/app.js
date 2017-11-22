@@ -23,7 +23,8 @@ angular
       'ngSanitize',
       'ui.utils.masks',
       'zxcvbn',
-      'validation.match'
+      'validation.match',
+      'angularMoment'
   ])
   .config(function($routeProvider, $locationProvider, $httpProvider) {
 
@@ -53,8 +54,8 @@ angular
         }
       })
       .when('/categorias',{
-        templateUrl: 'app/views/categorys/categorys.html',
-        controller: 'CategorysCtrl as categorysCtrl',
+        templateUrl: 'app/views/categories/categories.html',
+        controller: 'categoriesCtrl as categoriesCtrl',
         resolve: {
           access: function(Auth) {
             return Auth.isAuthenticated();
