@@ -1,6 +1,6 @@
 (function() {
-  angular.module('dashboard').controller('CategoriesCtrl', ['$scope','filterFilter','Categories','Account','ModalService','notify','$localStorage','Socket',
-    function($scope, filterFilter, Categories, Account, ModalService, notify, $localStorage,Socket) {
+  angular.module('dashboard').controller('PlansCtrl', ['$scope','filterFilter','Plans','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, filterFilter, Plans, Account, ModalService, notify, $localStorage,Socket) {
 
       var vm = this;
 
@@ -13,41 +13,55 @@
         itemsPerPage: 10
       };
 
-      if($localStorage.categoryList == null) {
-        $localStorage.categoryList = [];
-        Categories.getCategories().then(function(res){
+      if($localStorage.planList == null) {
+        $localStorage.planList = [];
+        Plans.getPlans().then(function(res){
           for(var i=0;i<res.data.length;i++)
-            $localStorage.categoryList.push(res.data[i]);
+            $localStorage.planList.push(res.data[i]);
         });
       }
 
-      vm.filteredList = $localStorage.categoryList;
+      vm.filteredList = $localStorage.planList;
 
-      Socket.on('showCreateCategory',function(msg){
+      Socket.on('showCreatePlan',function(msg){
         var flag = true;
-        $localStorage.categoryList.filter(function(item){
+        $localStorage.planList.filter(function(item){
           if(item._id === msg._id)
             flag = false;
         });
         if(flag)
-          $localStorage.categoryList.push(msg);
+          $localStorage.planList.push(msg);
       });
 
-      Socket.on('showUpdateCategory',function(msg){
-        $localStorage.categoryList.filter(function(item){
+      Socket.on('showUpdatePlan',function(msg){
+        $localStorage.planList.filter(function(item){
           if(item._id === msg._id)
             item.title = msg.title;
         });
-        vm.filteredList = $localStorage.categoryList;
+          vm.filteredList = $localStorage.planList;
       });
 
       vm.updateList = function() {
         vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.categoryList,vm.key);
+        vm.filteredList = filterFilter($localStorage.planList,vm.key);
+      };
+
+      vm.update = function(){
+        vm.key = '';
+        var key = '';
+        if(vm.filter == 1)
+          key = true;
+        else {
+          if(vm.filter == 2)
+            key = false;
+          else
+            key = '';
+        }
+        vm.filteredList = filterFilter($localStorage.planList,key);
       };
 
       vm.create = function(){
-        vm.alertTitle = 'Aqui você cria suas categorias';
+        vm.alertTitle = 'Aqui você cria seus planos';
         vm.label = 'Criar';
         vm.input = '';
         ModalService.showModal({
@@ -61,11 +75,11 @@
         }).then(function(modal) {
           modal.element.modal();
           modal.close.then(function(result) {
-            vm.msg = result ? 'Categoria criada com sucesso' : 'Sua nova categoria não foi criada';
+            vm.msg = result ? 'Plano criada com sucesso' : 'Sua novo plano não foi criado';
             vm.classes = result ? 'alert-success' : 'alert-danger';
             if(result){
-              Categories.createCategory(result.name).then(function(res){
-                Socket.emit('createCategory',res.data);
+              Plans.createPlan(result.name).then(function(res){
+                Socket.emit('createPlan',res.data);
                 notify({
                   message: vm.msg,
                   classes: vm.classes,
@@ -74,7 +88,7 @@
                   duration: vm.duration
                 });
               }).catch(function(err){
-                vm.msg = 'Erro ao tentar criar a nova categoria';
+                vm.msg = 'Erro ao tentar criar o novo Plano';
                 vm.classes = 'alert-danger';
                 notify({
                   message: vm.msg,
@@ -98,9 +112,9 @@
       };
 
       vm.delete = function(id){
-        vm.alertTitle = 'Deletar categoria';
-        vm.alertQuestion = 'Tem certeza que deseja deletar esta categoria?';
-        $localStorage.categoryList.filter(function(item){
+        vm.alertTitle = 'Deletar plano';
+        vm.alertQuestion = 'Tem certeza que deseja deletar esta plano?';
+        $localStorage.planList.filter(function(item){
           if(item._id === id){
             vm.user = item.title;
             ModalService.showModal({
@@ -115,7 +129,7 @@
               modal.element.modal();
               modal.close.then(function(result) {
                 if(result) {
-                  Categories.deleteCategory(id).then(function(res){
+                  Plans.deletePlan(id).then(function(res){
                     console.log(res);
                   }).catch(function(err){
                     console.log(err);
@@ -130,9 +144,9 @@
       };
 
       vm.edit = function(id){
-        vm.alertTitle = 'Atualize sua categoria abaixo';
+        vm.alertTitle = 'Atualize seu plano abaixo';
         vm.label = 'Atualizar';
-        $localStorage.categoryList.filter(function(item){
+        $localStorage.planList.filter(function(item){
           if(item._id === id){
             vm.input = item.title;
             ModalService.showModal({
@@ -146,11 +160,11 @@
             }).then(function(modal) {
               modal.element.modal();
               modal.close.then(function(result) {
-                vm.msg = result ? 'Categoria atualizada com sucesso' : 'Esta categoria não foi atualizada';
+                vm.msg = result ? 'Plano atualizado com sucesso' : 'Esta plano não foi atualizado';
                 vm.classes = result ? 'alert-success' : 'alert-danger';
                 if(result) {
-                  Categories.updateCategory(id,result.name).then(function(res){
-                    Socket.emit('updateCategory',res.data);
+                  Plans.updatePlan(id,result.name).then(function(res){
+                    Socket.emit('updatePlan',res.data);
                     notify({
                       message: vm.msg,
                       classes: vm.classes,
@@ -159,7 +173,7 @@
                       duration: vm.duration
                     });
                   }).catch(function(err){
-                    vm.msg = 'Erro ao tentar atualizar a categoria';
+                    vm.msg = 'Erro ao tentar atualizar o plano';
                     vm.classes = 'alert-danger';
                     notify({
                       message: vm.msg,

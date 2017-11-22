@@ -24,6 +24,13 @@
         "href": "/categorias",
         "hasSubmenu": false,
         "submenu": []
+      },
+      {
+        "icon": "assignment",
+        "label": "Planos",
+        "href": "/planos",
+        "hasSubmenu": false,
+        "submenu": []
       }
     ];
 

@@ -5,19 +5,27 @@ module.exports = function(io){
 	  console.log('A user connected');
 
     socket.on('admin add', function(msg){
-      io.emit('admin add',msg);
+      socket.emit('admin add',msg);
     });
 
     socket.on('admin active', function(msg){
-      io.emit('admin active',msg);
+      socket.emit('admin active',msg);
     });
 
-    socket.on('category create', function(msg){
-      io.emit('category create',msg);
+    socket.on('createCategory', function(msg){
+      socket.emit('showCreateCategory',msg);
     });
 
-    socket.on('category update', function(msg){
-      io.emit('category update',msg);
+    socket.on('updateCategory', function(msg){
+      socket.emit('showUpdateCategory',msg);
+    });
+
+    socket.on('createPlan', function(msg){
+      socket.emit('showCreatePlan',msg);
+    });
+
+    socket.on('updatePlan', function(msg){
+      socket.emit('showUpdatePlan',msg);
     });
 
 	  socket.on('disconnect', function(){

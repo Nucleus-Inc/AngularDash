@@ -55,7 +55,16 @@ angular
       })
       .when('/categorias',{
         templateUrl: 'app/views/categories/categories.html',
-        controller: 'categoriesCtrl as categoriesCtrl',
+        controller: 'CategoriesCtrl as categoriesCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/planos',{
+        templateUrl: 'app/views/plans/plans.html',
+        controller: 'PlansCtrl as plansCtrl',
         resolve: {
           access: function(Auth) {
             return Auth.isAuthenticated();
