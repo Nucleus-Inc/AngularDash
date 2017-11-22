@@ -27,8 +27,8 @@
 
     vm.infos = [
       {
-        "label": "New Users",
-        "number": "74"
+        "label": "Consultores",
+        "number": "3"
       },
       {
         "label": "New Orders",

@@ -2,7 +2,7 @@
   angular.module('dashboard').directive('linkSidebar', function() {
     return {
       restrict: 'AEC',
-      priority: 100,
+      priority: 10,
       controller: ['$scope','$location', function($scope,$location) {
         $scope.path = function(href){
           $location.path(href);

@@ -8,7 +8,7 @@
 }
 
 .controler-table {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 
 @media screen and (max-width: 600px) {
@@ -16,6 +16,9 @@
     width: 100%;
     margin-top: 20px; } }
 @media only screen and (max-width: 767px) {
+  .table tbody td, .table tbody th {
+    height: auto;
+  }
   .table-responsive {
     display: block; }
     .table-responsive .btn {
@@ -28,10 +31,17 @@
       width: 100%;
       display: block; }
     .table-responsive tr:nth-of-type(2n) {
-      background-color: inherit; }
-    .table-responsive tr td:first-child {
-      display: none; }
-    .table-responsive tr td:nth-child(2) {
+      background-color: inherit;
+    }
+    .table-responsive tr:nth-child(n+2) {
+      margin-top: 15px;
+    }
+    /*.table-responsive tr td:first-child {
+      display: none; }*/
+    .table-responsive tr td:nth-child(3) {
+      width: 100%;
+    }
+    .table-responsive tr td:nth-child(1) {
       background: #D9DEE4;
       font-weight: bold;
       font-size: 1em;

@@ -12,6 +12,7 @@
 angular
   .module('dashboard',[
       'ngRoute',
+      'ngStorage',
       'chart.js',
       'angularModalService',
       'angular-table',
@@ -45,6 +46,15 @@ angular
       .when('/consultores',{
         templateUrl: 'app/views/admins/admins.html',
         controller: 'AdminsCtrl as adminsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/categorias',{
+        templateUrl: 'app/views/categorys/categorys.html',
+        controller: 'CategorysCtrl as categorysCtrl',
         resolve: {
           access: function(Auth) {
             return Auth.isAuthenticated();
@@ -87,6 +97,15 @@ angular
           }
         }
       })
+      .when('/modals',{
+        templateUrl: 'app/views/uiElements/modals.html',
+        controller: 'ModalsCtrl as modalsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
       .when('/blank',{
         templateUrl: 'app/views/pages/blank.html',
         controller: 'BlankCtrl as blankCtrl',
@@ -101,17 +120,17 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'loginCtrl'
       })
-      .when('/register',{
+      .when('/cadastrar',{
         templateUrl: 'app/views/auth/register.html',
         controller: 'RegisterCtrl',
         controllerAs: 'registerCtrl'
       })
-      .when('/forgot',{
+      .when('/recuperar',{
         templateUrl: 'app/views/auth/forgot.html',
         controller: 'ForgotCtrl',
         controllerAs: 'forgotCtrl'
       })
-      .when('/reset/:token',{
+      .when('/consultores/:recoveryKey/redefinir-senha/:token',{
         templateUrl: 'app/views/auth/reset.html',
         controller: 'ResetCtrl',
         controllerAs: 'resetCtrl'

@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('ResetCtrl', ['$scope', function($scope) {
+  angular.module('dashboard').controller('ResetCtrl', ['$scope','Account','$routeParams','$location', function($scope,Account,$routeParams,$location) {
 
     var vm = this;
 
@@ -38,8 +38,16 @@
 
     vm.submit = function() {
       if(!$scope.ResetForm.$invalid){
-        vm.resetDanger = true;
+        Account.recoverPassword($routeParams.recoveryKey,$routeParams.token,vm.user.password).then(function(res){
+          vm.resetSuccess = true;
+          vm.resetDanger = false;
+          $location.path('/login');
+        }).catch(function(err){
+          vm.resetSuccess = false;
+          vm.resetDanger = true;
+        });
       }else{
+        vm.resetSuccess = false;
         vm.resetDanger = true;
       }
     };

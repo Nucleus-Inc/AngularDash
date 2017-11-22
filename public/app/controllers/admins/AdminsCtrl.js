@@ -1,99 +1,103 @@
 (function() {
-  angular.module('dashboard').controller('AdminsCtrl', ['$scope','filterFilter', function($scope, filterFilter) {
+  angular.module('dashboard').controller('AdminsCtrl', ['$scope','filterFilter','Admins','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, filterFilter, Admins, Account, ModalService, notify, $localStorage, Socket) {
 
-    var vm = this;
+      var vm = this;
 
-    vm.config = {
-      itemsPerPage: 10
-    };
+      vm.filter = "Filtros";
 
-    vm.personList = [{
-      index: 1,
-      name: "Kristin Hill",
-      email: "kristin@hill.com",
-      phone: "85996592604"
-    }, {
-      index: 2,
-      name: "Valerie Francis",
-      email: "valerie@francis.com",
-      phone: "85996592604"
-    }, {
-      index: 3,
-      name: "Bob Abbott",
-      email: "bob@abbott.com",
-      phone: "85996592604"
-    }, {
-      index: 4,
-      name: "Greg Boyd",
-      email: "greg@boyd.com",
-      phone: "85996592604"
-    }, {
-      index: 5,
-      name: "Peggy Massey",
-      email: "peggy@massey.com",
-      phone: "85996592604"
-    }, {
-      index: 6,
-      name: "Janet Bolton",
-      email: "janet@bolton.com",
-      phone: "85996592604"
-    }, {
-      index: 7,
-      name: "Maria Liu",
-      email: "maria@liu.com",
-      phone: "85996592604"
-    }, {
-      index: 8,
-      name: "Anne Warren",
-      email: "anne@warren.com",
-      phone: "85996592604"
-    }, {
-      index: 9,
-      name: "Keith Steele",
-      email: "keith@steele.com",
-      phone: "85996592604"
-    }, {
-      index: 10,
-      name: "Jerome Lyons",
-      email: "jerome@lyons.com",
-      phone: "85996592604"
-    }, {
-      index: 11,
-      name: "Jacob Stone",
-      email: "jacob@stone.com",
-      phone: "85996592604"
-    }, {
-      index: 12,
-      name: "Marion Dunlap",
-      email: "marion@dunlap.com",
-      phone: "85996592604"
-    }, {
-      index: 13,
-      name: "Stacy Robinson",
-      email: "stacy@robinson.com",
-      phone: "85996592604"
-    }, {
-      index: 14,
-      name: "Luis Chappell",
-      email: "luis@chappell.com",
-      phone: "85996592604"
-    }, {
-      index: 15,
-      name: "Kimberly Horne",
-      email: "kimberly@horne.com",
-      phone: "85996592604"
-    }, {
-      index: 16,
-      name: "Andy Smith",
-      email: "andy@smith.com",
-      phone: "85996592604"
-    }];
+      vm.config = {
+        itemsPerPage: 10
+      };
 
-    vm.filteredList = vm.personList;
+      if($localStorage.personList == null) {
+        $localStorage.personList = [];
+        Admins.getAdmins().then(function(res){
+          for(var i=0;i<res.data.length;i++)
+            $localStorage.personList.push(res.data[i]);
+        });
+      }
 
-    vm.updateList = function() {
-      vm.filteredList = filterFilter(vm.personList, vm.key);
-    };
+      Socket.on('admin add',function(msg){
+        $localStorage.personList.push(msg);
+      });
+
+      Socket.on('admin active',function(msg){
+        $localStorage.personList.filter(function(item){
+          if(item._id === msg)
+            item.isActive = true;
+        });
+        vm.filteredList = $localStorage.personList;
+      });
+
+      vm.filteredList = $localStorage.personList;
+
+      vm.updateList = function() {
+        vm.filter = "Filtros";
+        vm.filteredList = filterFilter($localStorage.personList,vm.key);
+      };
+
+      vm.update = function(){
+        vm.key = '';
+        var key = '';
+        if(vm.filter == 1)
+          key = true;
+        else {
+          if(vm.filter == 2)
+            key = false;
+          else
+            key = '';
+        }
+        vm.filteredList = filterFilter($localStorage.personList,key);
+      };
+
+      vm.active = function(_id, email, isActive) {
+
+        vm.alertTitle = isActive ? 'Desativar usuário' : 'Ativar usuário';
+        vm.alertQuestion = isActive ? 'Você desja realmente desativar este usuário?' : 'Você deseja realmente ativar este usuário?';
+
+        vm.template = '';
+        vm.position = 'center';
+        vm.duration = '3000';
+
+        ModalService.showModal({
+          templateUrl: 'app/views/modals/alert.html',
+          controller: 'AlertModalCtrl as alertModalCtrl',
+          inputs: {
+            title: vm.alertTitle,
+            question: vm.alertQuestion,
+            user: email
+          }
+        }).then(function(modal) {
+          modal.element.modal();
+          modal.close.then(function(result) {
+            if(result){
+              Account.active(_id).then(function(res){
+                Socket.emit('admin active',_id);
+                vm.msg = isActive ? 'Usuário desativado com sucesso' : 'Usuário ativado com sucesso';
+                vm.classes = 'alert-success';
+                notify({
+                    message: vm.msg,
+                    classes: vm.classes,
+                    templateUrl: vm.template,
+                    position: vm.position,
+                    duration: vm.duration
+                });
+              }).catch(function(err){
+                  vm.msg = isActive ? 'Erro ao tentar desativar o usuário' : 'Erro ao tentar ativar o usuário';
+                  vm.classes = 'alert-danger';
+                  notify({
+                      message: vm.msg,
+                      classes: vm.classes,
+                      templateUrl: vm.template,
+                      position: vm.position,
+                      duration: vm.duration
+                  });
+              });
+            }
+          });
+        });
+      };
 
   }]);
 }());

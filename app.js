@@ -9,8 +9,8 @@ app.base = __dirname;
 var server = http.createServer(app);
 require('./config/socket')(server);
 
-server.listen(process.env.PORT || 5000, function () {
-  console.log('Express Server listening on port ' + app.get('port'))
+server.listen(process.env.PORT || 8080, function () {
+  console.log('Express Server listening on port ' + app.get('port'));
 })
 
 // For testing with Mocha

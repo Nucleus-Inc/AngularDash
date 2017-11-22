@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').service('Account', ['$http','$q', function($http,$q) {
+  angular.module('dashboard').service('Account', ['$http','$q','Config', function($http,$q,Config) {
 
     var url_base = Config.url_base;
 
@@ -13,6 +13,12 @@
       })
     };
 
+    this.active = function(_id){
+      return $http.put(url_base+'/admins/'+_id+'/account/activation').then(function(result){
+        return result;
+      });
+    };
+
     this.setActivationCode = function(_id){
       return $http.put(url_base+'/admins/'+_id+'/account/activation').then(function(result){
         return result;
@@ -20,9 +26,19 @@
     };
 
     this.setRecoveryToken = function(recoveryKey) {
-      return $http.patch(url_base+'/admins/account/recovery', recoveryKey).then(function(result){
+      return $http.patch(url_base+'/admins/account/recovery',recoveryKey).then(function(result){
         return result;
       });
+    };
+
+    this.recoverPassword = function(recoveryKey, token, newPassword) {
+      return $http.put(url_base+'/admins/account/recovery',{
+        'recoveryKey': recoveryKey,
+        'token': token,
+        'newPassword': newPassword
+      }).then(function(result){
+        return result;
+      })
     };
 
   }]);

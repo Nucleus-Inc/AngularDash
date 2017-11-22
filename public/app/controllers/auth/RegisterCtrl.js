@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('RegisterCtrl', ['$scope','Account', function($scope,Account) {
+  angular.module('dashboard').controller('RegisterCtrl', ['$scope','Account','Socket', function($scope,Account,Socket) {
 
     var vm = this;
     var _id = -1;
@@ -41,8 +41,12 @@
     vm.submit = function() {
       if(!$scope.RegisterForm.$invalid) {
         Account.signup(vm.user.name,vm.user.email,vm.user.password).then(function(res){
-          if(res.data)
+          if(res.data){
             _id = res.data._id;
+            vm.user._id = _id;
+            vm.user.isActive = false;
+            Socket.emit('admin add',vm.user);
+          }
           vm.create = false;
         });
       }

@@ -13,7 +13,7 @@
         <form  role="form" name="LoginForm" ng-submit="loginCtrl.submit()" novalidate>
           <div class="form-group">
             <label class="card-label" for="formGroupExampleInput">Endereço de Email</label>
-            <input type="email" class="form-control" id="formGroupExampleInput" placeholder="email@exemplo.com.br" ng-model="loginCtrl.user.email" ui-email required>
+            <input type="email" class="form-control" id="formGroupExampleInput" placeholder="email@exemplo.com.br" ng-model="loginCtrl.user.email" ui-email="no-registered" required>
           </div>
           <div class="form-group">
             <label class="card-label" for="formGroupExampleInput">Senha</label>
@@ -25,10 +25,10 @@
           <br />
           <div class="row align-items-center">
              <div class="col">
-               <a href="#/register">Cadastre-se</a>
+               <a href="#/cadastrar">Cadastre-se</a>
              </div>
              <div class="col text-right">
-               <a href="#/forgot">Esqueceu sua senha?</a>
+               <a href="#/recuperar">Esqueceu sua senha?</a>
              </div>
           </div>
         </form>

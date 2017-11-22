@@ -2,7 +2,7 @@
   angular.module('dashboard').directive('linkSidebarClose', function() {
     return {
       restrict: 'AEC',
-      priority: 200,
+      priority: 900,
       link: function(scope, iElement, iAttrs, ngModelCtrl) {
         var width = angular.element(window).width();
         iElement.bind('click',function() {

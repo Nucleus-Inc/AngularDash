@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('NotificationsCtrl', ['$scope', function($scope) {
+  angular.module('dashboard').controller('NotificationsCtrl', ['$scope','notify', function($scope, notify) {
 
     var vm = this;
 
@@ -41,7 +41,7 @@
     };
 
     vm.clickedLink = function() {
-        notify('You clicked a link!');
+      notify('You clicked a link!');
     };
 
   }]);

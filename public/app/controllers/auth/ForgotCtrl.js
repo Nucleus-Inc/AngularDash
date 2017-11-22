@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('ForgotCtrl', ['$scope','Account', function($scope,Account) {
+  angular.module('dashboard').controller('ForgotCtrl', ['$scope','Account','$compile', function($scope,Account,$compile) {
 
     var vm = this;
 
@@ -14,8 +14,11 @@
         Account.setRecoveryToken({
           'recoveryKey': vm.user.email
         }).then(function(res){
-          if(res.status == 200)
+          if(res.status == 200){
             vm.send = true;
+            $scope.ForgotForm.$setPristine();
+            vm.user.email = '';
+          }
         }).catch(function(err){
           console.log(err);
         });

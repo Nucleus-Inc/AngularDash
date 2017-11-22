@@ -60,6 +60,8 @@ module.exports = function(grunt) {
           'js/angular-table.js': 'at-table/dist/angular-table.js',
           'js/angular-loaders.min.js': 'angular-loaders/dist/angular-loaders.min.js',
           'js/angular-validation-match.min.js': 'angular-validation-match/dist/angular-validation-match.min.js',
+          'js/ngStorage.min.js': 'ngstorage/ngStorage.min.js',
+          'js/socket.io.js' : 'socket.io-client/dist/socket.io.js',
           'css/material.min.css': 'daemonite-material/css/material.min.css',
           'css/bootstrap.min.css': 'bootstrap/dist/css/bootstrap.min.css',
           'css/font-awesome.min.css': 'font-awesome/css/font-awesome.min.css',

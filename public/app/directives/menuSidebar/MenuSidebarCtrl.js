@@ -17,6 +17,13 @@
         "href": "/consultores",
         "hasSubmenu": false,
         "submenu": []
+      },
+      {
+        "icon": "shopping_cart",
+        "label": "Categorias",
+        "href": "/categorias",
+        "hasSubmenu": false,
+        "submenu": []
       }
     ];
 
