@@ -1,6 +1,6 @@
 (function() {
-  angular.module('dashboard').controller('AdminsCtrl', ['$scope','filterFilter','Admins','Account','ModalService','notify','$localStorage','Socket','Config',
-    function($scope, filterFilter, Admins, Account, ModalService, notify, $localStorage, Socket, Config) {
+  angular.module('dashboard').controller('PartnesCtrl', ['$scope','filterFilter','Partnes','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, filterFilter, Partnes, Account, ModalService, notify, $localStorage, Socket) {
 
       var vm = this;
 
@@ -10,36 +10,31 @@
         itemsPerPage: 10
       };
 
-      if($localStorage.personList == null) {
-        $localStorage.personList = [];
-        Admins.getAdmins().then(function(res){
+      if($localStorage.partnesList == null) {
+        $localStorage.partnesList = [];
+        Partnes.getPartnes().then(function(res){
           for(var i=0;i<res.data.length;i++)
-            $localStorage.personList.push(res.data[i]);
+            $localStorage.partnesList.push(res.data[i]);
         });
       }
 
       Socket.on('admin add',function(msg){
-        var flag = true;
-        $localStorage.personList.filter(function(item){
-          if(item._id === msg._id)
-            flag = false;
-        });
-        if(flag)
-          $localStorage.personList.push(msg);
+        $localStorage.partnesList.push(msg);
       });
 
       Socket.on('admin active',function(msg){
-        $localStorage.personList.filter(function(item){
+        $localStorage.partnesList.filter(function(item){
           if(item._id === msg)
             item.isActive = true;
         });
+        vm.filteredList = $localStorage.partnesList;
       });
 
-      vm.filteredList = $localStorage.personList;
+      vm.filteredList = $localStorage.partnesList;
 
       vm.updateList = function() {
         vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.personList,vm.key);
+        vm.filteredList = filterFilter($localStorage.partnesList,vm.key);
       };
 
       vm.update = function(){
@@ -53,7 +48,7 @@
           else
             key = '';
         }
-        vm.filteredList = filterFilter($localStorage.personList,key);
+        vm.filteredList = filterFilter($localStorage.partnesList,key);
       };
 
       vm.active = function(_id, email, isActive) {

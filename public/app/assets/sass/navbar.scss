@@ -28,21 +28,29 @@
 .sidebar-menu-button {
   cursor: pointer;
   &:hover {
-    color: #bbc4f9;
+    color: $hover;
   }
   &:active {
-    color: #bbc4f9;
+    color: $hover;
   }
   &:disable {
-    color: #fff;
+    color: $white;
   }
 }
 
 .sidebar {
-  background-color: #4051b5;
+  background-color: $primary-color;
   position: fixed;
   top: 0;
   bottom: 0;
+}
+
+.img-brand {
+  display: inherit;
+  margin-bottom: 0;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sidebar-title div {

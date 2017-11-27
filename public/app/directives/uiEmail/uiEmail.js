@@ -6,7 +6,7 @@
       scope: {
         ngModel: '=ngModel'
       },
-      controller: ['$scope','Verification', function($scope, Verification) {
+      controller: ['$scope','Verification','Auth','Account', function($scope, Verification, Auth, Account) {
 
         $scope.adminVerifyEmail = function(email,view){
           Verification.adminVerifyEmail(email).then(function(res){
@@ -18,6 +18,20 @@
             if(err.status==404){
               view.$setValidity("emailExists",true);
             }
+          });
+        };
+
+        $scope.verifyEmail = function(email,view){
+          Auth.isAuthenticated().then(function(res){
+            if(res.data){
+              Account.getAccount(res.data._id).then(function(res){
+                if(res.data.email === email)
+                  view.$setValidity("emailExists",true);
+                else
+                  view.$setValidity("emailExists",false);
+              });
+            }else
+              $scope.adminVerifyEmail(email,view);
           });
         };
 
@@ -36,8 +50,13 @@
                 }else{
                   if(iAttrs.uiEmail == 'no-registered'){ //uiEmail equals no-registered
 
-                  }else //uiEmail exists and is empty
-                    scope.adminVerifyEmail(scope.ngModel,ngModelCtrl);
+                  }else{
+                    if(iAttrs.uiEmail == 'logged'){
+                      scope.verifyEmail(scope.ngModel,ngModelCtrl);
+                    }else{ //uiEmail exists and is empty
+                      scope.adminVerifyEmail(scope.ngModel,ngModelCtrl);
+                    }
+                  }
                 }
               }else //uiEmail no defined
                 scope.adminVerifyEmail(scope.ngModel,ngModelCtrl);

@@ -19,6 +19,13 @@
         "submenu": []
       },
       {
+        "icon": "contacts",
+        "label": "Parceiros",
+        "href": "/parceiros",
+        "hasSubmenu": false,
+        "submenu": []
+      },
+      {
         "icon": "list",
         "label": "Categorias",
         "href": "/categorias",
@@ -29,6 +36,13 @@
         "icon": "assignment",
         "label": "Planos",
         "href": "/planos",
+        "hasSubmenu": false,
+        "submenu": []
+      },
+      {
+        "icon": "shopping_cart",
+        "label": "Ofertas",
+        "href": "/ofertas",
         "hasSubmenu": false,
         "submenu": []
       }

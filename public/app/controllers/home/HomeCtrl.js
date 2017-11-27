@@ -1,5 +1,5 @@
 (function() {
-  angular.module('dashboard').controller('HomeCtrl', ['$scope','$timeout', function($scope,$timeout) {
+  angular.module('dashboard').controller('HomeCtrl', ['$scope','$timeout','Auth', function($scope,$timeout,Auth) {
 
     var vm = this;
 

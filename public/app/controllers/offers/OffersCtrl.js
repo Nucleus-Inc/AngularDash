@@ -1,6 +1,6 @@
 (function() {
-  angular.module('dashboard').controller('PlansCtrl', ['$scope','filterFilter','Plans','Account','ModalService','notify','$localStorage','Socket',
-    function($scope, filterFilter, Plans, Account, ModalService, notify, $localStorage,Socket) {
+  angular.module('dashboard').controller('OffersCtrl', ['$scope','filterFilter','Offers','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, filterFilter, Offers, Account, ModalService, notify, $localStorage,Socket) {
 
       var vm = this;
 
@@ -13,60 +13,47 @@
         itemsPerPage: 10
       };
 
-      if($localStorage.planList == null) {
-        $localStorage.planList = [];
-        Plans.getPlans().then(function(res){
+      if($localStorage.offersList == null) {
+        $localStorage.offersList = [];
+        Offers.getOffers().then(function(res){
           for(var i=0;i<res.data.length;i++)
-            $localStorage.planList.push(res.data[i]);
+            $localStorage.offersList.push(res.data[i]);
         });
       }
 
-      vm.filteredList = $localStorage.planList;
+      vm.filteredList = $localStorage.offersList;
 
-      Socket.on('showCreatePlan',function(msg){
+      Socket.on('showCreateOffers',function(msg){
         var flag = true;
-        $localStorage.planList.filter(function(item){
+        $localStorage.offersList.filter(function(item){
           if(item._id === msg._id)
             flag = false;
         });
         if(flag)
-          $localStorage.planList.push(msg);
+          $localStorage.offersList.push(msg);
       });
 
-      Socket.on('showUpdatePlan',function(msg){
-        $localStorage.planList.filter(function(item){
-          if(item._id === msg._id)
-            item.title = msg.title;
+      Socket.on('showUpdateOffers',function(msg){
+        $localStorage.offersList.filter(function(item){
+          if(item._id === msg._id){
+            //item.title = msg.title;
+          }
         });
-          vm.filteredList = $localStorage.planList;
+        vm.filteredList = $localStorage.offersList;
       });
 
       vm.updateList = function() {
         vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.planList,vm.key);
-      };
-
-      vm.update = function(){
-        vm.key = '';
-        var key = '';
-        if(vm.filter == 1)
-          key = true;
-        else {
-          if(vm.filter == 2)
-            key = false;
-          else
-            key = '';
-        }
-        vm.filteredList = filterFilter($localStorage.planList,key);
+        vm.filteredList = filterFilter($localStorage.offersList,vm.key);
       };
 
       vm.create = function(){
-        vm.alertTitle = 'Aqui você cria seus planos';
+        vm.alertTitle = 'Aqui você cria uma oferta';
         vm.label = 'Criar';
         vm.input = '';
         ModalService.showModal({
-          templateUrl: 'app/views/modals/plan-form-modal.html',
-          controller: 'PlanFormModalCtrl as planFormModalCtrl',
+          templateUrl: 'app/views/modals/category-form-modal.html',
+          controller: 'CategoryFormModalCtrl as categoryFormModalCtrl',
           inputs: {
             title: vm.alertTitle,
             input: vm.input,
@@ -75,11 +62,11 @@
         }).then(function(modal) {
           modal.element.modal();
           modal.close.then(function(result) {
-            vm.msg = result ? 'Plano criada com sucesso' : 'Sua novo plano não foi criado';
+            vm.msg = result ? 'Oferta criada com sucesso' : 'Sua nova oferta não foi criada';
             vm.classes = result ? 'alert-success' : 'alert-danger';
             if(result){
-              Plans.createPlan(result.name).then(function(res){
-                Socket.emit('createPlan',res.data);
+              /*Offers.createOffer(result.name).then(function(res){
+                Socket.emit('createOffer',res.data);
                 notify({
                   message: vm.msg,
                   classes: vm.classes,
@@ -88,7 +75,7 @@
                   duration: vm.duration
                 });
               }).catch(function(err){
-                vm.msg = 'Erro ao tentar criar o novo Plano';
+                vm.msg = 'Erro ao tentar criar a nova categoria';
                 vm.classes = 'alert-danger';
                 notify({
                   message: vm.msg,
@@ -97,26 +84,27 @@
                   position: vm.position,
                   duration: vm.duration
                 });
-              });
+              });*/
             }else{
-              notify({
+              /*notify({
                 message: vm.msg,
                 classes: vm.classes,
                 tamplateUrl: vm.template,
                 position: vm.position,
                 duration: vm.duration
-              });
+              });*/
             }
           });
         });
       };
 
       vm.delete = function(id){
-        vm.alertTitle = 'Deletar plano';
-        vm.alertQuestion = 'Tem certeza que deseja deletar esta plano?';
-        $localStorage.planList.filter(function(item){
+        vm.alertTitle = 'Deletar oferta';
+        vm.alertQuestion = 'Tem certeza que deseja deletar esta oferta?';
+        $localStorage.offersList.filter(function(item){
           if(item._id === id){
-            vm.user = item.title;
+            //vm.user = item.title;
+            vm.user = '';
             ModalService.showModal({
               templateUrl: 'app/views/modals/alert.html',
               controller: 'AlertModalCtrl as alertModalCtrl',
@@ -129,7 +117,7 @@
               modal.element.modal();
               modal.close.then(function(result) {
                 if(result) {
-                  Plans.deletePlan(id).then(function(res){
+                  Offers.deleteOffer(id).then(function(res){
                     console.log(res);
                   }).catch(function(err){
                     console.log(err);
@@ -144,14 +132,14 @@
       };
 
       vm.edit = function(id){
-        vm.alertTitle = 'Atualize seu plano abaixo';
+        vm.alertTitle = 'Atualize sua categoria abaixo';
         vm.label = 'Atualizar';
-        $localStorage.planList.filter(function(item){
+        $localStorage.offersList.filter(function(item){
           if(item._id === id){
             vm.input = item.title;
             ModalService.showModal({
-              templateUrl: 'app/views/modals/plan-form-modal.html',
-              controller: 'PlanFormModalCtrl as planFormModalCtrl',
+              templateUrl: 'app/views/modals/category-form-modal.html',
+              controller: 'CategoryFormModalCtrl as categoryFormModalCtrl',
               inputs: {
                 title: vm.alertTitle,
                 input: vm.input,
@@ -160,11 +148,11 @@
             }).then(function(modal) {
               modal.element.modal();
               modal.close.then(function(result) {
-                vm.msg = result ? 'Plano atualizado com sucesso' : 'Esta plano não foi atualizado';
+                vm.msg = result ? 'Categoria atualizada com sucesso' : 'Esta categoria não foi atualizada';
                 vm.classes = result ? 'alert-success' : 'alert-danger';
                 if(result) {
-                  Plans.updatePlan(id,result.name).then(function(res){
-                    Socket.emit('updatePlan',res.data);
+                  /*Offers.updateOffer(id,result.name).then(function(res){
+                    Socket.emit('updateOffer',res.data);
                     notify({
                       message: vm.msg,
                       classes: vm.classes,
@@ -173,7 +161,7 @@
                       duration: vm.duration
                     });
                   }).catch(function(err){
-                    vm.msg = 'Erro ao tentar atualizar o plano';
+                    vm.msg = 'Erro ao tentar atualizar a categoria';
                     vm.classes = 'alert-danger';
                     notify({
                       message: vm.msg,
@@ -182,15 +170,15 @@
                       position: vm.position,
                       duration: vm.duration
                     });
-                  });
+                  });*/
                 }else{
-                  notify({
+                  /*notify({
                     message: vm.msg,
                     classes: vm.classes,
                     tamplateUrl: vm.template,
                     position: vm.position,
                     duration: vm.duration
-                  });
+                  });*/
                 }
               });
             });

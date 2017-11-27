@@ -53,6 +53,15 @@ angular
           }
         }
       })
+      .when('/parceiros',{
+        templateUrl: 'app/views/partnes/partnes.html',
+        controller: 'PartnesCtrl as partnesCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
       .when('/categorias',{
         templateUrl: 'app/views/categories/categories.html',
         controller: 'CategoriesCtrl as categoriesCtrl',
@@ -65,6 +74,42 @@ angular
       .when('/planos',{
         templateUrl: 'app/views/plans/plans.html',
         controller: 'PlansCtrl as plansCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/ofertas',{
+        templateUrl: 'app/views/offers/offers.html',
+        controller: 'OffersCtrl as offersCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/perfil',{
+        templateUrl: 'app/views/profile/profile.html',
+        controller: 'ProfileCtrl as profileCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/settings',{
+        templateUrl: 'app/views/profile/settings.html',
+        controller: 'SettingsCtrl as settingsCtrl',
+        resolve: {
+          access: function(Auth) {
+            return Auth.isAuthenticated();
+          }
+        }
+      })
+      .when('/problemas',{
+        templateUrl: 'app/views/report/report.html',
+        controller: 'ReportCtrl as reportCtrl',
         resolve: {
           access: function(Auth) {
             return Auth.isAuthenticated();

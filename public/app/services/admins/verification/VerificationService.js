@@ -9,5 +9,13 @@
       });
     };
 
+    this.verifyPassword = function(password) {
+      return $http.post(url_base+'/verifications/password',{
+        'password': password
+      }).then(function(result){
+        return result;
+      });
+    };
+
   }]);
 }());

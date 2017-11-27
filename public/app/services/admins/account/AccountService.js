@@ -41,5 +41,36 @@
       })
     };
 
+    this.setEmailChangeToken = function(id,email){
+      return $http.patch(url_base+'/admins/'+id+'/account/email',{
+        'email': email
+      }).then(function(result){
+        return result;
+      });
+    };
+
+    this.updateEmail = function(id,token){
+      return $http.put(url_base+'/admins/'+id+'/account/email',{
+        'token': token
+      }).then(function(result){
+        return result;
+      });
+    };
+
+    this.updatePassword = function(id,currentPassword,newPassword){
+      return $http.put(url_base+'/admins/'+id+'/account/password',{
+        'currentPassword': currentPassword,
+        'newPassword': newPassword
+      }).then(function(result){
+        return result;
+      });
+    };
+
+    this.getAccount = function(id){
+      return $http.get(url_base+'/admins/'+id+'/account').then(function(result){
+        return result;
+      });
+    };
+
   }]);
 }());

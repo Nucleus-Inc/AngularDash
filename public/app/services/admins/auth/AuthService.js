@@ -15,7 +15,7 @@
     this.isAuthenticated = function() {
       return $http.get(url_base+'/admins/auth/local/login').then(function(result) {
         if (result.status == 200) {
-          return "Authenticated";
+          return result;
         } else {
           return $q.reject("Not Authenticated");
         }
