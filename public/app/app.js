@@ -13,6 +13,7 @@ angular
   .module('dashboard',[
       'ngRoute',
       'ngStorage',
+      'http-etag',
       'chart.js',
       'angularModalService',
       'angular-table',
@@ -26,13 +27,18 @@ angular
       'validation.match',
       'angularMoment'
   ])
-  .config(function($routeProvider, $locationProvider, $httpProvider) {
+  .config(function($routeProvider, $locationProvider, $httpProvider, httpEtagProvider) {
 
     // Remove '!' from path
     $locationProvider.hashPrefix('');
 
     // Allow cross domain requests
     $httpProvider.defaults.withCredentials = true;
+
+    httpEtagProvider
+     .defineCache('persistentCache', {
+       cacheService: 'localStorage'
+     });
 
     $routeProvider
       .when('/',{

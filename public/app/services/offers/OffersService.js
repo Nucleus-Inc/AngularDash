@@ -4,9 +4,12 @@
     var url_base = Config.url_base;
 
     this.getOffers = function(){
-      return $http.get(url_base+'/offers').then(function(result){
+      return $http.get(url_base+'/offers',{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.createOffer = function(title){
@@ -18,9 +21,12 @@
     };
 
     this.getOffer = function(id){
-      return $http.get(url_base+'/offers/'+id).then(function(result){
+      return $http.get(url_base+'/offers/'+id,{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.updateOffer = function(id,title){

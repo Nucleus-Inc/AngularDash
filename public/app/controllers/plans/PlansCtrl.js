@@ -1,10 +1,28 @@
 (function() {
-  angular.module('dashboard').controller('PlansCtrl', ['$scope','filterFilter','Plans','Account','ModalService','notify','$localStorage','Socket',
-    function($scope, filterFilter, Plans, Account, ModalService, notify, $localStorage,Socket) {
+  angular.module('dashboard').controller('PlansCtrl', ['$scope','$filter','Plans','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, $filter, Plans, Account, ModalService, notify, $localStorage,Socket) {
 
       var vm = this;
 
-      vm.filter = "Filtros";
+      vm.predicates = [
+        {
+          _id: 0,
+          name: 'empty',
+          label: 'Filtros'
+        },
+        {
+          _id: 1,
+          name: 'actives',
+          label: 'Consultores Ativos'
+        },
+        {
+          _id: 2,
+          name: 'noactives',
+          label: 'Consultores Pendentes'
+        }
+      ];
+
+      vm.selectedPredicate = vm.predicates[0].label;
       vm.template = '';
       vm.position = 'center';
       vm.duration = '3000';
@@ -13,51 +31,52 @@
         itemsPerPage: 10
       };
 
-      if($localStorage.planList == null) {
-        $localStorage.planList = [];
-        Plans.getPlans().then(function(res){
-          for(var i=0;i<res.data.length;i++)
-            $localStorage.planList.push(res.data[i]);
-        });
-      }
-
-      vm.filteredList = $localStorage.planList;
+      var buffer = [];
+      vm.filteredList = [];
+      Plans.getPlans().then(function(res){
+        for(var i=0;i<res.data.length;i++)
+          vm.filteredList.push(res.data[i]);
+        buffer = vm.filteredList;
+      });
 
       Socket.on('showCreatePlan',function(msg){
         var flag = true;
-        $localStorage.planList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === msg._id)
             flag = false;
         });
         if(flag)
-          $localStorage.planList.push(msg);
+          vm.filteredList.push(msg);
       });
 
       Socket.on('showUpdatePlan',function(msg){
-        $localStorage.planList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === msg._id)
             item.title = msg.title;
         });
-          vm.filteredList = $localStorage.planList;
       });
 
-      vm.updateList = function() {
-        vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.planList,vm.key);
+      var search = function(item) {
+        var _id = item._id;
+        var title = item.title.toLowerCase();
+        var key = vm.key;
+        if( key != undefined ){
+          key = key.toLowerCase();
+        }
+        if( _id.search(key) > -1 || title.search(key) > -1 )
+          return item;
       };
 
-      vm.update = function(){
+      vm.update = function() {
+        vm.filteredList = buffer.filter(function(item){
+          return search(item);
+        });
+      };
+
+      vm.clean = function() {
         vm.key = '';
-        var key = '';
-        if(vm.filter == 1)
-          key = true;
-        else {
-          if(vm.filter == 2)
-            key = false;
-          else
-            key = '';
-        }
-        vm.filteredList = filterFilter($localStorage.planList,key);
+        vm.selectedPredicate = vm.predicates[0].label;
+        vm.filteredList = buffer;
       };
 
       vm.create = function(){
@@ -114,7 +133,7 @@
       vm.delete = function(id){
         vm.alertTitle = 'Deletar plano';
         vm.alertQuestion = 'Tem certeza que deseja deletar esta plano?';
-        $localStorage.planList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === id){
             vm.user = item.title;
             ModalService.showModal({
@@ -146,7 +165,7 @@
       vm.edit = function(id){
         vm.alertTitle = 'Atualize seu plano abaixo';
         vm.label = 'Atualizar';
-        $localStorage.planList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === id){
             vm.input = item.title;
             ModalService.showModal({

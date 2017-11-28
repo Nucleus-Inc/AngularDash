@@ -67,8 +67,11 @@
     };
 
     this.getAccount = function(id){
-      return $http.get(url_base+'/admins/'+id+'/account').then(function(result){
+      return $http.get(url_base+'/admins/'+id+'/account',{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
       });
     };
 

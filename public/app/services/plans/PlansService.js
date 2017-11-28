@@ -4,9 +4,12 @@
     var url_base = Config.url_base;
 
     this.getPlans = function(){
-      return $http.get(url_base+'/plans').then(function(result){
+      return $http.get(url_base+'/plans',{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.createPlan = function(title){
@@ -18,9 +21,12 @@
     };
 
     this.getPlan = function(id){
-      return $http.get(url_base+'/plans/'+id).then(function(result){
+      return $http.get(url_base+'/plans/'+id,{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.updatePlan = function(id,title){

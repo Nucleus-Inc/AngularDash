@@ -48,6 +48,7 @@ module.exports = function(grunt) {
           'js/angular-animate.min.js': 'angular-animate/angular-animate.min.js',
           'js/angular-messages.min.js': 'angular-messages/angular-messages.min.js',
           'js/angular-local-storage.min.js': 'angular-local-storage/dist/angular-local-storage.min.js',
+          'js/angular-http-etag.min.js' : 'angular-http-etag/release/angular-http-etag.min.js',
           'js/angular-mocks.js': 'angular-mocks/angular-mocks.js',
           'js/zxcvbn.js': 'zxcvbn/dist/zxcvbn.js',
           'js/angular-zxcvbn.js': 'angular-zxcvbn/dist/angular-zxcvbn.js',

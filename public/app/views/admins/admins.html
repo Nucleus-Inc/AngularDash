@@ -18,14 +18,10 @@
                     <form class="form-inline">
                       <div class="input-group mb-4 mr-sm-4 mb-sm-0">
                         <div class="input-group-addon"><i class="material-icons">search</i></div>
-                        <input ng-model="adminsCtrl.key" ng-change="adminsCtrl.updateList()" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pesquisa...">
+                        <input ng-model="adminsCtrl.key" ng-change="adminsCtrl.update()" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pesquisa ...">
                       </div>
-                      <select ng-model="adminsCtrl.filter" ng-change="adminsCtrl.update()" class="custom-select mb-sm-0 mr-sm-2 input-md" aria-label="ngSelected" id="inlineFormCustomSelect">
-                        <option ng-selected="selected">Filtros</option>
-                        <option value="1">Consultores Ativos</option>
-                        <option value="2">Consultores Pendentes</option>
-                      </select>
-                      <button ng-hide="true" type="button" class="btn btn-success"> Add user</button>
+                      <select class="custom-select mb-sm-0 mr-sm-2 input-md" id="predicate" ng-model="adminsCtrl.selectedPredicate" ng-change="adminsCtrl.update()" ng-options="predicate.label as predicate.label for predicate in adminsCtrl.predicates" ng-selected="{{predicate.label == adminsCtrl.selectedPredicate}}"></select>
+                      <button ng-click="adminsCtrl.clean()" type="button" class="btn btn-default">Limpar filtro</button>
                     </form>
                   </div>
                 </div>
@@ -61,7 +57,7 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <at-pagination at-list="adminsCtrl.filteredList" at-config="adminsCtrl.config" class="pag-table"></at-pagination>
+                    <at-pagination at-list="adminsCtrl.filteredList" at-config="adminsCtrl.config" class="pag-table" at-translate></at-pagination>
                   </div>
                 </div>
               </div>

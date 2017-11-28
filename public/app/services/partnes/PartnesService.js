@@ -4,9 +4,12 @@
     var url_base = Config.url_base;
 
     this.getPartnes = function(){
-      return $http.get(url_base+'/partnes').then(function(result){
+      return $http.get(url_base+'/admins',{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
   }]);

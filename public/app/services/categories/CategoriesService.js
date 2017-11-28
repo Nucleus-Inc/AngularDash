@@ -4,9 +4,12 @@
     var url_base = Config.url_base;
 
     this.getCategories = function(){
-      return $http.get(url_base+'/categories').then(function(result){
+      return $http.get(url_base+'/categories',{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.createCategory = function(title){
@@ -18,9 +21,12 @@
     };
 
     this.getCategory = function(id){
-      return $http.get(url_base+'/categories/'+id).then(function(result){
+      return $http.get(url_base+'/categories/'+id,{etagCache: 'persistentCache'}).then(function(result,itemCache){
+        itemCache.set(result);
         return result;
-      })
+      }).ifCached(function(result,itemCache){
+        return itemCache.get(itemCache.info().itemKey);
+      });
     };
 
     this.updateCategory = function(id,title){

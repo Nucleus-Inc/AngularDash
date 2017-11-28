@@ -1,54 +1,81 @@
 (function() {
-  angular.module('dashboard').controller('PartnesCtrl', ['$scope','filterFilter','Partnes','Account','ModalService','notify','$localStorage','Socket',
-    function($scope, filterFilter, Partnes, Account, ModalService, notify, $localStorage, Socket) {
+  angular.module('dashboard').controller('PartnesCtrl', ['$scope','$filter','Partnes','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, $filter, Partnes, Account, ModalService, notify, $localStorage, Socket) {
 
       var vm = this;
 
-      vm.filter = "Filtros";
+      vm.predicates = [
+        {
+          _id: 0,
+          name: 'empty',
+          label: 'Filtros'
+        },
+        {
+          _id: 1,
+          name: 'actives',
+          label: 'Parceiros Ativos'
+        },
+        {
+          _id: 2,
+          name: 'noactives',
+          label: 'Parceiros Pendentes'
+        }
+      ];
+      vm.selectedPredicate = vm.predicates[0].label;
 
       vm.config = {
         itemsPerPage: 10
       };
 
-      if($localStorage.partnesList == null) {
-        $localStorage.partnesList = [];
-        Partnes.getPartnes().then(function(res){
-          for(var i=0;i<res.data.length;i++)
-            $localStorage.partnesList.push(res.data[i]);
-        });
-      }
+      var buffer = [];
+      vm.filteredList = [];
+      Partnes.getPartnes().then(function(res){
+        for(var i=0;i<res.data.length;i++)
+          vm.filteredList.push(res.data[i]);
+        buffer = vm.filteredList;
+      });
 
       Socket.on('admin add',function(msg){
-        $localStorage.partnesList.push(msg);
+        vm.filteredList.push(msg);
       });
 
       Socket.on('admin active',function(msg){
-        $localStorage.partnesList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === msg)
             item.isActive = true;
         });
-        vm.filteredList = $localStorage.partnesList;
       });
 
-      vm.filteredList = $localStorage.partnesList;
-
-      vm.updateList = function() {
-        vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.partnesList,vm.key);
+      var search = function(item) {
+        var name = item.name.toLowerCase();
+        var email = item.email.toLowerCase();
+        var key = vm.key;
+        if(key != undefined){
+          key = key.toLowerCase();
+        }
+        if( email.search(key) > -1 || name.search(key) > -1 )
+          return item;
       };
 
-      vm.update = function(){
+      vm.update = function() {
+        vm.filteredList = buffer.filter(function(item){
+          if(vm.selectedPredicate === vm.predicates[1].label){
+            if(item.isActive)
+              return search(item);
+          }else{
+            if(vm.selectedPredicate === vm.predicates[2].label){
+              if(!item.isActive)
+                return search(item);
+            }else
+              return search(item);
+          }
+        });
+      };
+
+      vm.clean = function() {
         vm.key = '';
-        var key = '';
-        if(vm.filter == 1)
-          key = true;
-        else {
-          if(vm.filter == 2)
-            key = false;
-          else
-            key = '';
-        }
-        vm.filteredList = filterFilter($localStorage.partnesList,key);
+        vm.selectedPredicate = vm.predicates[0].label;
+        vm.filteredList = buffer;
       };
 
       vm.active = function(_id, email, isActive) {

@@ -1,6 +1,6 @@
 (function() {
-  angular.module('dashboard').controller('OffersCtrl', ['$scope','filterFilter','Offers','Account','ModalService','notify','$localStorage','Socket',
-    function($scope, filterFilter, Offers, Account, ModalService, notify, $localStorage,Socket) {
+  angular.module('dashboard').controller('OffersCtrl', ['$scope','$filter','Offers','Account','ModalService','notify','$localStorage','Socket',
+    function($scope, $filter, Offers, Account, ModalService, notify, $localStorage,Socket) {
 
       var vm = this;
 
@@ -13,38 +13,53 @@
         itemsPerPage: 10
       };
 
-      if($localStorage.offersList == null) {
-        $localStorage.offersList = [];
-        Offers.getOffers().then(function(res){
-          for(var i=0;i<res.data.length;i++)
-            $localStorage.offersList.push(res.data[i]);
-        });
-      }
-
-      vm.filteredList = $localStorage.offersList;
+      var buffer = [];
+      vm.filteredList = [];
+      Offers.getOffers().then(function(res){
+        for(var i=0;i<res.data.length;i++)
+          vm.filteredList.push(res.data[i]);
+        buffer = vm.filteredList;
+      });
 
       Socket.on('showCreateOffers',function(msg){
         var flag = true;
-        $localStorage.offersList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === msg._id)
             flag = false;
         });
         if(flag)
-          $localStorage.offersList.push(msg);
+          vm.filteredList.push(msg);
       });
 
       Socket.on('showUpdateOffers',function(msg){
-        $localStorage.offersList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === msg._id){
-            //item.title = msg.title;
+            item.title = msg.title;
           }
         });
-        vm.filteredList = $localStorage.offersList;
       });
 
-      vm.updateList = function() {
-        vm.filter = "Filtros";
-        vm.filteredList = filterFilter($localStorage.offersList,vm.key);
+      var search = function(item) {
+        var _id = item._id;
+        var title = item.title.toLowerCase();
+        var key = vm.key;
+        if( key != undefined ){
+          key = key.toLowerCase();
+        }
+        if( _id.search(key) > -1 || title.search(key) > -1 )
+          return item;
+      };
+
+      vm.update = function() {
+        vm.filteredList = buffer.filter(function(item){
+          return search(item);
+        });
+      };
+
+      vm.clean = function() {
+        vm.key = '';
+        vm.selectedPredicate = vm.predicates[0].label;
+        vm.filteredList = buffer;
       };
 
       vm.create = function(){
@@ -101,7 +116,7 @@
       vm.delete = function(id){
         vm.alertTitle = 'Deletar oferta';
         vm.alertQuestion = 'Tem certeza que deseja deletar esta oferta?';
-        $localStorage.offersList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === id){
             //vm.user = item.title;
             vm.user = '';
@@ -134,7 +149,7 @@
       vm.edit = function(id){
         vm.alertTitle = 'Atualize sua categoria abaixo';
         vm.label = 'Atualizar';
-        $localStorage.offersList.filter(function(item){
+        vm.filteredList.filter(function(item){
           if(item._id === id){
             vm.input = item.title;
             ModalService.showModal({
